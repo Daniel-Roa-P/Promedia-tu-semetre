@@ -42,7 +42,7 @@ public class secondActivity extends AppCompatActivity {
 
         ArrayList<EditModel> list = new ArrayList<>();
 
-        for(int i = 0; i < 8; i++){
+        for(int i = 0; i < 16; i++){
             EditModel editModel = new EditModel();
             editModel.setEditTextValue(String.valueOf(i));
             list.add(editModel);
