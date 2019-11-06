@@ -2,5 +2,8 @@
     <string name="app_name">Calcula tu semestre</string>
     <string name="texto_1">Digite la cantidad de notas a promediar: </string>
     <string name="texto_2">Ingresar</string>
+    <string name="texto_3">Nota: </string>
+    <string name="texto_4">Porcentaje: </string>
+    <string name="simbolo">%</string>
     <string name="vacio">Texto vacio</string>
 </resources>

@@ -22,7 +22,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void getNumero(View view){
 
-        Intent primerCambio = new Intent(this,secondActivity.class);
+        Intent primerCambio = new Intent(this, SecondActivity.class);
 
         primerCambio.putExtra("cantidad",cantidad.getText().toString());
         startActivity(primerCambio);
