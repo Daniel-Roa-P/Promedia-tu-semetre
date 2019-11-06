@@ -25,6 +25,7 @@ public class SecondActivity extends AppCompatActivity {
 
         listaNotas =(ListView) findViewById(R.id.lista);
 
+
         cuadros = Integer.parseInt(getIntent().getStringExtra("cantidad"));
 
         for (int i = 0; i < cuadros; i++) {

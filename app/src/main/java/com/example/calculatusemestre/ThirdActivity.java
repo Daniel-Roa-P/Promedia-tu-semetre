@@ -12,9 +12,7 @@ import static com.example.calculatusemestre.SecondActivity.lista;
 public class ThirdActivity extends AppCompatActivity {
 
     private TextView valor;
-    private int notaFinal;
-
-    private String cadena;
+    private double notaFinal = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,11 +24,11 @@ public class ThirdActivity extends AppCompatActivity {
 
         for(int i=0;i<lista.size();i++){
 
-            cadena = cadena + Integer.toString(lista.get(i).getNota()) + " - "+ Integer.toString(lista.get(i).getPorcentaje());
+            notaFinal =  notaFinal + (lista.get(i).getNota()*lista.get(i).getPorcentaje())/100.0;
 
         }
 
-        valor.setText(cadena);
+        valor.setText("Tu promedio es: "+ notaFinal);
 
     }
 
