@@ -14,7 +14,7 @@ public class SecondActivity extends AppCompatActivity {
 
     private ItemListAdapter adapter;
     private ListView listaNotas;
-    private int cuadros,llenos;
+    private int cuadros,llenos,rango,totalPorcentajes;
     public static ArrayList<Contenedor>lista=new ArrayList<Contenedor>();
 
 
@@ -41,29 +41,59 @@ public class SecondActivity extends AppCompatActivity {
 
     }
 
-    public void cambiar(View view){
+    public void cambiar(View view) {
 
         for (int i = 0; i < lista.size(); i++) {
 
-            if( !lista.get(i).getNota().equals("") && !lista.get(i).getPorcentaje().equals("")){
+            if (!lista.get(i).getNota().equals("") && !lista.get(i).getPorcentaje().equals("")) {
+
+                if (Integer.parseInt(lista.get(i).getNota()) >= 0 && Integer.parseInt(lista.get(i).getNota()) <= 50) {
+
+                    rango++;
+
+                }
+
                 llenos++;
+                totalPorcentajes = totalPorcentajes + Integer.parseInt(lista.get(i).getPorcentaje());
             }
 
         }
 
-        if(llenos==cuadros) {
-
-            llenos=0;
-            Intent cambio = new Intent(this, ThirdActivity.class);
-            startActivity(cambio);
-
-        } else{
+        if (!(llenos == cuadros)) {
 
             Toast.makeText(SecondActivity.this,
-                    "Por favor ingrese bien los datos", Toast.LENGTH_LONG).show();
+                    "Por favor llene todos los campos de texto", Toast.LENGTH_LONG).show();
+
+            llenos = 0;
+            totalPorcentajes = 0;
+            rango = 0;
+
+        } else if(!(totalPorcentajes == 100)) {
+
+            Toast.makeText(SecondActivity.this,
+                    "la suma de los porcentajes debe ser 100", Toast.LENGTH_LONG).show();
+
+            llenos = 0;
+            totalPorcentajes = 0;
+            rango = 0;
+
+        } else if(!(rango==cuadros)) {
+
+            Toast.makeText(SecondActivity.this,
+                    "ingrese las notas en el rango indicado", Toast.LENGTH_LONG).show();
+
+            llenos = 0;
+            totalPorcentajes = 0;
+            rango = 0;
+
+        } else {
 
             llenos=0;
+            totalPorcentajes=0;
+            rango=0;
 
+            Intent cambio = new Intent(this, ThirdActivity.class);
+            startActivity(cambio);
         }
 
 
