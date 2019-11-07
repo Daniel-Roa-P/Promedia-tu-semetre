@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -13,7 +14,7 @@ public class SecondActivity extends AppCompatActivity {
 
     private ItemListAdapter adapter;
     private ListView listaNotas;
-    private int cuadros;
+    private int cuadros,llenos;
     public static ArrayList<Contenedor>lista=new ArrayList<Contenedor>();
 
 
@@ -23,6 +24,7 @@ public class SecondActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.segundo_layout);
 
+        listaNotas = null;
         listaNotas =(ListView) findViewById(R.id.lista);
 
 
@@ -41,9 +43,30 @@ public class SecondActivity extends AppCompatActivity {
 
     public void cambiar(View view){
 
-        Intent cambio = new Intent(this,ThirdActivity.class);
+        for (int i = 0; i < lista.size(); i++) {
 
-        startActivity(cambio);
+            if( !lista.get(i).getNota().equals("") && !lista.get(i).getPorcentaje().equals("")){
+                llenos++;
+            }
+
+        }
+
+        if(llenos==cuadros) {
+
+            llenos=0;
+            Intent cambio = new Intent(this, ThirdActivity.class);
+            startActivity(cambio);
+
+        } else{
+
+            Toast.makeText(SecondActivity.this,
+                    "Por favor ingrese bien los datos", Toast.LENGTH_LONG).show();
+
+            llenos=0;
+
+        }
+
+
 
     }
 

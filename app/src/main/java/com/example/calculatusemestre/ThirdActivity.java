@@ -24,7 +24,7 @@ public class ThirdActivity extends AppCompatActivity {
 
         for(int i=0;i<lista.size();i++){
 
-            notaFinal =  notaFinal + (lista.get(i).getNota()*lista.get(i).getPorcentaje())/100.0;
+            notaFinal =  notaFinal + (Integer.parseInt(lista.get(i).getNota())*Integer.parseInt(lista.get(i).getPorcentaje()))/100.0;
 
         }
 

@@ -77,7 +77,7 @@ public class ItemListAdapter extends ArrayAdapter<Contenedor>{
             public void onTextChanged(CharSequence s, int start, int before, int count) {
 
                 if (s.toString().length() > 0) {
-                    holder.contenedor.setNota(Integer.parseInt(s.toString()));
+                    holder.contenedor.setNota(s.toString());
                 }
 
             }
@@ -99,7 +99,7 @@ public class ItemListAdapter extends ArrayAdapter<Contenedor>{
             public void onTextChanged(CharSequence s, int start, int before, int count) {
 
                 if (s.toString().length() > 0) {
-                    holder.contenedor.setPorcentaje(Integer.parseInt(s.toString()));
+                    holder.contenedor.setPorcentaje(s.toString());
                 }
 
             }

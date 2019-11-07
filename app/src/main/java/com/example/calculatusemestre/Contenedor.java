@@ -5,22 +5,22 @@ import java.io.Serializable;
 public class Contenedor implements Serializable{
 
     private static final long serialVersionUID = -5435670920302756945L;
-    private int nota = 0;
-    private int porcentaje = 0;
+    private String nota = "";
+    private String porcentaje = "";
 
-    public int getNota() {
+    public String getNota() {
         return nota;
     }
 
-    public void setNota(int nota) {
+    public void setNota(String nota) {
         this.nota = nota;
     }
 
-    public int getPorcentaje() {
+    public String getPorcentaje() {
         return porcentaje;
     }
 
-    public void setPorcentaje(int porcentaje) {
+    public void setPorcentaje(String porcentaje) {
         this.porcentaje = porcentaje;
     }
 }
