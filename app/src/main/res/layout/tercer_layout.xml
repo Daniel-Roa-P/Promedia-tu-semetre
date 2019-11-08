@@ -9,14 +9,30 @@
 
     <TextView
         android:id="@+id/notaFinal"
-        android:layout_width="238dp"
-        android:layout_height="141dp"
+        android:layout_width="234dp"
+        android:layout_height="52dp"
         android:fontFamily="casual"
-        android:text="Sin nota :v"
+        android:text="No deberia ver esto"
+        android:textAlignment="center"
         android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.743" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="281dp"
+        android:layout_height="390dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.123"
+        app:srcCompat="@android:drawable/btn_dialog"
+        android:background="@mipmap/img" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
