@@ -9,10 +9,10 @@
 
     <TextView
         android:id="@+id/notaFinal"
-        android:layout_width="234dp"
-        android:layout_height="52dp"
+        android:layout_width="258dp"
+        android:layout_height="51dp"
         android:fontFamily="casual"
-        android:text="No deberia ver esto"
+        android:text="No deberias ver esto"
         android:textAlignment="center"
         android:textSize="24sp"
         android:textStyle="bold"
@@ -25,14 +25,14 @@
 
     <ImageView
         android:id="@+id/imageView2"
-        android:layout_width="281dp"
-        android:layout_height="390dp"
+        android:layout_width="249dp"
+        android:layout_height="127dp"
+        android:layout_marginTop="100dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.123"
-        app:srcCompat="@android:drawable/btn_dialog"
-        android:background="@mipmap/img" />
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@mipmap/img" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

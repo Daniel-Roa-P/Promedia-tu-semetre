@@ -9,6 +9,7 @@
     <string name="texto_7">Optimista </string>
     <string name="texto_8">Sarcasmo</string>
     <string name="texto_9">Aleatorio</string>
+    <string name="texto_10">Seleccione una opción</string>
     <string name="simbolo">%</string>
     <string name="vacio">Texto vacio</string>
 </resources>
