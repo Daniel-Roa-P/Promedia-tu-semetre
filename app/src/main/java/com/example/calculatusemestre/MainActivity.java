@@ -24,4 +24,12 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    public void enviarSemestre(View view){
+
+        Intent segundoCambio = new Intent(this, ActivitySemestre.class);
+
+        startActivity(segundoCambio);
+
+    }
+
 }

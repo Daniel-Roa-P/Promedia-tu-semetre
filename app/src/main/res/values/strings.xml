@@ -11,6 +11,9 @@
     <string name="texto_8">Sarcasmo</string>
     <string name="texto_9">Aleatorio</string>
     <string name="texto_10">Seleccione una opción</string>
+    <string name="texto_11">Digite la cantidad de creditos y materias del semestre: </string>
+    <string name="texto_12">Creditos:  </string>
+    <string name="texto_13">Materias:  </string>
     <string name="simbolo">%</string>
     <string name="vacio">Texto vacio</string>
 </resources>

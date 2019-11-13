@@ -1,5 +1,4 @@
 package com.example.calculatusemestre;
-import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -9,30 +8,32 @@ import android.widget.EditText;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 
+import androidx.appcompat.app.AppCompatActivity;
 
-public class ActivityNotas extends AppCompatActivity {
+public class ActivitySemestre extends AppCompatActivity {
 
-    private EditText cantidad;
+    private EditText materias,creditos;
     private AdView mAdView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.materia_layout);
+        setContentView(R.layout.semestre_layout);
 
-        cantidad = (EditText) findViewById(R.id.editText);
+        materias = (EditText) findViewById(R.id.materias);
+        creditos = (EditText) findViewById(R.id.creditos);
 
-        mAdView = (AdView) findViewById(R.id.anuncio1);
+        mAdView = (AdView) findViewById(R.id.anuncio2);
         AdRequest adRequest = new AdRequest.Builder().build();
         mAdView.loadAd(adRequest);
 
     }
 
-    public void getNota(View view){
+    public void getSemestre(View view){
 
         Intent primerCambio = new Intent(this, SecondActivity.class);
 
-        primerCambio.putExtra("cantidad",cantidad.getText().toString());
+        primerCambio.putExtra("cantidad",materias.getText().toString());
         startActivity(primerCambio);
 
     }
