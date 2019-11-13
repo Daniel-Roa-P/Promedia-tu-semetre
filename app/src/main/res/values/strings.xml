@@ -1,5 +1,6 @@
 <resources>
-    <string name="app_name">Calcula tu semestre</string>
+    <string name="app_name">Promedia tu semestre</string>
+    <string name="banner_ad_unit_id">ca-app-pub-3940256099942544/6300978111</string>
     <string name="texto_1">Digite la cantidad de notas a promediar: </string>
     <string name="texto_2">Ingresar</string>
     <string name="texto_3">Nota: </string>

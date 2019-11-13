@@ -9,6 +9,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+
+        <meta-data
+            android:name="com.google.android.gms.ads.AD_MANAGER_APP"
+            android:value="true"/>
+
         <activity android:name=".MainActivity"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustPan">
@@ -21,16 +26,18 @@
         </activity>
 
         <activity android:name=".SecondActivity"
-                  android:screenOrientation="portrait"
-                android:windowSoftInputMode="adjustPan" >
-        </activity>
-
-        <activity android:name=".ThirdActivity">
-                  android:screenOrientation="portrait"
-        </activity>
-
-        <activity android:name=".ActivityNotas">
             android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan" >
+        </activity>
+
+        <activity android:name=".ThirdActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan">
+        </activity>
+
+        <activity android:name=".ActivityNotas"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan">
         </activity>
 
     </application>
