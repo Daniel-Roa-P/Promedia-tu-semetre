@@ -6,6 +6,9 @@ import android.view.View;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+
 import java.util.ArrayList;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -16,7 +19,8 @@ public class SecondActivity extends AppCompatActivity {
     private ListView listaNotas;
     private int cuadros,llenos,rango,totalPorcentajes;
     public static ArrayList<Contenedor>lista=new ArrayList<Contenedor>();
-
+    private String t1,t2,t3;
+    private AdView mAdView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,16 +28,24 @@ public class SecondActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.segundo_layout);
 
-        listaNotas = null;
         listaNotas =(ListView) findViewById(R.id.lista);
 
+        mAdView = (AdView) findViewById(R.id.anuncio3);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
 
         cuadros = Integer.parseInt(getIntent().getStringExtra("cantidad"));
+        t1 = getIntent().getStringExtra("texto1");
+        t2 = getIntent().getStringExtra("texto2");
+        t3 = getIntent().getStringExtra("texto3");
 
         for (int i = 1; i <= cuadros; i++) {
             Contenedor contenedor=new Contenedor();
-            contenedor.setTexto1("Nota " + i +":");
-            contenedor.setTexto2("Pocentaje:");
+
+            contenedor.setTexto1(t1+ i +":");
+            contenedor.setTexto2(t2);
+            contenedor.setTexto3(t3);
+
             lista.add(contenedor);
         }
 

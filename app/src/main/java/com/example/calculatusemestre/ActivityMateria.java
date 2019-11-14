@@ -10,7 +10,7 @@ import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 
 
-public class ActivityNotas extends AppCompatActivity {
+public class ActivityMateria extends AppCompatActivity {
 
     private EditText cantidad;
     private AdView mAdView;
@@ -33,6 +33,9 @@ public class ActivityNotas extends AppCompatActivity {
         Intent primerCambio = new Intent(this, SecondActivity.class);
 
         primerCambio.putExtra("cantidad",cantidad.getText().toString());
+        primerCambio.putExtra("texto1","Nota ");
+        primerCambio.putExtra("texto2","Porcentaje: ");
+        primerCambio.putExtra("texto3","%");
         startActivity(primerCambio);
 
     }

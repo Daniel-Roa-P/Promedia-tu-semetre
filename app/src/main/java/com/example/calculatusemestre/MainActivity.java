@@ -18,7 +18,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void enviarMateria(View view){
 
-        Intent primerCambio = new Intent(this, ActivityNotas.class);
+        Intent primerCambio = new Intent(this, ActivityMateria.class);
 
         startActivity(primerCambio);
 

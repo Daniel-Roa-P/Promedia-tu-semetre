@@ -46,6 +46,7 @@ public class ItemListAdapter extends ArrayAdapter<Contenedor>{
         holder.porcentaje = (EditText)row.findViewById(R.id.porcentaje);
         holder.texto1 = (TextView)row.findViewById(R.id.primerTexto);
         holder.texto2 = (TextView)row.findViewById(R.id.segundoTexto);
+        holder.texto3 = (TextView)row.findViewById(R.id.simbolo);
 
         setNotaTextChangeListener(holder);
         setPorcentajeTextListeners(holder);
@@ -63,6 +64,7 @@ public class ItemListAdapter extends ArrayAdapter<Contenedor>{
         holder.porcentaje.setText(String.valueOf(holder.contenedor.getPorcentaje()));
         holder.texto1.setText(String.valueOf(holder.contenedor.getTexto1()));
         holder.texto2.setText(String.valueOf(holder.contenedor.getTexto2()));
+        holder.texto3.setText(String.valueOf(holder.contenedor.getTexto3()));
     }
 
     public static class Holder
@@ -72,6 +74,7 @@ public class ItemListAdapter extends ArrayAdapter<Contenedor>{
         EditText porcentaje;
         TextView texto1;
         TextView texto2;
+        TextView texto3;
 
     }
 

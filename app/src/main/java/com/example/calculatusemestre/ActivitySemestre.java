@@ -34,6 +34,9 @@ public class ActivitySemestre extends AppCompatActivity {
         Intent primerCambio = new Intent(this, SecondActivity.class);
 
         primerCambio.putExtra("cantidad",materias.getText().toString());
+        primerCambio.putExtra("texto1","Materia ");
+        primerCambio.putExtra("texto2","Creditos: ");
+        primerCambio.putExtra("texto3","");
         startActivity(primerCambio);
 
     }
