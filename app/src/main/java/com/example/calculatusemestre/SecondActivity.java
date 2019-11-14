@@ -30,9 +30,10 @@ public class SecondActivity extends AppCompatActivity {
 
         cuadros = Integer.parseInt(getIntent().getStringExtra("cantidad"));
 
-        for (int i = 0; i < cuadros; i++) {
+        for (int i = 1; i <= cuadros; i++) {
             Contenedor contenedor=new Contenedor();
-
+            contenedor.setTexto1("Nota " + i +":");
+            contenedor.setTexto2("Pocentaje:");
             lista.add(contenedor);
         }
 

@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
+import android.widget.TextView;
 
 public class ItemListAdapter extends ArrayAdapter<Contenedor>{
 
@@ -43,6 +44,8 @@ public class ItemListAdapter extends ArrayAdapter<Contenedor>{
 
         holder.nota = (EditText)row.findViewById(R.id.nota);
         holder.porcentaje = (EditText)row.findViewById(R.id.porcentaje);
+        holder.texto1 = (TextView)row.findViewById(R.id.primerTexto);
+        holder.texto2 = (TextView)row.findViewById(R.id.segundoTexto);
 
         setNotaTextChangeListener(holder);
         setPorcentajeTextListeners(holder);
@@ -58,7 +61,8 @@ public class ItemListAdapter extends ArrayAdapter<Contenedor>{
     {
         holder.nota.setText(String.valueOf(holder.contenedor.getNota()));
         holder.porcentaje.setText(String.valueOf(holder.contenedor.getPorcentaje()));
-
+        holder.texto1.setText(String.valueOf(holder.contenedor.getTexto1()));
+        holder.texto2.setText(String.valueOf(holder.contenedor.getTexto2()));
     }
 
     public static class Holder
@@ -66,6 +70,8 @@ public class ItemListAdapter extends ArrayAdapter<Contenedor>{
         Contenedor contenedor;
         EditText nota;
         EditText porcentaje;
+        TextView texto1;
+        TextView texto2;
 
     }
 
