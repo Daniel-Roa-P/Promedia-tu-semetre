@@ -8,7 +8,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import java.io.InputStream;
 import java.net.URL;
-
+import java.util.ArrayList;
 
 import androidx.appcompat.app.AppCompatActivity;
 

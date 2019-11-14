@@ -18,9 +18,10 @@ public class SecondActivity extends AppCompatActivity {
     private ItemListAdapter adapter;
     private ListView listaNotas;
     private int cuadros,llenos,rango,totalPorcentajes;
-    public static ArrayList<Contenedor>lista=new ArrayList<Contenedor>();
     private String t1,t2,t3;
     private AdView mAdView;
+
+    public static ArrayList<Contenedor>lista;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,6 +29,8 @@ public class SecondActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.segundo_layout);
 
+
+        lista=new ArrayList<Contenedor>();
         listaNotas =(ListView) findViewById(R.id.lista);
 
         mAdView = (AdView) findViewById(R.id.anuncio3);
@@ -109,8 +112,9 @@ public class SecondActivity extends AppCompatActivity {
             startActivity(cambio);
         }
 
-
-
     }
 
+    public ArrayList<Contenedor> getLista() {
+        return lista;
+    }
 }
