@@ -35,8 +35,9 @@ public class ActivitySemestre extends AppCompatActivity {
 
         primerCambio.putExtra("cantidad",materias.getText().toString());
         primerCambio.putExtra("texto1","Materia ");
-        primerCambio.putExtra("texto2","Creditos: ");
+        primerCambio.putExtra("texto2","Credito");
         primerCambio.putExtra("texto3","");
+        primerCambio.putExtra("denominador",Integer.parseInt(creditos.getText().toString()));
         startActivity(primerCambio);
 
     }

@@ -34,8 +34,9 @@ public class ActivityMateria extends AppCompatActivity {
 
         primerCambio.putExtra("cantidad",cantidad.getText().toString());
         primerCambio.putExtra("texto1","Nota ");
-        primerCambio.putExtra("texto2","Porcentaje: ");
+        primerCambio.putExtra("texto2","Porcentaje");
         primerCambio.putExtra("texto3","%");
+        primerCambio.putExtra("denominador",100);
         startActivity(primerCambio);
 
     }

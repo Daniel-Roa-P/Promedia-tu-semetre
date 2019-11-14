@@ -17,7 +17,7 @@ public class SecondActivity extends AppCompatActivity {
 
     private ItemListAdapter adapter;
     private ListView listaNotas;
-    private int cuadros,llenos,rango,totalPorcentajes;
+    private int cuadros,llenos,rango,totalPorcentajes,denominador;
     private String t1,t2,t3;
     private AdView mAdView;
 
@@ -38,15 +38,18 @@ public class SecondActivity extends AppCompatActivity {
         mAdView.loadAd(adRequest);
 
         cuadros = Integer.parseInt(getIntent().getStringExtra("cantidad"));
+
         t1 = getIntent().getStringExtra("texto1");
         t2 = getIntent().getStringExtra("texto2");
         t3 = getIntent().getStringExtra("texto3");
+
+        denominador = getIntent().getIntExtra("denominador",100);
 
         for (int i = 1; i <= cuadros; i++) {
             Contenedor contenedor=new Contenedor();
 
             contenedor.setTexto1(t1+ i +":");
-            contenedor.setTexto2(t2);
+            contenedor.setTexto2(t2+":");
             contenedor.setTexto3(t3);
 
             lista.add(contenedor);
@@ -84,10 +87,10 @@ public class SecondActivity extends AppCompatActivity {
             totalPorcentajes = 0;
             rango = 0;
 
-        } else if(!(totalPorcentajes == 100)) {
+        } else if(!(totalPorcentajes == denominador)) {
 
             Toast.makeText(SecondActivity.this,
-                    "la suma de los porcentajes debe ser 100", Toast.LENGTH_LONG).show();
+                    "la suma de los "+ t2 +"s debe ser " + denominador, Toast.LENGTH_LONG).show();
 
             llenos = 0;
             totalPorcentajes = 0;
@@ -109,6 +112,8 @@ public class SecondActivity extends AppCompatActivity {
             rango=0;
 
             Intent cambio = new Intent(this, ThirdActivity.class);
+            cambio.putExtra("denominadorFinal",denominador);
+
             startActivity(cambio);
         }
 
