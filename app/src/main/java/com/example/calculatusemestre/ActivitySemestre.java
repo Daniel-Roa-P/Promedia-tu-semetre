@@ -32,7 +32,7 @@ public class ActivitySemestre extends AppCompatActivity {
 
     public void getSemestre(View view){
 
-        if((Integer.parseInt(materias.getText().toString())==0) || (materias.getText().equals("") || Integer.parseInt(creditos.getText().toString())==0) || (creditos.getText().equals(""))){
+        if(  (materias.getText().length()==0 || (creditos.getText().length()==0) ||(Integer.parseInt(materias.getText().toString())==0) || Integer.parseInt(creditos.getText().toString())==0)){
 
             Toast.makeText(ActivitySemestre.this,
                     "Minimo debe haber un credito y/o materia", Toast.LENGTH_LONG).show();

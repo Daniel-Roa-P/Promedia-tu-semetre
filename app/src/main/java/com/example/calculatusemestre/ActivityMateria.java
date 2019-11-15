@@ -31,7 +31,7 @@ public class ActivityMateria extends AppCompatActivity {
 
     public void getNota(View view){
 
-        if((Integer.parseInt(cantidad.getText().toString())==0) || (cantidad.getText().equals(""))){
+        if( cantidad.getText().length()==0 ||(Integer.parseInt(cantidad.getText().toString())==0)){
 
             Toast.makeText(ActivityMateria.this,
                     "Minimo debe haber una nota", Toast.LENGTH_LONG).show();
