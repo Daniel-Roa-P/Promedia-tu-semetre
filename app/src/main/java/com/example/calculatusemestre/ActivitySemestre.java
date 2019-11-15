@@ -62,6 +62,11 @@ public class ActivitySemestre extends AppCompatActivity {
             Toast.makeText(ActivitySemestre.this,
                     "Elija una opcion de mensaje", Toast.LENGTH_LONG).show();
 
+        } else if ((Integer.parseInt(materias.getText().toString())) > (Integer.parseInt(creditos.getText().toString()))) {
+
+            Toast.makeText(ActivitySemestre.this,
+                    "No pueden haber mas materias que creditos", Toast.LENGTH_LONG).show();
+
         }else {
 
             Intent primerCambio = new Intent(this, SecondActivity.class);
