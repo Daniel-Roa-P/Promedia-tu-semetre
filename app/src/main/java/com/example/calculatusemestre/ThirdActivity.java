@@ -1,9 +1,11 @@
 package com.example.calculatusemestre;
 
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -73,7 +75,7 @@ public class ThirdActivity extends AppCompatActivity {
 
         frase.setText(String.valueOf(indicadorFinal));
 
-        new DownLoadImageTask(imagen).execute("https://raw.githubusercontent.com/DanielRoa20171020077/Promedia-tu-semetre/master/imagenes/optimista-1-4.png");
+        new DownLoadImageTask(imagen).execute("https://raw.githubusercontent.com/DanielRoa20171020077/Promedia-tu-semetre/master/imagenes/optimista-1-2.png");
 
         for(int i=0;i<lista.size();i++){
 
@@ -110,5 +112,20 @@ public class ThirdActivity extends AppCompatActivity {
             imageView.setImageBitmap(result);
         }
     }
+
+    public void regresoNotas(View view){
+
+        onBackPressed();
+
+    }
+
+    public void regresoInicio(View view){
+
+        Intent cambio = new Intent(this, MainActivity.class);
+
+        startActivity(cambio);
+
+    }
+
 }
 

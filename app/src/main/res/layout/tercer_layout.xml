@@ -30,8 +30,7 @@
         android:layout_marginBottom="8dp"
         app:layout_constraintBottom_toTopOf="@+id/notaFinal"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@mipmap/img" />
+        app:layout_constraintStart_toStartOf="parent"/>
 
     <TextView
         android:id="@+id/frase"
@@ -56,6 +55,7 @@
         android:layout_marginTop="9dp"
         android:layout_marginEnd="56dp"
         android:background="#2196F3"
+        android:onClick="regresoNotas"
         android:text="@string/texto_14"
         android:textStyle="bold"
         app:layout_constraintEnd_toStartOf="@+id/button5"
@@ -69,6 +69,7 @@
         android:layout_marginTop="9dp"
         android:layout_marginEnd="15dp"
         android:background="#8BC34A"
+        android:onClick="regresoInicio"
         android:text="@string/texto_15"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
