@@ -17,7 +17,7 @@ public class SecondActivity extends AppCompatActivity {
 
     private ItemListAdapter adapter;
     private ListView listaNotas;
-    private int cuadros,llenos,totalPorcentajes;
+    private int cuadros,llenos,totalPorcentajes,indicador;
     private double rango,denominador;
     private String t1,t2,t3;
     private AdView mAdView;
@@ -45,6 +45,7 @@ public class SecondActivity extends AppCompatActivity {
         t3 = getIntent().getStringExtra("texto3");
 
         denominador = getIntent().getIntExtra("denominador",100);
+        indicador = getIntent().getIntExtra("motivacion",0);
 
         for (int i = 1; i <= cuadros; i++) {
             Contenedor contenedor=new Contenedor();
@@ -115,6 +116,7 @@ public class SecondActivity extends AppCompatActivity {
 
             Intent cambio = new Intent(this, ThirdActivity.class);
             cambio.putExtra("denominadorFinal",denominador);
+            cambio.putExtra("indicadorFinal",indicador);
 
             startActivity(cambio);
         }

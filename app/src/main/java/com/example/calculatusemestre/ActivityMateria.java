@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.RadioButton;
 import android.widget.Toast;
 
 import com.google.android.gms.ads.AdRequest;
@@ -15,6 +16,8 @@ public class ActivityMateria extends AppCompatActivity {
 
     private EditText cantidad;
     private AdView mAdView;
+    private RadioButton b1,b2,b3;
+    private int motivacion=0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,23 +26,40 @@ public class ActivityMateria extends AppCompatActivity {
 
         cantidad = (EditText) findViewById(R.id.editText);
 
+        b1 = (RadioButton)findViewById(R.id.radioButton);
+        b2 = (RadioButton)findViewById(R.id.radioButton2);
+        b3 = (RadioButton)findViewById(R.id.radioButton3);
+
         mAdView = (AdView) findViewById(R.id.anuncio1);
         AdRequest adRequest = new AdRequest.Builder().build();
         mAdView.loadAd(adRequest);
 
     }
 
-    public void getNota(View view){
+    public void getNota(View view) {
 
-        if( cantidad.getText().length()==0 ||(Integer.parseInt(cantidad.getText().toString())==0)){
+        if (b1.isChecked() == true) {
+            motivacion = 0;
+        } else if (b2.isChecked() == true) {
+            motivacion = 1;
+        } else if (b3.isChecked() == true) {
+            motivacion = (int) (2*Math.random());
+        }
+
+        if (cantidad.getText().length() == 0 || (Integer.parseInt(cantidad.getText().toString()) == 0)) {
 
             Toast.makeText(ActivityMateria.this,
                     "Minimo debe haber una nota", Toast.LENGTH_LONG).show();
 
-        } else if((cantidad.getText().length()>3 || Integer.parseInt(cantidad.getText().toString())>100)){
+        } else if ((cantidad.getText().length() > 3 || Integer.parseInt(cantidad.getText().toString()) > 100)) {
 
             Toast.makeText(ActivityMateria.this,
                     "El maximo de notas posible es de 99", Toast.LENGTH_LONG).show();
+
+        } else if (!(b1.isChecked()==true ||b2.isChecked()==true || b3.isChecked()==true )) {
+
+            Toast.makeText(ActivityMateria.this,
+                    "Elija una opcion de mensaje", Toast.LENGTH_LONG).show();
 
         } else {
 
@@ -50,6 +70,7 @@ public class ActivityMateria extends AppCompatActivity {
             primerCambio.putExtra("texto2", "Porcentaje");
             primerCambio.putExtra("texto3", "%");
             primerCambio.putExtra("denominador", 100);
+            primerCambio.putExtra("motivacion", motivacion);
             startActivity(primerCambio);
 
         }

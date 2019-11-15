@@ -16,10 +16,11 @@ import static com.example.calculatusemestre.SecondActivity.lista;
 
 public class ThirdActivity extends AppCompatActivity {
 
-    private TextView valor;
+    private TextView valor,frase;
     private double notaFinal = 0;
     private ImageView imagen;
     private double denominador=100.0;
+    private int indicadorFinal = 0;
     private DecimalFormat df = new DecimalFormat("#.000");
 
     private String [] frases1 = {"Las cosas empiezan desde cero","optimista-0-1","Al menos no te estresaste","optimista-0-2"
@@ -56,8 +57,12 @@ public class ThirdActivity extends AppCompatActivity {
 
         valor = (TextView) findViewById(R.id.notaFinal);
         imagen = (ImageView) findViewById(R.id.imageView2);
+        frase = (TextView) findViewById(R.id.frase);
 
         denominador = getIntent().getDoubleExtra("denominadorFinal",100.0);
+        indicadorFinal = getIntent().getIntExtra("indicadorFinal",100);
+
+        frase.setText(String.valueOf(indicadorFinal));
 
         new DownLoadImageTask(imagen).execute("https://raw.githubusercontent.com/DanielRoa20171020077/Promedia-tu-semetre/master/imagenes/optimista-1-4.png");
 
