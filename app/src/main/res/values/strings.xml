@@ -5,7 +5,7 @@
     <string name="texto_2">Ingresar</string>
     <string name="texto_3">Nota: </string>
     <string name="texto_4">Porcentaje: </string>
-    <string name="texto_5">Ingrese las notas del 0 al 50</string>
+    <string name="texto_5">Ingrese las notas del 0 al 5</string>
     <string name="texto_6">Elija el tipo de mensaje que desea recibir con respecto al promedio final</string>
     <string name="texto_7">Optimista </string>
     <string name="texto_8">Sarcasmo</string>

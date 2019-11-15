@@ -8,6 +8,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import java.io.InputStream;
 import java.net.URL;
+import java.text.DecimalFormat;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -19,6 +20,7 @@ public class ThirdActivity extends AppCompatActivity {
     private double notaFinal = 0;
     private ImageView imagen;
     private double denominador=100.0;
+    private DecimalFormat df = new DecimalFormat("#.000");
 
     private String [] frases1 = {"Las cosas empiezan desde cero","optimista-0-1","Al menos no te estresaste","optimista-0-2"
             ,"Una nota no te define","optimista-0-3","Asiste un poco más a clases","optimista-0-4","Dedícale más tiempo a tu estudio"
@@ -55,17 +57,17 @@ public class ThirdActivity extends AppCompatActivity {
         valor = (TextView) findViewById(R.id.notaFinal);
         imagen = (ImageView) findViewById(R.id.imageView2);
 
-        denominador = getIntent().getIntExtra("denominadorFinal",100);
+        denominador = getIntent().getDoubleExtra("denominadorFinal",100.0);
 
         new DownLoadImageTask(imagen).execute("https://raw.githubusercontent.com/DanielRoa20171020077/Promedia-tu-semetre/master/imagenes/optimista-1-4.png");
 
         for(int i=0;i<lista.size();i++){
 
-            notaFinal =  notaFinal + (Integer.parseInt(lista.get(i).getNota())*Integer.parseInt(lista.get(i).getPorcentaje()))/denominador;
+            notaFinal =  notaFinal + (Double.parseDouble(lista.get(i).getNota())*Integer.parseInt(lista.get(i).getPorcentaje()))/denominador;
 
         }
 
-        valor.setText("Tu promedio es: "+ notaFinal);
+        valor.setText("Tu promedio es: "+ df.format(notaFinal));
 
     }
 

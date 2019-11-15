@@ -17,7 +17,8 @@ public class SecondActivity extends AppCompatActivity {
 
     private ItemListAdapter adapter;
     private ListView listaNotas;
-    private int cuadros,llenos,rango,totalPorcentajes,denominador;
+    private int cuadros,llenos,totalPorcentajes;
+    private double rango,denominador;
     private String t1,t2,t3;
     private AdView mAdView;
 
@@ -64,15 +65,16 @@ public class SecondActivity extends AppCompatActivity {
 
         for (int i = 0; i < lista.size(); i++) {
 
-            if (!lista.get(i).getNota().equals("") && !lista.get(i).getPorcentaje().equals("")) {
+            if (!lista.get(i).getNota().equals("") && !lista.get(i).getPorcentaje().equals("") && !(lista.get(i).getPorcentaje().length()>=6)) {
 
-                if (Integer.parseInt(lista.get(i).getNota()) >= 0 && Integer.parseInt(lista.get(i).getNota()) <= 50) {
+                if (Double.parseDouble(lista.get(i).getNota()) >= 0 && Double.parseDouble(lista.get(i).getNota()) <= 5) {
 
                     rango++;
 
                 }
 
                 llenos++;
+
                 totalPorcentajes = totalPorcentajes + Integer.parseInt(lista.get(i).getPorcentaje());
             }
 
@@ -81,7 +83,7 @@ public class SecondActivity extends AppCompatActivity {
         if (!(llenos == cuadros)) {
 
             Toast.makeText(SecondActivity.this,
-                    "Por favor llene todos los campos de texto", Toast.LENGTH_LONG).show();
+                    "Por favor llene bien todos los campos de texto", Toast.LENGTH_LONG).show();
 
             llenos = 0;
             totalPorcentajes = 0;
@@ -119,7 +121,4 @@ public class SecondActivity extends AppCompatActivity {
 
     }
 
-    public ArrayList<Contenedor> getLista() {
-        return lista;
-    }
 }
