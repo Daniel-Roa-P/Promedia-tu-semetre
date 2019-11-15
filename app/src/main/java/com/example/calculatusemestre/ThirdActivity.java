@@ -6,6 +6,10 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+
 import java.io.InputStream;
 import java.net.URL;
 import java.text.DecimalFormat;
@@ -22,6 +26,7 @@ public class ThirdActivity extends AppCompatActivity {
     private double denominador=100.0;
     private int indicadorFinal = 0;
     private DecimalFormat df = new DecimalFormat("#.000");
+    private AdView mAdView;
 
     private String [] frases1 = {"Las cosas empiezan desde cero","optimista-0-1","Al menos no te estresaste","optimista-0-2"
             ,"Una nota no te define","optimista-0-3","Asiste un poco más a clases","optimista-0-4","Dedícale más tiempo a tu estudio"
@@ -58,6 +63,10 @@ public class ThirdActivity extends AppCompatActivity {
         valor = (TextView) findViewById(R.id.notaFinal);
         imagen = (ImageView) findViewById(R.id.imageView2);
         frase = (TextView) findViewById(R.id.frase);
+
+        mAdView = (AdView) findViewById(R.id.anuncio4);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
 
         denominador = getIntent().getDoubleExtra("denominadorFinal",100.0);
         indicadorFinal = getIntent().getIntExtra("indicadorFinal",100);
