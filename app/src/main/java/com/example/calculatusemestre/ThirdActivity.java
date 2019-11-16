@@ -95,7 +95,7 @@ public class ThirdActivity extends AppCompatActivity {
 
             eleccion(frases4);
 
-        } else if (notaFinal>=5 && notaFinal<=5) {
+        } else if (notaFinal>=4.5 && notaFinal<=5) {
 
             eleccion(frases5);
 

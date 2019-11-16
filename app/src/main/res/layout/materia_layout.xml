@@ -30,7 +30,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="13dp"
         android:layout_marginEnd="16dp"
-        android:background="#009688"
+        android:background="#2196F3"
         android:fontFamily="monospace"
         android:onClick="getNota"
         android:text="@string/texto_2"
