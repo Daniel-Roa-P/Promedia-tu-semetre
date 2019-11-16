@@ -48,7 +48,7 @@ public class ThirdActivity extends AppCompatActivity {
             ,"Vez que si se pudo","sarcasmo-2-5"};
 
     private String [] frases4 = {"Que buena nota, sigue así","optimista-3-1","Costo, pero valió la pena","optimista-3-2",
-            "•\tYa puedes dormir tranquilo","optimista-3-3","El profesor regalo la materia","sarcasmo-3-1","•\tIgual en la vida esa nota no sirve para nada"
+            "Ya puedes dormir tranquilo","optimista-3-3","El profesor regalo la materia","sarcasmo-3-1","Igual en la vida esa nota no sirve para nada"
             ,"sarcasmo-3-2","Si no es 5, no vale","sarcasmo-3-3"};
 
     private String [] frases5 = {"El mundo necesita más personas como tu","optimista-4-1","Eres el mejor de la clase y lo sabes"
@@ -71,11 +71,7 @@ public class ThirdActivity extends AppCompatActivity {
         mAdView.loadAd(adRequest);
 
         denominador = getIntent().getDoubleExtra("denominadorFinal",100.0);
-        indicadorFinal = getIntent().getIntExtra("indicadorFinal",100);
-
-        frase.setText(String.valueOf(indicadorFinal));
-
-        new DownLoadImageTask(imagen).execute("https://raw.githubusercontent.com/DanielRoa20171020077/Promedia-tu-semetre/master/imagenes/optimista-1-2.png");
+        indicadorFinal = getIntent().getIntExtra("indicadorFinal",0);
 
         for(int i=0;i<lista.size();i++){
 
@@ -83,7 +79,38 @@ public class ThirdActivity extends AppCompatActivity {
 
         }
 
+        if(notaFinal>=0 && notaFinal<2){
+
+            eleccion(frases1);
+
+        } else if (notaFinal>=2 && notaFinal<3) {
+
+            eleccion(frases2);
+
+        } else if (notaFinal>=3 && notaFinal<3.5) {
+
+            eleccion(frases3);
+
+        } else if (notaFinal>=3.5 && notaFinal<4.5) {
+
+            eleccion(frases4);
+
+        } else if (notaFinal>=5 && notaFinal<=5) {
+
+            eleccion(frases5);
+
+        }
+
+    }
+
+    public void eleccion(String[] seleccionada) {
+
+        int indice = (int) ((seleccionada.length/4)*Math.random());
+        indice = (indice*2)+((seleccionada.length/2)*indicadorFinal);
+
         valor.setText("Tu promedio es: "+ df.format(notaFinal));
+        frase.setText(seleccionada[indice]);
+        new DownLoadImageTask(imagen).execute("https://raw.githubusercontent.com/DanielRoa20171020077/Promedia-tu-semetre/master/imagenes/"+seleccionada[indice+1]+".png");
 
     }
 
