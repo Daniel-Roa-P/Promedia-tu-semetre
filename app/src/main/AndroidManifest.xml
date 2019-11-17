@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.calculatusemestre">
+    package="mi.aplicacion.PromediaTuSemestre">
 
     <application
         android:allowBackup="true"
@@ -14,7 +14,7 @@
             android:name="com.google.android.gms.ads.APPLICATION_ID"
             android:value="ca-app-pub-8837572421295884~4263212284"/>
 
-        <activity android:name=".MainActivity"
+        <activity android:name="mi.aplicacion.PromediaTuSemestre.MainActivity"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustPan">
 
@@ -25,22 +25,22 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".SecondActivity"
+        <activity android:name="mi.aplicacion.PromediaTuSemestre.SecondActivity"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustPan" >
         </activity>
 
-        <activity android:name=".ThirdActivity"
+        <activity android:name="mi.aplicacion.PromediaTuSemestre.ThirdActivity"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustPan">
         </activity>
 
-        <activity android:name=".ActivityMateria"
+        <activity android:name="mi.aplicacion.PromediaTuSemestre.ActivityMateria"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustPan">
         </activity>
 
-        <activity android:name=".ActivitySemestre"
+        <activity android:name="mi.aplicacion.PromediaTuSemestre.ActivitySemestre"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustPan">
         </activity>

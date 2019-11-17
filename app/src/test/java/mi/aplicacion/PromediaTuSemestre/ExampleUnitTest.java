@@ -1,4 +1,4 @@
-package com.example.calculatusemestre;
+package mi.aplicacion.PromediaTuSemestre;
 
 import org.junit.Test;
 

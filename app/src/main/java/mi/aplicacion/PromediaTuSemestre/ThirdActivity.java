@@ -1,4 +1,4 @@
-package com.example.calculatusemestre;
+package mi.aplicacion.PromediaTuSemestre;
 
 import android.content.Intent;
 import android.graphics.Bitmap;
@@ -18,7 +18,7 @@ import java.text.DecimalFormat;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import static com.example.calculatusemestre.SecondActivity.lista;
+import static mi.aplicacion.PromediaTuSemestre.SecondActivity.lista;
 
 public class ThirdActivity extends AppCompatActivity {
 
