@@ -44,28 +44,28 @@ public class ActivitySemestre extends AppCompatActivity {
         } else if (b2.isChecked() == true) {
             motivacion = 1;
         } else if (b3.isChecked() == true) {
-            motivacion = (int) (2*Math.random());
+            motivacion = 2;
         }
 
-        if(  (materias.getText().length()==0 || (creditos.getText().length()==0) ||(Integer.parseInt(materias.getText().toString())==0) || Integer.parseInt(creditos.getText().toString())==0)){
+        if(  (materias.getText().length()==0 || (creditos.getText().length()==0) ||materias.getText().toString().equals("0") || creditos.getText().toString().equals("0")) ){
 
             Toast.makeText(ActivitySemestre.this,
-                    "Minimo debe haber un credito y/o materia", Toast.LENGTH_LONG).show();
+                    "Mínimo debe haber un crédito y/o materia", Toast.LENGTH_LONG).show();
 
-        } else if((materias.getText().length()>3) ||(creditos.getText().length()>4) || Integer.parseInt(materias.getText().toString())>21 || Integer.parseInt(creditos.getText().toString())>1000){
+        } else if((materias.getText().length()>3) ||(creditos.getText().length()>4) || Integer.parseInt(materias.getText().toString())>20 || Integer.parseInt(creditos.getText().toString())>=1000){
 
             Toast.makeText(ActivitySemestre.this,
-                    "No es posible ver tantos creditos y/o materia en un semestre", Toast.LENGTH_LONG).show();
+                    "No es posible ver tantos créditos y/o materia en un semestre", Toast.LENGTH_LONG).show();
 
         } else if (!(b1.isChecked()==true ||b2.isChecked()==true || b3.isChecked()==true )) {
 
             Toast.makeText(ActivitySemestre.this,
-                    "Elija una opcion de mensaje", Toast.LENGTH_LONG).show();
+                    "Elija una opción de mensaje", Toast.LENGTH_LONG).show();
 
         } else if ((Integer.parseInt(materias.getText().toString())) > (Integer.parseInt(creditos.getText().toString()))) {
 
             Toast.makeText(ActivitySemestre.this,
-                    "No pueden haber mas materias que creditos", Toast.LENGTH_LONG).show();
+                    "No pueden haber más materias que créditos", Toast.LENGTH_LONG).show();
 
         }else {
 
@@ -73,7 +73,7 @@ public class ActivitySemestre extends AppCompatActivity {
 
             primerCambio.putExtra("cantidad", materias.getText().toString());
             primerCambio.putExtra("texto1", "Materia ");
-            primerCambio.putExtra("texto2", "Credito");
+            primerCambio.putExtra("texto2", "Crédito");
             primerCambio.putExtra("texto3", "");
             primerCambio.putExtra("denominador", Integer.parseInt(creditos.getText().toString()));
             primerCambio.putExtra("motivacion", motivacion);

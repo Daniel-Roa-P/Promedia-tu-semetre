@@ -73,6 +73,12 @@ public class ThirdActivity extends AppCompatActivity {
         denominador = getIntent().getDoubleExtra("denominadorFinal",100.0);
         indicadorFinal = getIntent().getIntExtra("indicadorFinal",0);
 
+        if(indicadorFinal==2){
+
+            indicadorFinal=(int) (2*Math.random());
+
+        }
+
         for(int i=0;i<lista.size();i++){
 
             notaFinal =  notaFinal + (Double.parseDouble(lista.get(i).getNota())*Integer.parseInt(lista.get(i).getPorcentaje()))/denominador;

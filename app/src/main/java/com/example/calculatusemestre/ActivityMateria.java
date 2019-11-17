@@ -43,23 +43,23 @@ public class ActivityMateria extends AppCompatActivity {
         } else if (b2.isChecked() == true) {
             motivacion = 1;
         } else if (b3.isChecked() == true) {
-            motivacion = (int) (2*Math.random());
+            motivacion = 2;
         }
 
-        if (cantidad.getText().length() == 0 || (Integer.parseInt(cantidad.getText().toString()) == 0)) {
+        if (cantidad.getText().length() == 0 || cantidad.getText().toString().equals("0")) {
 
             Toast.makeText(ActivityMateria.this,
-                    "Minimo debe haber una nota", Toast.LENGTH_LONG).show();
+                    "Mínimo debe haber una nota", Toast.LENGTH_LONG).show();
 
         } else if ((cantidad.getText().length() > 3 || Integer.parseInt(cantidad.getText().toString()) > 100)) {
 
             Toast.makeText(ActivityMateria.this,
-                    "El maximo de notas posible es de 99", Toast.LENGTH_LONG).show();
+                    "El máximo  de notas posible es de 99", Toast.LENGTH_LONG).show();
 
         } else if (!(b1.isChecked()==true ||b2.isChecked()==true || b3.isChecked()==true )) {
 
             Toast.makeText(ActivityMateria.this,
-                    "Elija una opcion de mensaje", Toast.LENGTH_LONG).show();
+                    "Elija una opción de mensaje", Toast.LENGTH_LONG).show();
 
         } else {
 

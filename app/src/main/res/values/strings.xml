@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">Promedia tu semestre</string>
-    <string name="banner_ad_unit_id">ca-app-pub-3940256099942544/6300978111</string>
+    <string name="banner_ad_unit_id">ca-app-pub-8837572421295884~4263212284</string>
     <string name="texto_1">Digite la cantidad de notas a promediar: </string>
     <string name="texto_2">Ingresar</string>
     <string name="texto_3">Nota: </string>
@@ -11,11 +11,11 @@
     <string name="texto_8">Sarcasmo</string>
     <string name="texto_9">Aleatorio</string>
     <string name="texto_10">Seleccione una opción</string>
-    <string name="texto_11">Digite la cantidad de creditos y materias del semestre: </string>
-    <string name="texto_12">Creditos:  </string>
+    <string name="texto_11">Digite la cantidad de créditos  y materias del semestre: </string>
+    <string name="texto_12">Créditos:  </string>
     <string name="texto_13">Materias:  </string>
     <string name="texto_14">Regresar a lista de notas</string>
     <string name="texto_15">Ir a pantalla de inicio</string>
     <string name="simbolo">%</string>
-    <string name="vacio">Texto vacio</string>
+    <string name="vacio">Texto vacío</string>
 </resources>
