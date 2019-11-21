@@ -4,7 +4,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.calculatusemestre.mi.example.calculatusemestre.ThirdActivity">
+    tools:context="mi.aplicacion.PromediaTuSemestre.ThirdActivity">
 
     <TextView
         android:id="@+id/notaFinal"
@@ -88,7 +88,7 @@
         android:layout_marginTop="13dp"
         android:layout_marginEnd="46dp"
         app:adSize="BANNER"
-        app:adUnitId="ca-app-pub-8837572421295884~4263212284"
+        app:adUnitId="ca-app-pub-8837572421295884/1174014512"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/button4"
         app:layout_constraintTop_toBottomOf="@+id/button5" />
