@@ -1,6 +1,6 @@
 <resources>
-    <string name="app_name">Promedia tu semestre</string>
-    <string name="banner_ad_unit_id">ca-app-pub-8837572421295884~4263212284</string>
+    <string name="app_name">Promedio del semestre</string>
+    <string name="banner_ad_unit_id">ca-app-pub-8837572421295884/1174014512</string>
     <string name="texto_1">Digite la cantidad de notas a promediar: </string>
     <string name="texto_2">Ingresar</string>
     <string name="texto_3">Nota: </string>

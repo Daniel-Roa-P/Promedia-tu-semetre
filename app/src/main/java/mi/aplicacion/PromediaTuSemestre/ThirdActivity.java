@@ -38,8 +38,9 @@ public class ThirdActivity extends AppCompatActivity {
 
     private String [] frases2 = {"El siguiente semestre es tuyo, vamos con toda ","optimista-1-1","Si te esfuerzan un poco más lo lograras"
             ,"optimista-1-2","Lo importante es que aprendiste","optimista-1-3","Ya casi lo vas a lograr","optimista-1-4",
-            "Tan cerca y ten lejos","sarcasmo-1-1","Los casis no valen","sarcasmo-1-2","Sigue intentando","sarcasmo-1-3",
-            "Llórelo papa","sarcasmo-1-4"};
+            "Perdiste esta batalla pero no la guerra, No te rindas","optimista-1-5","Tan cerca y ten lejos","sarcasmo-1-1"
+            ,"Los casis no valen","sarcasmo-1-2","Sigue intentando","sarcasmo-1-3",
+            "Llórelo papa","sarcasmo-1-4","A este paso nunca te graduaras","sarcasmo-1-5"};
 
     private String [] frases3 = {"Lo lograste, sigue luchando por tus sueños","optimista-2-1","Lo importantes es que ya pasaste"
             ,"optimista-2-2","Vales más que esa nota","optimista-2-3","Todo esfuerzo valió la pena","optimista-2-4"
@@ -48,8 +49,9 @@ public class ThirdActivity extends AppCompatActivity {
             ,"Vez que si se pudo","sarcasmo-2-5"};
 
     private String [] frases4 = {"Que buena nota, sigue así","optimista-3-1","Costo, pero valió la pena","optimista-3-2",
-            "Ya puedes dormir tranquilo","optimista-3-3","El profesor regalo la materia","sarcasmo-3-1","Igual en la vida esa nota no sirve para nada"
-            ,"sarcasmo-3-2","Si no es 5, no vale","sarcasmo-3-3"};
+            "Ya puedes dormir tranquilo","optimista-3-3","Que buen alumno eres ","optimista-3-4"
+            ,"El profesor regalo la materia","sarcasmo-3-1","Igual en la vida esa nota no sirve para nada"
+            ,"sarcasmo-3-2","Si no es 5, no vale","sarcasmo-3-3","¿Realmente vale la pena esforzarse tanto?","sarcasmo-3-4"};
 
     private String [] frases5 = {"El mundo necesita más personas como tu","optimista-4-1","Eres el mejor de la clase y lo sabes"
             ,"optimista-4-2","Ese eres tu … excelente","optimista-4-3","¿Qué haces para ser tan bueno?","optimista-4-4"
