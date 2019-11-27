@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Promedio del semestre</string>
+    <string name="app_name">Promedia tu semestre</string>
     <string name="banner_ad_unit_id">ca-app-pub-8837572421295884/1174014512</string>
     <string name="texto_1">Digite la cantidad de notas a promediar: </string>
     <string name="texto_2">Ingresar</string>
@@ -16,6 +16,15 @@
     <string name="texto_13">Materias:  </string>
     <string name="texto_14">Regresar a lista de notas</string>
     <string name="texto_15">Ir a pantalla de inicio</string>
+    <string name="texto_16">Tipo de mensaje</string>
+    <string name="texto_17">Modo Noche</string>
     <string name="simbolo">%</string>
     <string name="vacio">Texto vacío</string>
+
+    <string name="texto_7_valor" translatable="false">optimista </string>
+    <string name="texto_8_valor" translatable="false">sarcasmo</string>
+    <string name="texto_9_valor" translatable="false">aleatorio</string>
+
+    <string name="llave" translatable="false">Mensaje</string>
+
 </resources>

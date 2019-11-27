@@ -41,4 +41,12 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    public void enviarConfiguracion(View view){
+
+        Intent tercerCambio = new Intent(this, ActivityConfiguracion.class);
+
+        startActivity(tercerCambio);
+
+    }
+
 }
