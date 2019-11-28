@@ -1,8 +1,6 @@
 package mi.aplicacion.PromediaTuSemestre;
 
 import android.content.Intent;
-import android.content.res.Resources;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.widget.CompoundButton;
 import android.widget.Switch;
@@ -13,11 +11,14 @@ import androidx.appcompat.app.AppCompatDelegate;
 public class ActivityConfiguracion extends AppCompatActivity {
 
     private Switch fondo;
+    private Preferencias pref;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
-        if(AppCompatDelegate.getDefaultNightMode() == AppCompatDelegate.MODE_NIGHT_YES){
+        pref = new Preferencias(this);
+
+        if(pref.loadNightModelState() == true){
 
             setTheme(R.style.DarkTheme);
 
@@ -32,7 +33,7 @@ public class ActivityConfiguracion extends AppCompatActivity {
 
         fondo = (Switch) findViewById(R.id.fondo);
 
-        if(AppCompatDelegate.getDefaultNightMode() == AppCompatDelegate.MODE_NIGHT_YES){
+        if(pref.loadNightModelState() == true){
 
             fondo.setChecked(true);
 
@@ -43,12 +44,12 @@ public class ActivityConfiguracion extends AppCompatActivity {
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if (isChecked) {
 
-                    AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+                    pref.setNightModeState(true);
                     restartApp();
 
                 } else {
 
-                    AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+                    pref.setNightModeState(false);
                     restartApp();
 
                 }
