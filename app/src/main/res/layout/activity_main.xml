@@ -2,8 +2,10 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/layout1"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="?attr/backgroundcolor"
     tools:context="mi.aplicacion.PromediaTuSemestre.MainActivity">
 
     <ImageButton
@@ -14,7 +16,7 @@
         android:onClick="enviarMateria"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView3"
+        app:layout_constraintTop_toBottomOf="@+id/indicador"
         app:srcCompat="@mipmap/materia" />
 
     <ImageButton
@@ -29,7 +31,7 @@
         tools:srcCompat="@mipmap/semestre" />
 
     <TextView
-        android:id="@+id/textView3"
+        android:id="@+id/indicador"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
