@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="?attr/backgroundcolor"
     tools:context="mi.aplicacion.PromediaTuSemestre.SecondActivity">
 
     <ListView
@@ -28,7 +29,7 @@
         android:layout_marginTop="24dp"
         android:layout_marginEnd="95dp"
         android:text="@string/texto_5"
-        android:textColor="#000000"
+        android:textColor="?attr/textcolor"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

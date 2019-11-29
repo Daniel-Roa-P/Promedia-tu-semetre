@@ -18,9 +18,23 @@ public class ActivityMateria extends AppCompatActivity {
     private AdView mAdView;
     private RadioButton b1,b2,b3;
     private int motivacion=0;
+    private Preferencias pref;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+        pref = new Preferencias(this);
+
+        if(pref.loadNightModelState() == true){
+
+            setTheme(R.style.DarkTheme);
+
+        } else {
+
+            setTheme(R.style.AppTheme);
+
+        }
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.materia_layout);
 

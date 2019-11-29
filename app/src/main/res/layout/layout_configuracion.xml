@@ -5,8 +5,8 @@
     android:id="@+id/cajon"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="mi.aplicacion.PromediaTuSemestre.ActivityConfiguracion"
-    android:background="?attr/backgroundcolor">
+    android:background="?attr/backgroundcolor"
+    tools:context="mi.aplicacion.PromediaTuSemestre.ActivityConfiguracion">
 
     <ScrollView
         android:id="@+id/barra"

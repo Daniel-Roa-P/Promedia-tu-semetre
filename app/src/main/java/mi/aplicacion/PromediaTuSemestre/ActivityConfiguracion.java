@@ -6,7 +6,6 @@ import android.widget.CompoundButton;
 import android.widget.Switch;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.app.AppCompatDelegate;
 
 public class ActivityConfiguracion extends AppCompatActivity {
 
@@ -64,7 +63,7 @@ public class ActivityConfiguracion extends AppCompatActivity {
 
     public void restartApp(){
 
-        Intent i = new Intent(getApplicationContext(),ActivityConfiguracion.class);
+        Intent i = new Intent(getApplicationContext(), MainActivity.class);
         startActivity(i);
         finish();
 

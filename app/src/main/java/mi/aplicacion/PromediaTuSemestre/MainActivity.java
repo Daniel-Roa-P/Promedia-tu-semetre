@@ -12,10 +12,23 @@ import com.google.android.gms.ads.AdView;
 public class MainActivity extends AppCompatActivity {
 
     private AdView mAdView;
-
+    private Preferencias pref;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+        pref = new Preferencias(this);
+
+        if(pref.loadNightModelState() == true){
+
+            setTheme(R.style.DarkTheme);
+
+        } else {
+
+            setTheme(R.style.AppTheme);
+
+        }
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 

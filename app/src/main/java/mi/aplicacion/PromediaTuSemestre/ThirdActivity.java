@@ -29,6 +29,7 @@ public class ThirdActivity extends AppCompatActivity {
     private int indicadorFinal = 0;
     private DecimalFormat df = new DecimalFormat("#.000");
     private AdView mAdView;
+    public Preferencias pref;
 
     private String [] frases1 = {"Las cosas empiezan desde cero","optimista-0-1","Al menos no te estresaste","optimista-0-2"
             ,"Una nota no te define","optimista-0-3","Asiste un poco más a clases","optimista-0-4","Dedícale más tiempo a tu estudio"
@@ -60,6 +61,18 @@ public class ThirdActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+        pref = new Preferencias(this);
+
+        if(pref.loadNightModelState() == true){
+
+            setTheme(R.style.DarkTheme);
+
+        } else {
+
+            setTheme(R.style.AppTheme);
+
+        }
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.tercer_layout);

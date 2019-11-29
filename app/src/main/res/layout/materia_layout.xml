@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="?attr/backgroundcolor"
     tools:context="mi.aplicacion.PromediaTuSemestre.ActivityMateria">
 
     <TextView
@@ -16,7 +17,7 @@
         android:fontFamily="monospace"
         android:text="@string/texto_1"
         android:textAlignment="center"
-        android:textColor="#000000"
+        android:textColor="?attr/textcolor"
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
@@ -62,7 +63,7 @@
         android:fontFamily="monospace"
         android:text="@string/texto_6"
         android:textAlignment="center"
-        android:textColor="#000000"
+        android:textColor="?attr/textcolor"
         android:textSize="12sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
@@ -83,19 +84,22 @@
             android:id="@+id/radioButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/texto_7" />
+            android:text="@string/texto_7"
+            android:textColor="?attr/textcolor" />
 
         <RadioButton
             android:id="@+id/radioButton2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/texto_8" />
+            android:text="@string/texto_8"
+            android:textColor="?attr/textcolor"/>
 
         <RadioButton
             android:id="@+id/radioButton3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/texto_9" />
+            android:text="@string/texto_9"
+            android:textColor="?attr/textcolor"/>
 
     </RadioGroup>
 

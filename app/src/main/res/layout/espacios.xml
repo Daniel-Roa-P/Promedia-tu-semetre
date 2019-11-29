@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="?attr/backgroundcolor"
     tools:context="mi.aplicacion.PromediaTuSemestre.ActivitySemestre">
 
     <TextView
@@ -15,7 +16,7 @@
         android:layout_marginEnd="21dp"
         android:text="@string/texto_3"
         android:textAlignment="center"
-        android:textColor="#000000"
+        android:textColor="?attr/textcolor"
         android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toStartOf="@+id/nota"
@@ -44,7 +45,7 @@
         android:layout_marginEnd="10dp"
         android:text="@string/texto_4"
         android:textAlignment="center"
-        android:textColor="#000000"
+        android:textColor="?attr/textcolor"
         android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toStartOf="@+id/porcentaje"
@@ -72,7 +73,7 @@
         android:layout_marginEnd="52dp"
         android:text="@string/simbolo"
         android:textAlignment="center"
-        android:textColor="#000000"
+        android:textColor="?attr/textcolor"
         android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"

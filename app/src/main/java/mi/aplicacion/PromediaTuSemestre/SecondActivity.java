@@ -22,10 +22,24 @@ public class SecondActivity extends AppCompatActivity {
     private String t1,t2,t3;
     private AdView mAdView;
 
+    public Preferencias pref;
+
     public static ArrayList<Contenedor>lista;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+        pref = new Preferencias(this);
+
+        if(pref.loadNightModelState() == true){
+
+            setTheme(R.style.DarkTheme);
+
+        } else {
+
+            setTheme(R.style.AppTheme);
+
+        }
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.segundo_layout);

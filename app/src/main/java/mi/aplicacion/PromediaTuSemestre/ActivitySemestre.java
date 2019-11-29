@@ -18,9 +18,23 @@ public class ActivitySemestre extends AppCompatActivity {
     private AdView mAdView;
     private RadioButton b1,b2,b3;
     private int motivacion;
+    public Preferencias pref;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+        pref = new Preferencias(this);
+
+        if(pref.loadNightModelState() == true){
+
+            setTheme(R.style.DarkTheme);
+
+        } else {
+
+            setTheme(R.style.AppTheme);
+
+        }
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.semestre_layout);
 
