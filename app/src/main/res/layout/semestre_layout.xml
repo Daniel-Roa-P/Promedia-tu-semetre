@@ -30,6 +30,8 @@
         android:layout_marginEnd="110dp"
         android:ems="10"
         android:inputType="number"
+        android:textColor="?attr/textcolor"
+        android:backgroundTint="?attr/textcolor"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/textView5"
         app:layout_constraintTop_toBottomOf="@+id/textView4" />
@@ -56,6 +58,8 @@
         android:layout_marginEnd="110dp"
         android:ems="10"
         android:inputType="number"
+        android:textColor="?attr/textcolor"
+        android:backgroundTint="?attr/textcolor"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/textView6"
         app:layout_constraintTop_toBottomOf="@+id/creditos" />
@@ -103,21 +107,24 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/texto_7"
-            android:textColor="?attr/textcolor"/>
+            android:textColor="?attr/textcolor"
+            android:buttonTint="?attr/colorAccent"/>
 
         <RadioButton
             android:id="@+id/radioButton5"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/texto_8"
-            android:textColor="?attr/textcolor"/>
+            android:textColor="?attr/textcolor"
+            android:buttonTint="?attr/colorAccent"/>
 
         <RadioButton
             android:id="@+id/radioButton6"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/texto_9"
-            android:textColor="?attr/textcolor"/>
+            android:textColor="?attr/textcolor"
+            android:buttonTint="?attr/colorAccent"/>
     </RadioGroup>
 
     <TextView

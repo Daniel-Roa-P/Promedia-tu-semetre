@@ -56,8 +56,9 @@ public class ThirdActivity extends AppCompatActivity {
 
     private String [] frases5 = {"El mundo necesita más personas como tu","optimista-4-1","Eres el mejor de la clase y lo sabes"
             ,"optimista-4-2","Ese eres tu … excelente","optimista-4-3","¿Qué haces para ser tan bueno?","optimista-4-4"
-            ,"¿Usaste rodilleras?","sarcasmo-4-1","Gracias piernas sexys ","sarcasmo-4-2","¿Qué tanto le rogaste al profe?"
-            ,"sarcasmo-4-3","¿socializar no es lo tuyo verdad?","sarcasmo-4-4"};
+            ,"Lograras todo lo que te propongas","optimista-4-5","¿Usaste rodilleras?","sarcasmo-4-1","Gracias piernas sexys "
+            ,"sarcasmo-4-2","¿Qué tanto le rogaste al profe?","sarcasmo-4-3","¿socializar no es lo tuyo verdad?"
+            ,"sarcasmo-4-4","El único que se engaña eres tú ","sarcasmo-4-5"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
