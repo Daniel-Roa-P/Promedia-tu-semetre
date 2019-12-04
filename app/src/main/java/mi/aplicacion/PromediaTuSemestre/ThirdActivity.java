@@ -5,6 +5,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -16,6 +17,7 @@ import java.io.InputStream;
 import java.net.URL;
 import java.text.DecimalFormat;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import static mi.aplicacion.PromediaTuSemestre.SecondActivity.lista;
@@ -55,7 +57,7 @@ public class ThirdActivity extends AppCompatActivity {
             ,"sarcasmo-3-2","Si no es 5, no vale","sarcasmo-3-3","¿Realmente vale la pena esforzarse tanto?","sarcasmo-3-4"};
 
     private String [] frases5 = {"El mundo necesita más personas como tu","optimista-4-1","Eres el mejor de la clase y lo sabes"
-            ,"optimista-4-2","Ese eres tu … excelente","optimista-4-3","¿Qué haces para ser tan bueno?","optimista-4-4"
+            ,"optimista-4-2","Ese eres tu . . . excelente","optimista-4-3","¿Qué haces para ser tan bueno?","optimista-4-4"
             ,"Lograras todo lo que te propongas","optimista-4-5","¿Usaste rodilleras?","sarcasmo-4-1","Gracias piernas sexys "
             ,"sarcasmo-4-2","¿Qué tanto le rogaste al profe?","sarcasmo-4-3","¿socializar no es lo tuyo verdad?"
             ,"sarcasmo-4-4","El único que se engaña eres tú ","sarcasmo-4-5"};
@@ -77,6 +79,8 @@ public class ThirdActivity extends AppCompatActivity {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.tercer_layout);
+
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         valor = (TextView) findViewById(R.id.notaFinal);
         imagen = (ImageView) findViewById(R.id.imageView2);
@@ -173,6 +177,19 @@ public class ThirdActivity extends AppCompatActivity {
         Intent cambio = new Intent(this, MainActivity.class);
 
         startActivity(cambio);
+
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+
+        int id = item.getItemId();
+
+        if (id == android.R.id.home) {
+            finish();
+        }
+
+        return super.onOptionsItemSelected(item);
 
     }
 

@@ -2,6 +2,7 @@ package mi.aplicacion.PromediaTuSemestre;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.RadioButton;
@@ -10,6 +11,7 @@ import android.widget.Toast;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class ActivitySemestre extends AppCompatActivity {
@@ -37,6 +39,8 @@ public class ActivitySemestre extends AppCompatActivity {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.semestre_layout);
+
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         materias = (EditText) findViewById(R.id.materias);
         creditos = (EditText) findViewById(R.id.creditos);
@@ -94,6 +98,19 @@ public class ActivitySemestre extends AppCompatActivity {
             startActivity(primerCambio);
 
         }
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+
+        int id = item.getItemId();
+
+        if (id == android.R.id.home) {
+            finish();
+        }
+
+        return super.onOptionsItemSelected(item);
+
     }
 
 }

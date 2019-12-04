@@ -2,6 +2,7 @@ package mi.aplicacion.PromediaTuSemestre;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ListView;
 import android.widget.Toast;
@@ -11,6 +12,7 @@ import com.google.android.gms.ads.AdView;
 
 import java.util.ArrayList;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class SecondActivity extends AppCompatActivity {
@@ -44,6 +46,7 @@ public class SecondActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.segundo_layout);
 
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         lista=new ArrayList<Contenedor>();
         listaNotas =(ListView) findViewById(R.id.lista);
@@ -134,6 +137,19 @@ public class SecondActivity extends AppCompatActivity {
 
             startActivity(cambio);
         }
+
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+
+        int id = item.getItemId();
+
+        if (id == android.R.id.home) {
+            finish();
+        }
+
+        return super.onOptionsItemSelected(item);
 
     }
 

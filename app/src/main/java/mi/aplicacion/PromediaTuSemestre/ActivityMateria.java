@@ -1,8 +1,10 @@
 package mi.aplicacion.PromediaTuSemestre;
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.RadioButton;
@@ -37,6 +39,8 @@ public class ActivityMateria extends AppCompatActivity {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.materia_layout);
+
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         cantidad = (EditText) findViewById(R.id.editText);
 
@@ -90,4 +94,16 @@ public class ActivityMateria extends AppCompatActivity {
         }
     }
 
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+
+        int id = item.getItemId();
+
+        if (id == android.R.id.home) {
+            finish();
+        }
+
+        return super.onOptionsItemSelected(item);
+
+    }
 }

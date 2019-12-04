@@ -2,9 +2,11 @@ package mi.aplicacion.PromediaTuSemestre;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.widget.CompoundButton;
 import android.widget.Switch;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class ActivityConfiguracion extends AppCompatActivity {
@@ -29,6 +31,8 @@ public class ActivityConfiguracion extends AppCompatActivity {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_configuracion);
+
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         fondo = (Switch) findViewById(R.id.fondo);
 
@@ -66,6 +70,19 @@ public class ActivityConfiguracion extends AppCompatActivity {
         Intent i = new Intent(getApplicationContext(), MainActivity.class);
         startActivity(i);
         finish();
+
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+
+        int id = item.getItemId();
+
+        if (id == android.R.id.home) {
+            finish();
+        }
+
+        return super.onOptionsItemSelected(item);
 
     }
 
