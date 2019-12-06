@@ -1,12 +1,17 @@
 package mi.aplicacion.PromediaTuSemestre;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.CompoundButton;
 import android.widget.Spinner;
 import android.widget.Switch;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -39,6 +44,9 @@ public class ActivityConfiguracion extends AppCompatActivity {
         ArrayAdapter adapter = ArrayAdapter.createFromResource(this, R.array.elementos, R.layout.elementos_spinner);
         spinner.setAdapter(adapter);
 
+        SharedPreferences preferenciaFrase = getSharedPreferences("frase", Context.MODE_PRIVATE);
+        spinner.setSelection(preferenciaFrase.getInt("opcion",0));
+
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         fondo = (Switch) findViewById(R.id.fondo);
@@ -66,6 +74,24 @@ public class ActivityConfiguracion extends AppCompatActivity {
 
 
 
+            }
+
+        });
+
+        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
+
+                SharedPreferences opcion = getSharedPreferences("frase",Context.MODE_PRIVATE);
+                SharedPreferences.Editor objetoEditor = opcion.edit();
+                objetoEditor.putInt("opcion",spinner.getSelectedItemPosition());
+                objetoEditor.commit();
+
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parentView) {
+                // your code here
             }
 
         });

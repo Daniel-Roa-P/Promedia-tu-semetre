@@ -5,17 +5,17 @@ import android.content.SharedPreferences;
 
 public class Preferencias {
 
-    SharedPreferences misPreferencias;
+    SharedPreferences preferenciaFondo;
 
     public Preferencias(Context context){
 
-        misPreferencias = context.getSharedPreferences("filename",Context.MODE_PRIVATE);
+        preferenciaFondo = context.getSharedPreferences("filename",Context.MODE_PRIVATE);
 
     }
 
     public void setNightModeState(Boolean state){
 
-        SharedPreferences.Editor editor = misPreferencias.edit();
+        SharedPreferences.Editor editor = preferenciaFondo.edit();
         editor.putBoolean("NightMode",state);
         editor.commit();
 
@@ -23,7 +23,7 @@ public class Preferencias {
 
     public Boolean loadNightModelState (){
 
-        Boolean state = misPreferencias.getBoolean("NightMode",false);
+        Boolean state = preferenciaFondo.getBoolean("NightMode",false);
         return state;
 
     }
