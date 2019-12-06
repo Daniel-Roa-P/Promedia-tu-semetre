@@ -3,7 +3,9 @@ package mi.aplicacion.PromediaTuSemestre;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.widget.ArrayAdapter;
 import android.widget.CompoundButton;
+import android.widget.Spinner;
 import android.widget.Switch;
 
 import androidx.annotation.NonNull;
@@ -13,6 +15,7 @@ public class ActivityConfiguracion extends AppCompatActivity {
 
     private Switch fondo;
     private Preferencias pref;
+    private Spinner spinner;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,6 +34,10 @@ public class ActivityConfiguracion extends AppCompatActivity {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_configuracion);
+
+        spinner = (Spinner) findViewById(R.id.frase);
+        ArrayAdapter adapter = ArrayAdapter.createFromResource(this, R.array.elementos, R.layout.elementos_spinner);
+        spinner.setAdapter(adapter);
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 

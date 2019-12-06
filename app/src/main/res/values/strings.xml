@@ -16,8 +16,9 @@
     <string name="texto_13">Materias:  </string>
     <string name="texto_14">Regresar a lista de notas</string>
     <string name="texto_15">Ir a pantalla de inicio</string>
-    <string name="texto_16">Tipo de mensaje</string>
+    <string name="texto_16">Tipo de frase</string>
     <string name="texto_17">Modo Noche</string>
+    <string name="texto_18">Seleccione el tipo de frase que desea recibir según su nota</string>
     <string name="simbolo">%</string>
     <string name="vacio">Texto vacío</string>
 
