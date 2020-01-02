@@ -98,7 +98,6 @@ public class ActivityMateria extends AppCompatActivity {
             primerCambio.putExtra("texto2", "Porcentaje");
             primerCambio.putExtra("texto3", "%");
             primerCambio.putExtra("denominador", 100);
-            primerCambio.putExtra("motivacion", motivacion);
             startActivity(primerCambio);
 
         }

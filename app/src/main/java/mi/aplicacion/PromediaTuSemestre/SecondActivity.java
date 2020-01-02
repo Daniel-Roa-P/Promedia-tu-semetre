@@ -133,7 +133,6 @@ public class SecondActivity extends AppCompatActivity {
 
             Intent cambio = new Intent(this, ThirdActivity.class);
             cambio.putExtra("denominadorFinal",denominador);
-            cambio.putExtra("indicadorFinal",indicador);
 
             startActivity(cambio);
         }

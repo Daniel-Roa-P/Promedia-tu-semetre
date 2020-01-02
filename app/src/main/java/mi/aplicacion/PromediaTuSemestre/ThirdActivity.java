@@ -1,6 +1,8 @@
 package mi.aplicacion.PromediaTuSemestre;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
@@ -91,7 +93,8 @@ public class ThirdActivity extends AppCompatActivity {
         mAdView.loadAd(adRequest);
 
         denominador = getIntent().getDoubleExtra("denominadorFinal",100.0);
-        indicadorFinal = getIntent().getIntExtra("indicadorFinal",0);
+        SharedPreferences preferenciaFrase = getSharedPreferences("frase", Context.MODE_PRIVATE);
+        indicadorFinal = preferenciaFrase.getInt("opcion",0);
 
         if(indicadorFinal==2){
 

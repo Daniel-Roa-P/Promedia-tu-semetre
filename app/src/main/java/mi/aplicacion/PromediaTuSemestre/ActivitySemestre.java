@@ -106,7 +106,6 @@ public class ActivitySemestre extends AppCompatActivity {
             primerCambio.putExtra("texto2", "Crédito");
             primerCambio.putExtra("texto3", "");
             primerCambio.putExtra("denominador", Integer.parseInt(creditos.getText().toString()));
-            primerCambio.putExtra("motivacion", motivacion);
             startActivity(primerCambio);
 
         }
