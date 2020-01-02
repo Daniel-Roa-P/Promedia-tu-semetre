@@ -1,13 +1,15 @@
 package mi.aplicacion.PromediaTuSemestre;
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.EditText;
-import android.widget.RadioButton;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.google.android.gms.ads.AdRequest;
@@ -18,9 +20,9 @@ public class ActivityMateria extends AppCompatActivity {
 
     private EditText cantidad;
     private AdView mAdView;
-    private RadioButton b1,b2,b3;
     private int motivacion=0;
     private Preferencias pref;
+    private Spinner spinner;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,29 +42,42 @@ public class ActivityMateria extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.materia_layout);
 
+        spinner = (Spinner) findViewById(R.id.fraseMateria);
+        ArrayAdapter adapter = ArrayAdapter.createFromResource(this, R.array.elementos, R.layout.elementos_spinner);
+        spinner.setAdapter(adapter);
+
+        SharedPreferences preferenciaFrase = getSharedPreferences("frase", Context.MODE_PRIVATE);
+        spinner.setSelection(preferenciaFrase.getInt("opcion",0));
+
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         cantidad = (EditText) findViewById(R.id.editText);
-
-        b1 = (RadioButton)findViewById(R.id.radioButton);
-        b2 = (RadioButton)findViewById(R.id.radioButton2);
-        b3 = (RadioButton)findViewById(R.id.radioButton3);
 
         mAdView = (AdView) findViewById(R.id.anuncio1);
         AdRequest adRequest = new AdRequest.Builder().build();
         mAdView.loadAd(adRequest);
 
+        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
+
+                SharedPreferences opcion = getSharedPreferences("frase",Context.MODE_PRIVATE);
+                SharedPreferences.Editor objetoEditor = opcion.edit();
+                objetoEditor.putInt("opcion",spinner.getSelectedItemPosition());
+                objetoEditor.commit();
+
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parentView) {
+                // your code here
+            }
+
+        });
+
     }
 
     public void getNota(View view) {
-
-        if (b1.isChecked() == true) {
-            motivacion = 0;
-        } else if (b2.isChecked() == true) {
-            motivacion = 1;
-        } else if (b3.isChecked() == true) {
-            motivacion = 2;
-        }
 
         if (cantidad.getText().length() == 0 || cantidad.getText().toString().equals("0")) {
 
@@ -73,11 +88,6 @@ public class ActivityMateria extends AppCompatActivity {
 
             Toast.makeText(ActivityMateria.this,
                     "El máximo  de notas posible es de 99", Toast.LENGTH_LONG).show();
-
-        } else if (!(b1.isChecked()==true ||b2.isChecked()==true || b3.isChecked()==true )) {
-
-            Toast.makeText(ActivityMateria.this,
-                    "Elija una opción de mensaje", Toast.LENGTH_LONG).show();
 
         } else {
 
@@ -94,16 +104,4 @@ public class ActivityMateria extends AppCompatActivity {
         }
     }
 
-    @Override
-    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-
-        int id = item.getItemId();
-
-        if (id == android.R.id.home) {
-            finish();
-        }
-
-        return super.onOptionsItemSelected(item);
-
-    }
 }

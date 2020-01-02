@@ -29,7 +29,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="13dp"
+        android:layout_marginTop="81dp"
         android:layout_marginEnd="16dp"
         android:background="#2196F3"
         android:fontFamily="monospace"
@@ -40,17 +40,28 @@
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/radioGroup" />
+        app:layout_constraintTop_toBottomOf="@+id/textView2" />
+
+    <com.google.android.gms.ads.AdView
+        android:id="@+id/anuncio1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="29dp"
+        android:layout_marginTop="13dp"
+        app:adSize="BANNER"
+        app:adUnitId="ca-app-pub-8837572421295884/1174014512"
+        app:layout_constraintStart_toStartOf="@+id/button"
+        app:layout_constraintTop_toBottomOf="@+id/button" />
 
     <EditText
         android:id="@+id/editText"
         android:layout_width="63dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
+        android:backgroundTint="?attr/textcolor"
         android:ems="10"
         android:inputType="number"
         android:textColor="?attr/textcolor"
-        android:backgroundTint="?attr/textcolor"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
@@ -73,52 +84,15 @@
         app:layout_constraintTop_toBottomOf="@+id/editText"
         tools:text="@string/texto_6" />
 
-    <RadioGroup
-        android:id="@+id/radioGroup"
-        android:layout_width="172dp"
+    <Spinner
+        android:id="@+id/fraseMateria"
+        style="@android:style/Widget.Holo.Spinner"
+        android:layout_width="150dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="7dp"
-        app:layout_constraintEnd_toEndOf="@+id/textView2"
-        app:layout_constraintStart_toStartOf="@+id/textView2"
-        app:layout_constraintTop_toBottomOf="@+id/textView2">
-
-        <RadioButton
-            android:id="@+id/radioButton"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/texto_7"
-            android:textColor="?attr/textcolor"
-            android:buttonTint="?attr/colorAccent"/>
-
-        <RadioButton
-            android:id="@+id/radioButton2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/texto_8"
-            android:textColor="?attr/textcolor"
-            android:buttonTint="?attr/colorAccent"/>
-
-        <RadioButton
-            android:id="@+id/radioButton3"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/texto_9"
-            android:textColor="?attr/textcolor"
-            android:buttonTint="?attr/colorAccent"/>
-
-    </RadioGroup>
-
-    <com.google.android.gms.ads.AdView
-        android:id="@+id/anuncio1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
-        app:adSize="BANNER"
-        app:adUnitId="ca-app-pub-8837572421295884/1174014512"
+        android:layout_marginBottom="18dp"
+        app:layout_constraintBottom_toTopOf="@+id/button"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.494"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button" />
+        app:layout_constraintStart_toStartOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
