@@ -9,28 +9,42 @@
     android:orientation="vertical">
 
     <Button
-        android:id="@+id/button8"
-        android:layout_width="148dp"
-        android:layout_height="42dp"
-        android:layout_marginBottom="64dp"
-        android:background="@color/colorAccent"
-        android:text="Añadir"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent" />
+        android:id="@+id/botonAñadir"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="18dp"
+        android:layout_marginEnd="79dp"
+        android:background="#8BC34A"
+        android:text="@string/texto_19"
+        app:layout_constraintEnd_toStartOf="@+id/botonRetirar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/listaFinal" />
 
     <ListView
         android:id="@+id/listaFinal"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginStart="23dp"
+        android:layout_marginStart="6dp"
         android:layout_marginTop="16dp"
-        android:layout_marginEnd="23dp"
-        android:layout_marginBottom="14dp"
-        app:layout_constraintBottom_toTopOf="@+id/button8"
+        android:layout_marginEnd="6dp"
+        android:layout_marginBottom="18dp"
+        app:layout_constraintBottom_toTopOf="@+id/botonRetirar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/botonRetirar"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="32dp"
+        android:layout_marginBottom="105dp"
+        android:background="#E91E1E"
+        android:text="@string/texto_20"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/botonAñadir"
+        app:layout_constraintTop_toBottomOf="@+id/listaFinal" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

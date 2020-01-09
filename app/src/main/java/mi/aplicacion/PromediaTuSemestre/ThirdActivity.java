@@ -3,6 +3,7 @@ package mi.aplicacion.PromediaTuSemestre;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
@@ -35,37 +36,10 @@ public class ThirdActivity extends AppCompatActivity {
     private AdView mAdView;
     public Preferencias pref;
 
-    private String [] frases1 = {"Las cosas empiezan desde cero","optimista-0-1","Al menos no te estresaste","optimista-0-2"
-            ,"Una nota no te define","optimista-0-3","Asiste un poco más a clases","optimista-0-4","Dedícale más tiempo a tu estudio"
-            ,"optimista-0-5","ESTUDIEN VAGOS","sarcasmo-0-5","¿Cómo alguien como tu llego a la universidad?","sarcasmo-0-4"
-            ,"¿no has pensado en cambiarte de carrera?","sarcasmo-0-3","Eres la definición de mediocridad","sarcasmo-0-2"
-            ,"¿olvidaste que te matriculaste?","sarcasmo-0-1"};
-
-    private String [] frases2 = {"El siguiente semestre es tuyo, vamos con toda ","optimista-1-1","Si te esfuerzan un poco más lo lograras"
-            ,"optimista-1-2","Lo importante es que aprendiste","optimista-1-3","Ya casi lo vas a lograr","optimista-1-4",
-            "Perdiste esta batalla pero no la guerra, No te rindas","optimista-1-5","Tan cerca y ten lejos","sarcasmo-1-1"
-            ,"Los casis no valen","sarcasmo-1-2","Sigue intentando","sarcasmo-1-3",
-            "Llórelo papa","sarcasmo-1-4","A este paso nunca te graduaras","sarcasmo-1-5"};
-
-    private String [] frases3 = {"Lo lograste, sigue luchando por tus sueños","optimista-2-1","Lo importantes es que ya pasaste"
-            ,"optimista-2-2","Vales más que esa nota","optimista-2-3","Todo esfuerzo valió la pena","optimista-2-4"
-            ,"Pasaste, que alivio no tener que volver a ver esa materia ","optimista-2-5","Gracias por hacer tu tarea ","sarcasmo-2-1"
-            ,"¿Eres repitente?","sarcasmo-2-2","¿para eso se trasnocho?","sarcasmo-2-3","¿Debería felicitarte?","sarcasmo-2-4"
-            ,"Vez que si se pudo","sarcasmo-2-5"};
-
-    private String [] frases4 = {"Que buena nota, sigue así","optimista-3-1","Costo, pero valió la pena","optimista-3-2",
-            "Ya puedes dormir tranquilo","optimista-3-3","Que buen alumno eres ","optimista-3-4"
-            ,"El profesor regalo la materia","sarcasmo-3-1","Igual en la vida esa nota no sirve para nada"
-            ,"sarcasmo-3-2","Si no es 5, no vale","sarcasmo-3-3","¿Realmente vale la pena esforzarse tanto?","sarcasmo-3-4"};
-
-    private String [] frases5 = {"El mundo necesita más personas como tu","optimista-4-1","Eres el mejor de la clase y lo sabes"
-            ,"optimista-4-2","Ese eres tu . . . excelente","optimista-4-3","¿Qué haces para ser tan bueno?","optimista-4-4"
-            ,"Lograras todo lo que te propongas","optimista-4-5","¿Usaste rodilleras?","sarcasmo-4-1","Gracias piernas sexys "
-            ,"sarcasmo-4-2","¿Qué tanto le rogaste al profe?","sarcasmo-4-3","¿socializar no es lo tuyo verdad?"
-            ,"sarcasmo-4-4","El único que se engaña eres tú ","sarcasmo-4-5"};
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+        Resources res = getResources();
 
         pref = new Preferencias(this);
 
@@ -110,23 +84,23 @@ public class ThirdActivity extends AppCompatActivity {
 
         if(notaFinal>=0 && notaFinal<2){
 
-            eleccion(frases1);
+            eleccion(res.getStringArray(R.array.frases1));
 
         } else if (notaFinal>=2 && notaFinal<3) {
 
-            eleccion(frases2);
+            eleccion(res.getStringArray(R.array.frases2));
 
         } else if (notaFinal>=3 && notaFinal<3.5) {
 
-            eleccion(frases3);
+            eleccion(res.getStringArray(R.array.frases3));
 
         } else if (notaFinal>=3.5 && notaFinal<4.5) {
 
-            eleccion(frases4);
+            eleccion(res.getStringArray(R.array.frases4));
 
         } else if (notaFinal>=4.5 && notaFinal<=5) {
 
-            eleccion(frases5);
+            eleccion(res.getStringArray(R.array.frases5));
 
         }
 

@@ -1,13 +1,14 @@
 package mi.aplicacion.PromediaTuSemestre;
 
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ListView;
-import android.widget.ScrollView;
 
 import java.util.ArrayList;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class FinalActivity extends AppCompatActivity {
@@ -40,10 +41,11 @@ public class FinalActivity extends AppCompatActivity {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.final_layout);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         notasGuardadas = new ArrayList<Contenedor>();
         vista = (ListView) findViewById(R.id.listaFinal);
-        añadir = (Button) findViewById(R.id.button8);
+        añadir = (Button) findViewById(R.id.botonAñadir);
 
         añadir.setOnClickListener(new View.OnClickListener() {
 
@@ -64,19 +66,18 @@ public class FinalActivity extends AppCompatActivity {
 
     }
 
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
 
-    public void generar(){
+        int id = item.getItemId();
 
-        Contenedor con = new Contenedor();
-        con.setTexto1(""+indice+"");
+        if (id == android.R.id.home) {
+            finish();
+        }
 
-        indice++;
-
-        notasGuardadas.add(con);
-
-        adapter = new ItemListAdapter(FinalActivity.this, R.layout.espacios,notasGuardadas);
-        vista.setAdapter(adapter);
+        return super.onOptionsItemSelected(item);
 
     }
+
 
 }
