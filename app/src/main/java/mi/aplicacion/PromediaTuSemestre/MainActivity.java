@@ -66,6 +66,14 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    public void enviarFinal(View view){
+
+        Intent finalCambio = new Intent(this, FinalActivity.class);
+
+        startActivity(finalCambio);
+
+    }
+
     @Override
     public void onBackPressed(){
 
