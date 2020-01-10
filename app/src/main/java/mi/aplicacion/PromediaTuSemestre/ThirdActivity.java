@@ -59,7 +59,9 @@ public class ThirdActivity extends AppCompatActivity {
 
         valor.setText(getIntent().getStringExtra("textoNota"));
         frase.setText(getIntent().getStringExtra("textoFrase"));
-        new DownLoadImageTask(imagen).execute("https://raw.githubusercontent.com/DanielRoa20171020077/Promedia-tu-semetre/master/imagenes/"+getIntent().getStringExtra("idImagen")+".png");
+        new DownLoadImageTask(imagen).execute("https://raw.githubusercontent.com/" +
+                "DanielRoa20171020077/Promedia-tu-semetre/master/imagenes/"
+                +getIntent().getStringExtra("idImagen")+".png");
 
     }
 

@@ -7,7 +7,6 @@ import android.content.res.Resources;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Toast;
 import com.google.android.gms.ads.AdRequest;
@@ -20,18 +19,22 @@ import androidx.appcompat.app.AppCompatActivity;
 public class SecondActivity extends AppCompatActivity {
 
     private ItemListAdapter adapter;
+
     private ListView listaNotas;
-    private int indicadorFinal = 0;
-    private int cuadros,llenos,totalPorcentajes,indicador;
-    private double rango,denominador;
-    private String t1,t2,t3,textoNota,textoFrase,idImagen;
-    private double notaFinal = 0;
     private AdView mAdView;
+
+    private int indicadorFinal = 0;
+    private int cuadros,llenos,totalPorcentajes;
+    private double rango,denominador;
+    private double notaFinal = 0;
+    private String t1,t2,t3,textoNota,textoFrase,idImagen;
+
+
     private DecimalFormat df = new DecimalFormat("#.000");
     private Resources res;
     private Preferencias pref;
 
-    public ArrayList<Contenedor>lista;
+    private ArrayList<Contenedor>lista;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -68,7 +71,6 @@ public class SecondActivity extends AppCompatActivity {
         t3 = getIntent().getStringExtra("texto3");
 
         denominador = getIntent().getIntExtra("denominador",100);
-        indicador = getIntent().getIntExtra("motivacion",0);
 
         for (int i = 1; i <= cuadros; i++) {
             Contenedor contenedor=new Contenedor();
@@ -173,8 +175,6 @@ public class SecondActivity extends AppCompatActivity {
                 eleccion(res.getStringArray(R.array.frases5));
 
             }
-
-            System.out.println("ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff "+ notaFinal);
 
             Intent cambio = new Intent(this, ThirdActivity.class);
             cambio.putExtra("textoFrase",textoFrase);

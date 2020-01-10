@@ -8,25 +8,11 @@
     android:background="?attr/backgroundcolor"
     android:orientation="vertical">
 
-    <Button
-        android:id="@+id/botonAñadir"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="14dp"
-        android:layout_marginEnd="63dp"
-        android:layout_marginBottom="9dp"
-        android:background="#8BC34A"
-        android:text="@string/texto_19"
-        app:layout_constraintBottom_toTopOf="@+id/button7"
-        app:layout_constraintEnd_toStartOf="@+id/botonRetirar"
-        app:layout_constraintStart_toStartOf="parent" />
-
     <ListView
         android:id="@+id/listaFinal"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginStart="14dp"
-        android:layout_marginTop="16dp"
         android:layout_marginEnd="14dp"
         android:layout_marginBottom="13dp"
         android:fadeScrollbars="false"
@@ -35,7 +21,7 @@
         app:layout_constraintBottom_toTopOf="@+id/botonRetirar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/indicacionRango" />
 
     <Button
         android:id="@+id/botonRetirar"
@@ -51,17 +37,47 @@
         app:layout_constraintTop_toBottomOf="@+id/listaFinal" />
 
     <Button
+        android:id="@+id/botonAñadir"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="14dp"
+        android:layout_marginEnd="63dp"
+        android:layout_marginBottom="9dp"
+        android:background="#8BC34A"
+        android:text="@string/texto_19"
+        app:layout_constraintBottom_toTopOf="@+id/button7"
+        app:layout_constraintEnd_toStartOf="@+id/botonRetirar"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
         android:id="@+id/button7"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
-        android:layout_marginBottom="352dp"
+        android:layout_marginBottom="328dp"
         android:background="#2196F3"
+        android:onClick="calcularFaltante"
         android:text="@string/texto_21"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/botonRetirar" />
+
+    <TextView
+        android:id="@+id/indicacionRango"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="85dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="93dp"
+        android:text="@string/texto_5"
+        android:textColor="?attr/textcolor"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/listaFinal"
+        app:layout_constraintEnd_toEndOf="@+id/listaFinal"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
