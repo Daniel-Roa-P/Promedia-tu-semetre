@@ -7,6 +7,7 @@ import android.content.res.Resources;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Toast;
 import com.google.android.gms.ads.AdRequest;
@@ -28,7 +29,7 @@ public class SecondActivity extends AppCompatActivity {
     private AdView mAdView;
     private DecimalFormat df = new DecimalFormat("#.000");
     private Resources res;
-    public Preferencias pref;
+    private Preferencias pref;
 
     public ArrayList<Contenedor>lista;
 
@@ -53,8 +54,8 @@ public class SecondActivity extends AppCompatActivity {
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        lista=new ArrayList<Contenedor>();
-        listaNotas =(ListView) findViewById(R.id.lista);
+        lista = new ArrayList<Contenedor>();
+        listaNotas = (ListView) findViewById(R.id.lista);
 
         mAdView = (AdView) findViewById(R.id.anuncio3);
         AdRequest adRequest = new AdRequest.Builder().build();
@@ -173,12 +174,15 @@ public class SecondActivity extends AppCompatActivity {
 
             }
 
+            System.out.println("ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff "+ notaFinal);
+
             Intent cambio = new Intent(this, ThirdActivity.class);
             cambio.putExtra("textoFrase",textoFrase);
             cambio.putExtra("textoNota",textoNota);
             cambio.putExtra("idImagen",idImagen);
 
             startActivity(cambio);
+
         }
 
     }
@@ -191,6 +195,8 @@ public class SecondActivity extends AppCompatActivity {
         textoNota = "Tu promedio es: "+ df.format(notaFinal);
         textoFrase = seleccionada[indice];
         idImagen = seleccionada[indice+1];
+
+        notaFinal=0;
 
     }
 

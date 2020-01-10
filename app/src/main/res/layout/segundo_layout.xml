@@ -36,7 +36,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/botonCalcular"
         android:layout_width="190dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="110dp"
@@ -60,6 +60,6 @@
         app:adUnitId="ca-app-pub-8837572421295884/1174014512"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button2" />
+        app:layout_constraintTop_toBottomOf="@+id/botonCalcular" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
