@@ -21,6 +21,7 @@
     <string name="texto_18">Seleccione el tipo de frase que desea recibir según su nota</string>
     <string name="texto_19">Añadir nota</string>
     <string name="texto_20">Remover nota</string>
+    <string name="texto_21">Calcular nota para pasar</string>
     <string name="simbolo">%</string>
     <string name="vacio">Texto vacío</string>
 

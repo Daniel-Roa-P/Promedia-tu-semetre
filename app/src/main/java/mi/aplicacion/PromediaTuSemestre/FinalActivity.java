@@ -5,6 +5,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -16,10 +17,10 @@ public class FinalActivity extends AppCompatActivity {
     private Preferencias pref;
 
     private ArrayList<Contenedor> notasGuardadas;
-    private Button añadir;
+    private Button añadir,remover;
     private ListView vista;
 
-    public int indice = 1;
+    public int indice = 0;
 
     private ItemListAdapter adapter;
 
@@ -46,20 +47,47 @@ public class FinalActivity extends AppCompatActivity {
         notasGuardadas = new ArrayList<Contenedor>();
         vista = (ListView) findViewById(R.id.listaFinal);
         añadir = (Button) findViewById(R.id.botonAñadir);
+        remover = (Button) findViewById(R.id.botonRetirar);
 
         añadir.setOnClickListener(new View.OnClickListener() {
 
             public void onClick(View v) {
 
-                Contenedor con = new Contenedor();
-                con.setTexto1(""+indice+"");
-
                 indice++;
+
+                Contenedor con = new Contenedor();
+
+                con.setTexto1("Nota "+ indice +":");
+                con.setTexto2("Porcentaje "+":");
+                con.setTexto3("%");
 
                 notasGuardadas.add(con);
 
                 adapter = new ItemListAdapter(FinalActivity.this, R.layout.espacios,notasGuardadas);
                 vista.setAdapter(adapter);
+
+            }
+        });
+
+        remover.setOnClickListener(new View.OnClickListener() {
+
+            public void onClick(View v) {
+
+                if(notasGuardadas.size() >1) {
+
+                    indice--;
+
+                    notasGuardadas.remove(notasGuardadas.size() - 1);
+
+                    adapter = new ItemListAdapter(FinalActivity.this, R.layout.espacios, notasGuardadas);
+                    vista.setAdapter(adapter);
+
+                } else {
+
+                    Toast.makeText(FinalActivity.this,
+                            "minimo debe haber una nota", Toast.LENGTH_LONG).show();
+
+                }
 
             }
         });
