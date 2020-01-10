@@ -1,17 +1,18 @@
 package mi.aplicacion.PromediaTuSemestre;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.content.res.Resources;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ListView;
 import android.widget.Toast;
-
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
-
+import java.text.DecimalFormat;
 import java.util.ArrayList;
-
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -19,19 +20,23 @@ public class SecondActivity extends AppCompatActivity {
 
     private ItemListAdapter adapter;
     private ListView listaNotas;
+    private int indicadorFinal = 0;
     private int cuadros,llenos,totalPorcentajes,indicador;
     private double rango,denominador;
-    private String t1,t2,t3;
+    private String t1,t2,t3,textoNota,textoFrase,idImagen;
+    private double notaFinal = 0;
     private AdView mAdView;
-
+    private DecimalFormat df = new DecimalFormat("#.000");
+    private Resources res;
     public Preferencias pref;
 
-    public static ArrayList<Contenedor>lista;
+    public ArrayList<Contenedor>lista;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
         pref = new Preferencias(this);
+        res = getResources();
 
         if(pref.loadNightModelState() == true){
 
@@ -131,11 +136,61 @@ public class SecondActivity extends AppCompatActivity {
             totalPorcentajes=0;
             rango=0;
 
+            for(int i=0;i<lista.size();i++){
+
+                notaFinal =  notaFinal + (Double.parseDouble(lista.get(i).getNota())*Integer.parseInt(lista.get(i).getPorcentaje()))/denominador;
+
+            }
+
+            SharedPreferences preferenciaFrase = getSharedPreferences("frase", Context.MODE_PRIVATE);
+            indicadorFinal = preferenciaFrase.getInt("opcion",0);
+
+            if(indicadorFinal==2){
+
+                indicadorFinal=(int) (2*Math.random());
+
+            }
+
+            if(notaFinal>=0 && notaFinal<2){
+
+                eleccion(res.getStringArray(R.array.frases1));
+
+            } else if (notaFinal>=2 && notaFinal<3) {
+
+                eleccion(res.getStringArray(R.array.frases2));
+
+            } else if (notaFinal>=3 && notaFinal<3.5) {
+
+                eleccion(res.getStringArray(R.array.frases3));
+
+            } else if (notaFinal>=3.5 && notaFinal<4.5) {
+
+                eleccion(res.getStringArray(R.array.frases4));
+
+            } else if (notaFinal>=4.5 && notaFinal<=5) {
+
+                eleccion(res.getStringArray(R.array.frases5));
+
+            }
+
             Intent cambio = new Intent(this, ThirdActivity.class);
-            cambio.putExtra("denominadorFinal",denominador);
+            cambio.putExtra("textoFrase",textoFrase);
+            cambio.putExtra("textoNota",textoNota);
+            cambio.putExtra("idImagen",idImagen);
 
             startActivity(cambio);
         }
+
+    }
+
+    public void eleccion(String[] seleccionada){
+
+        int indice = (int) ((seleccionada.length/4)*Math.random());
+        indice = (indice*2)+((seleccionada.length/2)*indicadorFinal);
+
+        textoNota = "Tu promedio es: "+ df.format(notaFinal);
+        textoFrase = seleccionada[indice];
+        idImagen = seleccionada[indice+1];
 
     }
 
