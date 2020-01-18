@@ -1,6 +1,8 @@
 package mi.aplicacion.PromediaTuSemestre;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
@@ -24,12 +26,12 @@ public class FinalActivity extends AppCompatActivity {
 
     public int indice = 0;
     private int llenos,totalPorcentajes,porcentajeRestante;
-    private double notaAcumulada;
+    private double notaAcumulada,notaFaltante;
     private double rango;
     private DecimalFormat df = new DecimalFormat("#.000");
 
     private ItemListAdapter adapter;
-
+    private int indicadorFinal = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -151,6 +153,15 @@ public class FinalActivity extends AppCompatActivity {
 
             porcentajeRestante = 100 - totalPorcentajes;
 
+            SharedPreferences preferenciaFrase = getSharedPreferences("frase", Context.MODE_PRIVATE);
+            indicadorFinal = preferenciaFrase.getInt("opcion",0);
+
+            if(indicadorFinal==2){
+
+                indicadorFinal=(int) (2*Math.random());
+
+            }
+
             for(int i=0;i<lista.size();i++){
 
                 notaAcumulada =  notaAcumulada + (Double.parseDouble(lista.get(i).getNota())*Integer.parseInt(lista.get(i).getPorcentaje()));
@@ -158,13 +169,16 @@ public class FinalActivity extends AppCompatActivity {
 
             }
 
+            notaFaltante = (300.0 - notaAcumulada)/porcentajeRestante;
+
             Intent cambio = new Intent(this, ThirdActivity.class);
-            cambio.putExtra("textoFrase","Necesitas un " + df.format((300.0 - notaAcumulada)/porcentajeRestante) + " Para pasar");
-            cambio.putExtra("textoNota","suma porcentajes" + totalPorcentajes);
-            cambio.putExtra("idImagen","sarcasmo-0-2");
+            cambio.putExtra("textoFrase","suma porcentajes" + totalPorcentajes);
+            cambio.putExtra("textoNota", "Necesitas un " + df.format((Double.toString(notaFaltante)) + " Para pasar"));
+            cambio.putExtra("idImagen","sarcasmoFinal-0-2");
 
             llenos=0;
             rango=0;
+            notaFaltante=0;
             notaAcumulada = 0;
             totalPorcentajes = 0;
 
@@ -186,6 +200,5 @@ public class FinalActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
 
     }
-
 
 }
