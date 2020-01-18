@@ -1,8 +1,6 @@
 package mi.aplicacion.PromediaTuSemestre;
 
-import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
@@ -10,6 +8,7 @@ import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 
 import androidx.annotation.NonNull;
@@ -24,9 +23,10 @@ public class FinalActivity extends AppCompatActivity {
     private ListView vista;
 
     public int indice = 0;
-    private int llenos,totalPorcentajes;
-    private double notaFinal = 0;
+    private int llenos,totalPorcentajes,porcentajeRestante;
+    private double notaAcumulada;
     private double rango;
+    private DecimalFormat df = new DecimalFormat("#.000");
 
     private ItemListAdapter adapter;
 
@@ -149,20 +149,23 @@ public class FinalActivity extends AppCompatActivity {
 
         } else {
 
+            porcentajeRestante = 100 - totalPorcentajes;
+
             for(int i=0;i<lista.size();i++){
 
-                notaFinal =  notaFinal + (Double.parseDouble(lista.get(i).getNota()));
+                notaAcumulada =  notaAcumulada + (Double.parseDouble(lista.get(i).getNota())*Integer.parseInt(lista.get(i).getPorcentaje()));
+
 
             }
 
             Intent cambio = new Intent(this, ThirdActivity.class);
-            cambio.putExtra("textoFrase","suma Notas " + notaFinal);
+            cambio.putExtra("textoFrase","Necesitas un " + df.format((300.0 - notaAcumulada)/porcentajeRestante) + " Para pasar");
             cambio.putExtra("textoNota","suma porcentajes" + totalPorcentajes);
             cambio.putExtra("idImagen","sarcasmo-0-2");
 
             llenos=0;
             rango=0;
-            notaFinal = 0;
+            notaAcumulada = 0;
             totalPorcentajes = 0;
 
             startActivity(cambio);
