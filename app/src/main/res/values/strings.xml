@@ -152,4 +152,72 @@
 
     </string-array>
 
+    <string-array name="frase_final_1">
+
+        <item>Ya perdiste, Esfuérzate un poco más el siguiente semestre</item>
+        <item>optimistaFinal-0-1</item>
+        <item>Ya no hay nada que hacer, dedícale tiempo a otras materias</item>
+        <item>optimistaFinal-0-2</item>
+        <item>Perdiste, sigue asistiendo a clase para no tener dificultades cuando la repitas.</item>
+        <item>optimistaFinal-0-3</item>
+        <item>¿no sé qué esperabas tenido esas notas?</item>
+        <item>sarcasmoFinal-0-1</item>
+        <item>Como que el estudio no es lo tuyo ¿verdad?</item>
+        <item>sarcasmoFinal-0-2</item>
+        <item>Deja de hacerle perder tiempo al profesor</item>
+        <item>sarcasmoFinal-0-3</item>
+
+    </string-array>
+
+    <string-array name="frase_final_2">
+
+        <item>No te rindas, parece difícil, pero los limites los pones tú</item>
+        <item>optimistaFinal-1-1</item>
+        <item>Estudia un poco más y lo lograras</item>
+        <item>optimistaFinal-1-2</item>
+        <item>Supera las expectativas y demuestra que eres el mejor</item>
+        <item>optimistaFinal-1-3</item>
+        <item>Mejor ni lo intentes, esta fuera de tus posibilidades viendo esas notas</item>
+        <item>sarcasmoFinal-1-1</item>
+        <item>No lograras salvar todo un semestre en tan solo una semana</item>
+        <item>sarcasmoFinal-1-2</item>
+        <item>No tengo ni idea de cómo le harás para pasar.</item>
+        <item>sarcasmoFinal-1-3</item>
+
+    </string-array>
+
+    <string-array name="frase_final_3">
+
+        <item>Vas en buen camino, solo sigue trabajando como lo has hecho todo este tiempo</item>
+        <item>optimistaFinal-2-1</item>
+        <item>Sigue así, viendo el desempeño que has tenido no te costara mucho pasar</item>
+        <item>optimistaFinal-2-2</item>
+        <item>Ya te falta muy poco, aun así, no te confíes</item>
+        <item>optimistaFinal-2-3</item>
+        <item>Supongo que te seguirás acostando tarde para pasar algo que dentro de un mes ni te acordaras</item>
+        <item>sarcasmoFinal-2-1</item>
+        <item>No te falta mucho, sería una lástima que lo arruinaras al final</item>
+        <item>sarcasmoFinal-2-2</item>
+        <item>Reza para que la suerte siga de tu lado</item>
+        <item>sarcasmoFinal-2-3</item>
+
+    </string-array>
+
+    <string-array name="frase_final_4">
+
+        <item>Muy buen trabajo, ya pasaste </item>
+        <item>optimistaFinal-3-1</item>
+        <item>No necesitas más nota, aun así, estudia para dejarla alta</item>
+        <item>optimistaFinal-3-2</item>
+        <item>Ya pasaste, ahora si te puedes tomar un descanso</item>
+        <item>optimistaFinal-3-3</item>
+        <item>Gracias por hacer lo que tus obligaciones supongo</item>
+        <item>sarcasmoFinal-3-1</item>
+        <item>No todo en la vida es sacar buenas notas</item>
+        <item>sarcasmoFinal-3-2</item>
+        <item>Seguramente le pediste una “ayudita” al profesor</item>
+        <item>sarcasmoFinal-3-3</item>
+
+    </string-array>
+
 </resources>
