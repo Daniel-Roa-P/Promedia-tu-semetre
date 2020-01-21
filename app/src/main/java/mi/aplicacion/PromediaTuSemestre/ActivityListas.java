@@ -2,14 +2,13 @@ package mi.aplicacion.PromediaTuSemestre;
 
 import android.content.Context;
 import android.content.res.Resources;
+import android.view.MenuItem;
 import android.widget.ListView;
 import android.widget.Toast;
-
 import com.google.android.gms.ads.AdView;
-
 import java.text.DecimalFormat;
 import java.util.ArrayList;
-
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class ActivityListas extends AppCompatActivity {
@@ -27,13 +26,14 @@ public class ActivityListas extends AppCompatActivity {
     protected int llenos, totalPorcentajes;
     protected double rango;
     protected double denominador;
+    protected String textoInicial, textoFinal;
 
     public void eleccion(String[] seleccionada) {
 
         int indice = (int) ((seleccionada.length / 4) * Math.random());
         indice = (indice * 2) + ((seleccionada.length / 2) * indicadorFinal);
 
-        textoNota = "Tu promedio es: " + df.format(notaFinal);
+        textoNota =  textoInicial + df.format(notaFinal) + textoFinal;
         textoFrase = seleccionada[indice];
         idImagen = seleccionada[indice + 1];
 
@@ -80,5 +80,42 @@ public class ActivityListas extends AppCompatActivity {
         rango = 0;
 
     }
+
+    protected void revision(){
+
+        for (int i = 0; i < lista.size(); i++) {
+
+            if (!lista.get(i).getNota().equals("") && !lista.get(i).getPorcentaje().equals("")
+                    && !(lista.get(i).getPorcentaje().length()>=6) && !(lista.get(i).getNota().equals("."))) {
+
+                if (Double.parseDouble(lista.get(i).getNota()) >= 0 && Double.parseDouble(lista.get(i).getNota()) <= 5) {
+
+                    rango++;
+
+                }
+
+                llenos++;
+
+                totalPorcentajes = totalPorcentajes + Integer.parseInt(lista.get(i).getPorcentaje());
+            }
+
+        }
+
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+
+        int id = item.getItemId();
+
+        if (id == android.R.id.home) {
+            finish();
+        }
+
+        return super.onOptionsItemSelected(item);
+
+    }
+
+    protected void eleccionFrases(){};
 
 }

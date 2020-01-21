@@ -4,13 +4,11 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.ListView;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 import java.util.ArrayList;
-import androidx.annotation.NonNull;
 
 public class SecondActivity extends ActivityListas {
 
@@ -44,6 +42,9 @@ public class SecondActivity extends ActivityListas {
         AdRequest adRequest = new AdRequest.Builder().build();
         mAdView.loadAd(adRequest);
 
+        textoInicial = "Tu promedio es: ";
+        textoFinal = "";
+
         t1 = getIntent().getStringExtra("texto1");
         t2 = getIntent().getStringExtra("texto2");
         t3 = getIntent().getStringExtra("texto3");
@@ -69,22 +70,7 @@ public class SecondActivity extends ActivityListas {
 
     public void cambiar(View view) {
 
-        for (int i = 0; i < lista.size(); i++) {
-
-            if (!lista.get(i).getNota().equals("") && !lista.get(i).getPorcentaje().equals("") && !(lista.get(i).getPorcentaje().length()>=6) && !(lista.get(i).getNota().equals("."))) {
-
-                if (Double.parseDouble(lista.get(i).getNota()) >= 0 && Double.parseDouble(lista.get(i).getNota()) <= 5) {
-
-                    rango++;
-
-                }
-
-                llenos++;
-
-                totalPorcentajes = totalPorcentajes + Integer.parseInt(lista.get(i).getPorcentaje());
-            }
-
-        }
+        revision();
 
         if (validacion(SecondActivity.this)){
 
@@ -105,27 +91,7 @@ public class SecondActivity extends ActivityListas {
 
             }
 
-            if(notaFinal>=0 && notaFinal<2){
-
-                eleccion(res.getStringArray(R.array.frases1));
-
-            } else if (notaFinal>=2 && notaFinal<3) {
-
-                eleccion(res.getStringArray(R.array.frases2));
-
-            } else if (notaFinal>=3 && notaFinal<3.5) {
-
-                eleccion(res.getStringArray(R.array.frases3));
-
-            } else if (notaFinal>=3.5 && notaFinal<4.5) {
-
-                eleccion(res.getStringArray(R.array.frases4));
-
-            } else if (notaFinal>=4.5 && notaFinal<=5) {
-
-                eleccion(res.getStringArray(R.array.frases5));
-
-            }
+            eleccionFrases();
 
             Intent cambio = new Intent(this, ThirdActivity.class);
             cambio.putExtra("textoFrase",textoFrase);
@@ -139,16 +105,29 @@ public class SecondActivity extends ActivityListas {
     }
 
     @Override
-    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+    protected void eleccionFrases() {
 
-        int id = item.getItemId();
+        if(notaFinal>=0 && notaFinal<2){
 
-        if (id == android.R.id.home) {
-            finish();
+            eleccion(res.getStringArray(R.array.frases1));
+
+        } else if (notaFinal>=2 && notaFinal<3) {
+
+            eleccion(res.getStringArray(R.array.frases2));
+
+        } else if (notaFinal>=3 && notaFinal<3.5) {
+
+            eleccion(res.getStringArray(R.array.frases3));
+
+        } else if (notaFinal>=3.5 && notaFinal<4.5) {
+
+            eleccion(res.getStringArray(R.array.frases4));
+
+        } else if (notaFinal>=4.5 && notaFinal<=5) {
+
+            eleccion(res.getStringArray(R.array.frases5));
+
         }
 
-        return super.onOptionsItemSelected(item);
-
     }
-
 }

@@ -4,25 +4,22 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Toast;
 import java.util.ArrayList;
-import androidx.annotation.NonNull;
 
 public class FinalActivity extends ActivityListas {
 
     private Button añadir,remover;
-
-    public int indice = 0;
-    private int porcentajeRestante;
+    private int porcentajeRestante,indice = 0;
     private double notaAcumulada;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
+        res = getResources();
         pref = new Preferencias(this);
 
         if(pref.loadNightModelState() == true){
@@ -43,8 +40,9 @@ public class FinalActivity extends ActivityListas {
         listaNotas = (ListView) findViewById(R.id.listaFinal);
         añadir = (Button) findViewById(R.id.botonAñadir);
         remover = (Button) findViewById(R.id.botonRetirar);
-
         advertenciaPocentajes = "la suma de los porcentajes debe estar entre 1 a 100";
+        textoInicial = "Necesitas un ";
+        textoFinal = " Para pasar";
 
         añadir.setOnClickListener(new View.OnClickListener() {
 
@@ -93,23 +91,7 @@ public class FinalActivity extends ActivityListas {
 
     public void calcularFaltante(View view){
 
-        for (int i = 0; i < lista.size(); i++) {
-
-            if (!lista.get(i).getNota().equals("") && !lista.get(i).getPorcentaje().equals("")
-                    && !(lista.get(i).getPorcentaje().length()>=6) && !(lista.get(i).getNota().equals("."))) {
-
-                if (Double.parseDouble(lista.get(i).getNota()) >= 0 && Double.parseDouble(lista.get(i).getNota()) <= 5) {
-
-                    rango++;
-
-                }
-
-                llenos++;
-
-                totalPorcentajes = totalPorcentajes + Integer.parseInt(lista.get(i).getPorcentaje());
-            }
-
-        }
+        revision();
 
         denominador = totalPorcentajes;
 
@@ -130,15 +112,16 @@ public class FinalActivity extends ActivityListas {
 
                 notaAcumulada =  notaAcumulada + (Double.parseDouble(lista.get(i).getNota())*Integer.parseInt(lista.get(i).getPorcentaje()));
 
-
             }
 
             notaFinal = (300.0 - notaAcumulada)/porcentajeRestante;
 
+            eleccionFrases();
+
             Intent cambio = new Intent(this, ThirdActivity.class);
-            cambio.putExtra("textoFrase","suma porcentajes" + totalPorcentajes);
-            cambio.putExtra("textoNota", "Necesitas un " + df.format(notaFinal) + " Para pasar");
-            cambio.putExtra("idImagen","sarcasmoFinal-0-2");
+            cambio.putExtra("textoFrase",textoFrase);
+            cambio.putExtra("textoNota", textoNota);
+            cambio.putExtra("idImagen",idImagen);
 
             resetValues();
             notaFinal=0;
@@ -151,16 +134,24 @@ public class FinalActivity extends ActivityListas {
     }
 
     @Override
-    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+    protected void eleccionFrases() {
 
-        int id = item.getItemId();
+        if(notaFinal>5){
 
-        if (id == android.R.id.home) {
-            finish();
+            eleccion(res.getStringArray(R.array.frase_final_1));
+
+        } else if (notaFinal>=3 && notaFinal<=5) {
+
+            eleccion(res.getStringArray(R.array.frase_final_2));
+
+        } else if (notaFinal>=0.1 && notaFinal<3) {
+
+            eleccion(res.getStringArray(R.array.frase_final_3));
+
+        } else if (notaFinal<0.1) {
+
+            eleccion(res.getStringArray(R.array.frase_final_4));
+
         }
-
-        return super.onOptionsItemSelected(item);
-
     }
-
 }
