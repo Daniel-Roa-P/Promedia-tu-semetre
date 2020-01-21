@@ -9,29 +9,16 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Toast;
-
-import java.text.DecimalFormat;
 import java.util.ArrayList;
-
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
 
-public class FinalActivity extends AppCompatActivity {
+public class FinalActivity extends ActivityListas {
 
-    private Preferencias pref;
-
-    private ArrayList<Contenedor> lista;
     private Button añadir,remover;
-    private ListView vista;
 
     public int indice = 0;
-    private int llenos,totalPorcentajes,porcentajeRestante;
-    private double notaAcumulada,notaFaltante;
-    private double rango;
-    private DecimalFormat df = new DecimalFormat("#.000");
-
-    private ItemListAdapter adapter;
-    private int indicadorFinal = 0;
+    private int porcentajeRestante;
+    private double notaAcumulada;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,9 +40,11 @@ public class FinalActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         lista = new ArrayList<Contenedor>();
-        vista = (ListView) findViewById(R.id.listaFinal);
+        listaNotas = (ListView) findViewById(R.id.listaFinal);
         añadir = (Button) findViewById(R.id.botonAñadir);
         remover = (Button) findViewById(R.id.botonRetirar);
+
+        advertenciaPocentajes = "la suma de los porcentajes debe estar entre 1 a 100";
 
         añadir.setOnClickListener(new View.OnClickListener() {
 
@@ -72,7 +61,7 @@ public class FinalActivity extends AppCompatActivity {
                 lista.add(con);
 
                 adapter = new ItemListAdapter(FinalActivity.this, R.layout.espacios,lista);
-                vista.setAdapter(adapter);
+                listaNotas.setAdapter(adapter);
 
             }
         });
@@ -88,7 +77,7 @@ public class FinalActivity extends AppCompatActivity {
                     lista.remove(lista.size() - 1);
 
                     adapter = new ItemListAdapter(FinalActivity.this, R.layout.espacios, lista);
-                    vista.setAdapter(adapter);
+                    listaNotas.setAdapter(adapter);
 
                 } else {
 
@@ -122,34 +111,9 @@ public class FinalActivity extends AppCompatActivity {
 
         }
 
-        if (!(llenos == lista.size())) {
+        denominador = totalPorcentajes;
 
-            Toast.makeText(FinalActivity.this,
-                    "Por favor llene bien todos los campos de texto", Toast.LENGTH_LONG).show();
-
-            llenos = 0;
-            totalPorcentajes = 0;
-            rango = 0;
-
-        } else if( (totalPorcentajes > 100) || (totalPorcentajes < 1)) {
-
-            Toast.makeText(FinalActivity.this,
-                    "la suma de los porcentajes debe estar entre 1 a 100", Toast.LENGTH_LONG).show();
-
-            llenos = 0;
-            totalPorcentajes = 0;
-            rango = 0;
-
-        } else if(!(rango==lista.size())) {
-
-            Toast.makeText(FinalActivity.this,
-                    "ingrese las notas en el rango indicado", Toast.LENGTH_LONG).show();
-
-            llenos = 0;
-            totalPorcentajes = 0;
-            rango = 0;
-
-        } else {
+        if (validacion(FinalActivity.this)) {
 
             porcentajeRestante = 100 - totalPorcentajes;
 
@@ -169,18 +133,16 @@ public class FinalActivity extends AppCompatActivity {
 
             }
 
-            notaFaltante = (300.0 - notaAcumulada)/porcentajeRestante;
+            notaFinal = (300.0 - notaAcumulada)/porcentajeRestante;
 
             Intent cambio = new Intent(this, ThirdActivity.class);
             cambio.putExtra("textoFrase","suma porcentajes" + totalPorcentajes);
-            cambio.putExtra("textoNota", "Necesitas un " + df.format((Double.toString(notaFaltante)) + " Para pasar"));
+            cambio.putExtra("textoNota", "Necesitas un " + df.format(notaFinal) + " Para pasar");
             cambio.putExtra("idImagen","sarcasmoFinal-0-2");
 
-            llenos=0;
-            rango=0;
-            notaFaltante=0;
+            resetValues();
+            notaFinal=0;
             notaAcumulada = 0;
-            totalPorcentajes = 0;
 
             startActivity(cambio);
 

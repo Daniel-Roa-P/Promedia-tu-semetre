@@ -3,38 +3,18 @@ package mi.aplicacion.PromediaTuSemestre;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.content.res.Resources;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ListView;
-import android.widget.Toast;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
-import java.text.DecimalFormat;
 import java.util.ArrayList;
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
 
-public class SecondActivity extends AppCompatActivity {
+public class SecondActivity extends ActivityListas {
 
-    private ItemListAdapter adapter;
-
-    private ListView listaNotas;
-    private AdView mAdView;
-
-    private int indicadorFinal = 0;
-    private int cuadros,llenos,totalPorcentajes;
-    private double rango,denominador;
-    private double notaFinal = 0;
-    private String t1,t2,t3,textoNota,textoFrase,idImagen;
-
-
-    private DecimalFormat df = new DecimalFormat("#.000");
-    private Resources res;
-    private Preferencias pref;
-
-    private ArrayList<Contenedor>lista;
+    private String t1, t2, t3;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,15 +44,15 @@ public class SecondActivity extends AppCompatActivity {
         AdRequest adRequest = new AdRequest.Builder().build();
         mAdView.loadAd(adRequest);
 
-        cuadros = Integer.parseInt(getIntent().getStringExtra("cantidad"));
-
         t1 = getIntent().getStringExtra("texto1");
         t2 = getIntent().getStringExtra("texto2");
         t3 = getIntent().getStringExtra("texto3");
 
         denominador = getIntent().getIntExtra("denominador",100);
 
-        for (int i = 1; i <= cuadros; i++) {
+        advertenciaPocentajes = "la suma de los "+ t2 +"s debe ser " + denominador;
+
+        for (int i = 1; i <= Integer.parseInt(getIntent().getStringExtra("cantidad")); i++) {
             Contenedor contenedor=new Contenedor();
 
             contenedor.setTexto1(t1+ i +":");
@@ -106,38 +86,9 @@ public class SecondActivity extends AppCompatActivity {
 
         }
 
-        if (!(llenos == cuadros)) {
+        if (validacion(SecondActivity.this)){
 
-            Toast.makeText(SecondActivity.this,
-                    "Por favor llene bien todos los campos de texto", Toast.LENGTH_LONG).show();
-
-            llenos = 0;
-            totalPorcentajes = 0;
-            rango = 0;
-
-        } else if(!(totalPorcentajes == denominador)) {
-
-            Toast.makeText(SecondActivity.this,
-                    "la suma de los "+ t2 +"s debe ser " + denominador, Toast.LENGTH_LONG).show();
-
-            llenos = 0;
-            totalPorcentajes = 0;
-            rango = 0;
-
-        } else if(!(rango==cuadros)) {
-
-            Toast.makeText(SecondActivity.this,
-                    "ingrese las notas en el rango indicado", Toast.LENGTH_LONG).show();
-
-            llenos = 0;
-            totalPorcentajes = 0;
-            rango = 0;
-
-        } else {
-
-            llenos=0;
-            totalPorcentajes=0;
-            rango=0;
+            resetValues();
 
             for(int i=0;i<lista.size();i++){
 
@@ -184,19 +135,6 @@ public class SecondActivity extends AppCompatActivity {
             startActivity(cambio);
 
         }
-
-    }
-
-    public void eleccion(String[] seleccionada){
-
-        int indice = (int) ((seleccionada.length/4)*Math.random());
-        indice = (indice*2)+((seleccionada.length/2)*indicadorFinal);
-
-        textoNota = "Tu promedio es: "+ df.format(notaFinal);
-        textoFrase = seleccionada[indice];
-        idImagen = seleccionada[indice+1];
-
-        notaFinal=0;
 
     }
 
