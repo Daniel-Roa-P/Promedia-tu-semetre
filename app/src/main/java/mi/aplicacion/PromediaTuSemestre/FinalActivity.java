@@ -5,9 +5,16 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.Spinner;
 import android.widget.Toast;
+
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+
 import java.util.ArrayList;
 
 public class FinalActivity extends ActivityListas {
@@ -15,6 +22,7 @@ public class FinalActivity extends ActivityListas {
     private Button añadir,remover;
     private int porcentajeRestante,indice = 0;
     private double notaAcumulada;
+    private Spinner spinner;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,9 +48,19 @@ public class FinalActivity extends ActivityListas {
         listaNotas = (ListView) findViewById(R.id.listaFinal);
         añadir = (Button) findViewById(R.id.botonAñadir);
         remover = (Button) findViewById(R.id.botonRetirar);
+
+        spinner = (Spinner) findViewById(R.id.eleccionFraseFinal);
+        ArrayAdapter opciones = ArrayAdapter.createFromResource(this, R.array.elementos, R.layout.elementos_spinner);
+        spinner.setAdapter(opciones);
+
+        SharedPreferences preferenciaFrase = getSharedPreferences("frase", Context.MODE_PRIVATE);
+        spinner.setSelection(preferenciaFrase.getInt("opcion",0));
+
+        mAdView = (AdView) findViewById(R.id.anuncio6);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
+
         advertenciaPocentajes = "la suma de los porcentajes debe estar entre 1 a 100";
-        textoInicial = "Necesitas un ";
-        textoFinal = " Para pasar";
 
         añadir.setOnClickListener(new View.OnClickListener() {
 
@@ -87,6 +105,24 @@ public class FinalActivity extends ActivityListas {
             }
         });
 
+        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
+
+                SharedPreferences opcion = getSharedPreferences("frase",Context.MODE_PRIVATE);
+                SharedPreferences.Editor objetoEditor = opcion.edit();
+                objetoEditor.putInt("opcion",spinner.getSelectedItemPosition());
+                objetoEditor.commit();
+
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parentView) {
+                // your code here
+            }
+
+        });
+
     }
 
     public void calcularFaltante(View view){
@@ -99,6 +135,40 @@ public class FinalActivity extends ActivityListas {
 
             porcentajeRestante = 100 - totalPorcentajes;
 
+            if(porcentajeRestante !=0){
+
+                for(int i=0;i<lista.size();i++){
+
+                    notaAcumulada =  notaAcumulada + (Double.parseDouble(lista.get(i).getNota())*Integer.parseInt(lista.get(i).getPorcentaje()));
+                    textoInicial = "Necesitas un ";
+                    textoFinal = " Para pasar";
+
+                }
+
+                notaFinal = (300.0 - notaAcumulada)/porcentajeRestante;
+
+            } else {
+
+                for(int i=0;i<lista.size();i++){
+
+                    notaFinal =  notaFinal + (Double.parseDouble(lista.get(i).getNota())*Integer.parseInt(lista.get(i).getPorcentaje()))/100;
+
+                }
+
+                if(notaFinal >= 3){
+
+                    textoInicial = "Ya pasaste con: ";
+                    textoFinal = ", pues ingreaste el 100 % de las notas";
+
+                } else {
+
+                    textoInicial = "Ya perdiste con: ";
+                    textoFinal = ", pues ingreaste el 100 % de las notas";
+
+                }
+
+            }
+
             SharedPreferences preferenciaFrase = getSharedPreferences("frase", Context.MODE_PRIVATE);
             indicadorFinal = preferenciaFrase.getInt("opcion",0);
 
@@ -107,14 +177,6 @@ public class FinalActivity extends ActivityListas {
                 indicadorFinal=(int) (2*Math.random());
 
             }
-
-            for(int i=0;i<lista.size();i++){
-
-                notaAcumulada =  notaAcumulada + (Double.parseDouble(lista.get(i).getNota())*Integer.parseInt(lista.get(i).getPorcentaje()));
-
-            }
-
-            notaFinal = (300.0 - notaAcumulada)/porcentajeRestante;
 
             eleccionFrases();
 

@@ -22,7 +22,6 @@ public class ActivityMateria extends AppCompatActivity {
 
     private EditText cantidad;
     private AdView mAdView;
-    private int motivacion=0;
     private Preferencias pref;
     private Spinner spinner;
 

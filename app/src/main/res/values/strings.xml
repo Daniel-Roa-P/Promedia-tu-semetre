@@ -22,6 +22,7 @@
     <string name="texto_19">Añadir nota</string>
     <string name="texto_20">Remover nota</string>
     <string name="texto_21">Calcular nota para pasar</string>
+    <string name="texto_22">Elija el tipo de mensaje que desea recibir según su nota faltante</string>
     <string name="simbolo">%</string>
     <string name="vacio">Texto vacío</string>
 
