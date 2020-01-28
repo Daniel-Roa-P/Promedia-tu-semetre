@@ -99,7 +99,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="329dp"
         app:adSize="BANNER"
-        app:adUnitId="ca-app-pub-8837572421295884/1174014512"
+        app:adUnitId="@string/idBanner"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

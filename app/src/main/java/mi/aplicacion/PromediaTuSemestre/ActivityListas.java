@@ -18,7 +18,7 @@ public class ActivityListas extends AppCompatActivity {
     protected ListView listaNotas;
     protected ItemListAdapter adapter;
     protected AdView mAdView;
-    protected DecimalFormat df = new DecimalFormat("#.000");
+    protected DecimalFormat df = new DecimalFormat("0.000");
     protected Resources res;
     protected String textoNota, textoFrase, idImagen, advertenciaPocentajes;
     protected double notaFinal = 0;

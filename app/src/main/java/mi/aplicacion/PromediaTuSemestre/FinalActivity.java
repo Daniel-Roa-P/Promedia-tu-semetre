@@ -158,12 +158,12 @@ public class FinalActivity extends ActivityListas {
                 if(notaFinal >= 3){
 
                     textoInicial = "Ya pasaste con: ";
-                    textoFinal = ", pues ingreaste el 100 % de las notas";
+                    textoFinal = ", pues ingresaste el 100 % de las notas";
 
                 } else {
 
                     textoInicial = "Ya perdiste con: ";
-                    textoFinal = ", pues ingreaste el 100 % de las notas";
+                    textoFinal = ", pues ingresaste el 100 % de las notas";
 
                 }
 
@@ -198,22 +198,51 @@ public class FinalActivity extends ActivityListas {
     @Override
     protected void eleccionFrases() {
 
-        if(notaFinal>5){
+        if(porcentajeRestante != 0) {
 
-            eleccion(res.getStringArray(R.array.frase_final_1));
+            if (notaFinal > 5) {
 
-        } else if (notaFinal>=3 && notaFinal<=5) {
+                eleccion(res.getStringArray(R.array.frase_final_1));
 
-            eleccion(res.getStringArray(R.array.frase_final_2));
+            } else if (notaFinal >= 3 && notaFinal <= 5) {
 
-        } else if (notaFinal>=0.1 && notaFinal<3) {
+                eleccion(res.getStringArray(R.array.frase_final_2));
 
-            eleccion(res.getStringArray(R.array.frase_final_3));
+            } else if (notaFinal >= 0.1 && notaFinal < 3) {
 
-        } else if (notaFinal<0.1) {
+                eleccion(res.getStringArray(R.array.frase_final_3));
 
-            eleccion(res.getStringArray(R.array.frase_final_4));
+            } else if (notaFinal < 0.1) {
+
+                eleccion(res.getStringArray(R.array.frase_final_4));
+
+            }
+
+        } else {
+
+            if(notaFinal>=0 && notaFinal<2){
+
+                eleccion(res.getStringArray(R.array.frases1));
+
+            } else if (notaFinal>=2 && notaFinal<3) {
+
+                eleccion(res.getStringArray(R.array.frases2));
+
+            } else if (notaFinal>=3 && notaFinal<3.5) {
+
+                eleccion(res.getStringArray(R.array.frases3));
+
+            } else if (notaFinal>=3.5 && notaFinal<4.5) {
+
+                eleccion(res.getStringArray(R.array.frases4));
+
+            } else if (notaFinal>=4.5 && notaFinal<=5) {
+
+                eleccion(res.getStringArray(R.array.frases5));
+
+            }
 
         }
+
     }
 }

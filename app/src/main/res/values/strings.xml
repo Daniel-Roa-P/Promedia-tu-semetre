@@ -32,6 +32,8 @@
 
     <string name="llave" translatable="false">Mensaje</string>
 
+    <string name="idBanner">ca-app-pub-3940256099942544/6300978111</string>
+
     <string-array name="frases1">
 
         <item>Las cosas empiezan desde cero</item>
