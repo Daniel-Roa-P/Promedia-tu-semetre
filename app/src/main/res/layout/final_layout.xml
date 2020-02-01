@@ -27,9 +27,12 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="5dp"
         android:layout_marginEnd="16dp"
-        android:background="#2196F3"
+        android:background="@drawable/boton_materia"
+        android:fontFamily="sans-serif-condensed-medium"
         android:onClick="calcularFaltante"
         android:text="@string/texto_21"
+        android:textSize="20sp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/eleccionFraseFinal" />
@@ -51,8 +54,9 @@
         android:layout_width="160dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="4dp"
-        android:background="#8BC34A"
+        android:background="@drawable/boton_semestre"
         android:text="@string/texto_19"
+        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/listaFinal" />
 
@@ -91,8 +95,9 @@
         android:layout_width="160dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="4dp"
-        android:background="#E91E1E"
+        android:background="@drawable/boton_remover"
         android:text="@string/texto_20"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/listaFinal" />
 

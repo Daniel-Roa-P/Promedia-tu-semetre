@@ -38,14 +38,17 @@
 
     <Button
         android:id="@+id/botonCalcular"
-        android:layout_width="190dp"
+        android:layout_width="340dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="110dp"
         android:layout_marginTop="20dp"
         android:layout_marginEnd="111dp"
-        android:background="#FF9800"
+        android:background="@drawable/boton_promedio"
+        android:fontFamily="sans-serif-condensed-medium"
         android:onClick="cambiar"
         android:text="Calcular Promedio"
+        android:textSize="24sp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/lista" />
