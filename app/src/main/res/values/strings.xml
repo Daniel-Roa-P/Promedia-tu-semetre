@@ -37,189 +37,189 @@
     <string-array name="frases1">
 
         <item>Las cosas empiezan desde cero</item>
-        <item>optimista-0-1</item>
+        <item>optimista01</item>
         <item>Al menos no te estresaste</item>
-        <item>optimista-0-2</item>
+        <item>optimista02</item>
         <item>Una nota no te define</item>
-        <item>optimista-0-3</item>
+        <item>optimista03</item>
         <item>Asiste un poco más a clases</item>
-        <item>optimista-0-4</item>
+        <item>optimista04</item>
         <item>Dedícale más tiempo a tu estudio</item>
-        <item>optimista-0-5</item>
+        <item>optimista05</item>
         <item>ESTUDIEN VAGOS</item>
-        <item>sarcasmo-0-5</item>
+        <item>sarcasmo05</item>
         <item>¿Cómo alguien como tu llego a la universidad?</item>
-        <item>sarcasmo-0-4</item>
+        <item>sarcasmo04</item>
         <item>¿no has pensado en cambiarte de carrera?</item>
-        <item>sarcasmo-0-3</item>
+        <item>sarcasmo03</item>
         <item>Eres la definición de mediocridad</item>
-        <item>sarcasmo-0-2</item>
+        <item>sarcasmo02</item>
         <item>¿olvidaste que te matriculaste?</item>
-        <item>sarcasmo-0-1</item>
+        <item>sarcasmo01</item>
 
     </string-array>
 
     <string-array name="frases2">
 
         <item>El siguiente semestre es tuyo, vamos con toda </item>
-        <item>optimista-1-1</item>
+        <item>optimista11</item>
         <item>Si te esfuerzan un poco más lo lograras</item>
-        <item>optimista-1-2</item>
+        <item>optimista12</item>
         <item>Lo importante es que aprendiste</item>
-        <item>optimista-1-3</item>
+        <item>optimista13</item>
         <item>Ya casi lo vas a lograr</item>
-        <item>optimista-1-4</item>
+        <item>optimista14</item>
         <item>Perdiste esta batalla pero no la guerra, No te rindas</item>
-        <item>optimista-1-5</item>
+        <item>optimista15</item>
         <item>Tan cerca y ten lejos</item>
-        <item>sarcasmo-1-1</item>
+        <item>sarcasmo11</item>
         <item>Los casis no valen</item>
-        <item>sarcasmo-1-2</item>
+        <item>sarcasmo12</item>
         <item>Sigue intentando</item>
-        <item>sarcasmo-1-3</item>
+        <item>sarcasmo13</item>
         <item>Llórelo papa</item>
-        <item>sarcasmo-1-4</item>
+        <item>sarcasmo14</item>
         <item>A este paso nunca te graduaras</item>
-        <item>sarcasmo-1-5</item>
+        <item>sarcasmo15</item>
 
     </string-array>
 
     <string-array name="frases3">
 
         <item>Lo lograste, sigue luchando por tus sueños</item>
-        <item>optimista-2-1</item>
+        <item>optimista21</item>
         <item>Lo importantes es que ya pasaste</item>
-        <item>optimista-2-2</item>
+        <item>optimista22</item>
         <item>Vales más que esa nota</item>
-        <item>optimista-2-3</item>
+        <item>optimista23</item>
         <item>Todo esfuerzo valió la pena</item>
-        <item>optimista-2-4</item>
+        <item>optimista24</item>
         <item>Pasaste, que alivio no tener que volver a ver esa materia</item>
-        <item>optimista-2-5</item>
+        <item>optimista25</item>
         <item>Gracias por hacer tu tarea</item>
-        <item>sarcasmo-2-1</item>
+        <item>sarcasmo21</item>
         <item>¿Eres repitente?</item>
-        <item>sarcasmo-2-2</item>
+        <item>sarcasmo22</item>
         <item>¿para eso se trasnocho?</item>
-        <item>sarcasmo-2-3</item>
+        <item>sarcasmo23</item>
         <item>¿Debería felicitarte?</item>
-        <item>sarcasmo-2-4</item>
+        <item>sarcasmo24</item>
         <item>Vez que si se pudo</item>
-        <item>sarcasmo-2-5</item>
+        <item>sarcasmo25</item>
 
     </string-array>
 
     <string-array name="frases4">
 
         <item>Que buena nota, sigue así</item>
-        <item>optimista-3-1</item>
+        <item>optimista31</item>
         <item>Costo, pero valió la pena</item>
-        <item>optimista-3-2</item>
+        <item>optimista32</item>
         <item>Ya puedes dormir tranquilo</item>
-        <item>optimista-3-3</item>
+        <item>optimista33</item>
         <item>Que buen alumno eres</item>
-        <item>optimista-3-4</item>
+        <item>optimista34</item>
         <item>El profesor regalo la materia</item>
-        <item>sarcasmo-3-1</item>
+        <item>sarcasmo31</item>
         <item>Igual en la vida esa nota no sirve para nada</item>
-        <item>sarcasmo-3-2"</item>
+        <item>sarcasmo32"</item>
         <item>Si no es 5, no vale</item>
-        <item>sarcasmo-3-3</item>
+        <item>sarcasmo33</item>
         <item>¿Realmente vale la pena esforzarse tanto?</item>
-        <item>sarcasmo-3-4</item>
+        <item>sarcasmo34</item>
 
     </string-array>
 
     <string-array name="frases5">
 
         <item>El mundo necesita más personas como tu</item>
-        <item>optimista-4-1</item>
+        <item>optimista41</item>
         <item>Eres el mejor de la clase y lo sabes</item>
-        <item>optimista-4-2</item>
+        <item>optimista42</item>
         <item>Ese eres tu . . . excelente</item>
-        <item>optimista-4-3</item>
+        <item>optimista43</item>
         <item>¿Qué haces para ser tan bueno?</item>
-        <item>optimista-4-4</item>
+        <item>optimista44</item>
         <item>Lograras todo lo que te propongas</item>
-        <item>optimista-4-5</item>
+        <item>optimista45</item>
         <item>¿Usaste rodilleras?</item>
-        <item>sarcasmo-4-1</item>
+        <item>sarcasmo41</item>
         <item>Gracias piernas sexys</item>
-        <item>sarcasmo-4-2</item>
+        <item>sarcasmo42</item>
         <item>¿Qué tanto le rogaste al profe?</item>
-        <item>sarcasmo-4-3</item>
+        <item>sarcasmo43</item>
         <item>¿socializar no es lo tuyo verdad?</item>
-        <item>sarcasmo-4-4</item>
+        <item>sarcasmo44</item>
         <item>El único que se engaña eres tú</item>
-        <item>sarcasmo-4-5</item>
+        <item>sarcasmo45</item>
 
     </string-array>
 
     <string-array name="frase_final_1">
 
         <item>Ya perdiste, Esfuérzate un poco más el siguiente semestre</item>
-        <item>optimistaFinal-0-1</item>
+        <item>optimistafinal01</item>
         <item>Ya no hay nada que hacer, dedícale tiempo a otras materias</item>
-        <item>optimistaFinal-0-2</item>
+        <item>optimistafinal02</item>
         <item>Perdiste, sigue asistiendo a clase para no tener dificultades cuando la repitas.</item>
-        <item>optimistaFinal-0-3</item>
+        <item>optimistafinal03</item>
         <item>¿no sé qué esperabas tenido esas notas?</item>
-        <item>sarcasmoFinal-0-1</item>
+        <item>sarcasmofinal01</item>
         <item>Como que el estudio no es lo tuyo ¿verdad?</item>
-        <item>sarcasmoFinal-0-2</item>
+        <item>sarcasmofinal02</item>
         <item>Deja de hacerle perder tiempo al profesor</item>
-        <item>sarcasmoFinal-0-3</item>
+        <item>sarcasmofinal03</item>
 
     </string-array>
 
     <string-array name="frase_final_2">
 
         <item>No te rindas, parece difícil, pero los limites los pones tú</item>
-        <item>optimistaFinal-1-1</item>
+        <item>optimistafinalf11</item>
         <item>Estudia un poco más y lo lograras</item>
-        <item>optimistaFinal-1-2</item>
+        <item>optimistafinal12</item>
         <item>Supera las expectativas y demuestra que eres el mejor</item>
-        <item>optimistaFinal-1-3</item>
+        <item>optimistafinal13</item>
         <item>Mejor ni lo intentes, esta fuera de tus posibilidades viendo esas notas</item>
-        <item>sarcasmoFinal-1-1</item>
+        <item>sarcasmofinal11</item>
         <item>No lograras salvar todo un semestre en tan solo una semana</item>
-        <item>sarcasmoFinal-1-2</item>
+        <item>sarcasmofinal12</item>
         <item>No tengo ni idea de cómo le harás para pasar.</item>
-        <item>sarcasmoFinal-1-3</item>
+        <item>sarcasmofinal13</item>
 
     </string-array>
 
     <string-array name="frase_final_3">
 
         <item>Vas en buen camino, solo sigue trabajando como lo has hecho todo este tiempo</item>
-        <item>optimistaFinal-2-1</item>
+        <item>optimistafinal21</item>
         <item>Sigue así, viendo el desempeño que has tenido no te costara mucho pasar</item>
-        <item>optimistaFinal-2-2</item>
+        <item>optimistafinal22</item>
         <item>Ya te falta muy poco, aun así, no te confíes</item>
-        <item>optimistaFinal-2-3</item>
+        <item>optimistafinal23</item>
         <item>Supongo que te seguirás acostando tarde para pasar algo que dentro de un mes ni te acordaras</item>
-        <item>sarcasmoFinal-2-1</item>
+        <item>sarcasmofinal21</item>
         <item>No te falta mucho, sería una lástima que lo arruinaras al final</item>
-        <item>sarcasmoFinal-2-2</item>
+        <item>sarcasmofinalf22</item>
         <item>Reza para que la suerte siga de tu lado</item>
-        <item>sarcasmoFinal-2-3</item>
+        <item>sarcasmofinal23</item>
 
     </string-array>
 
     <string-array name="frase_final_4">
 
         <item>Muy buen trabajo, ya pasaste </item>
-        <item>optimistaFinal-3-1</item>
+        <item>optimistafinal31</item>
         <item>No necesitas más nota, aun así, estudia para dejarla alta</item>
-        <item>optimistaFinal-3-2</item>
+        <item>optimistafinal32</item>
         <item>Ya pasaste, ahora si te puedes tomar un descanso</item>
-        <item>optimistaFinal-3-3</item>
+        <item>optimistafinal33</item>
         <item>Gracias por hacer tus obligaciones supongo</item>
-        <item>sarcasmoFinal-3-1</item>
+        <item>sarcasmofinal31</item>
         <item>No todo en la vida es sacar buenas notas</item>
-        <item>sarcasmoFinal-3-2</item>
+        <item>sarcasmofinal32</item>
         <item>Seguramente le pediste una “ayudita” al profesor</item>
-        <item>sarcasmoFinal-3-3</item>
+        <item>sarcasmofinal33</item>
 
     </string-array>
 

@@ -2,9 +2,7 @@ package mi.aplicacion.PromediaTuSemestre;
 
 import android.content.Intent;
 import android.content.res.Resources;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.os.AsyncTask;
+
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
@@ -12,12 +10,10 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.InterstitialAd;
-
-import java.io.InputStream;
-import java.net.URL;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -28,8 +24,8 @@ public class ThirdActivity extends AppCompatActivity {
     private ImageView imagen;
     private AdView mAdView;
     private InterstitialAd anuncioPantalla;
-    public Preferencias pref;
     private Button regresoInicio;
+    public Preferencias pref;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,7 +34,7 @@ public class ThirdActivity extends AppCompatActivity {
 
         pref = new Preferencias(this);
 
-        if(pref.loadNightModelState() == true){
+        if (pref.loadNightModelState() == true) {
 
             setTheme(R.style.DarkTheme);
 
@@ -69,51 +65,30 @@ public class ThirdActivity extends AppCompatActivity {
 
         valor.setText(getIntent().getStringExtra("textoNota"));
         frase.setText(getIntent().getStringExtra("textoFrase"));
-        new DownLoadImageTask(imagen).execute("https://raw.githubusercontent.com/" +
-                "DanielAlejandroRoaPalacios/Promedia-tu-semetre/master/imagenes/"
-                +getIntent().getStringExtra("idImagen")+".png");
+        
+        int resourceID = getResources().getIdentifier(
+                getIntent().getStringExtra("idImagen") + "min",
+                "raw",
+                getPackageName()
+        );
 
-    regresoInicio.setOnClickListener(new View.OnClickListener() {
+        Glide.with(this).load(resourceID).into(imagen);
 
-        public void onClick(View v) {
+        regresoInicio.setOnClickListener(new View.OnClickListener() {
 
-            Intent cambio = new Intent(ThirdActivity.this, MainActivity.class);
-            startActivity(cambio);
+            public void onClick(View v) {
 
-            if(anuncioPantalla.isLoaded()){
+                Intent cambio = new Intent(ThirdActivity.this, MainActivity.class);
+                startActivity(cambio);
 
-                anuncioPantalla.show();
+                if (anuncioPantalla.isLoaded()) {
 
+                    anuncioPantalla.show();
+
+                }
             }
-        }
-    });
+        });
 
-    }
-
-    private class DownLoadImageTask extends AsyncTask<String,Void,Bitmap>{
-        ImageView imageView;
-
-        public DownLoadImageTask(ImageView imageView){
-            this.imageView = imageView;
-        }
-
-        protected Bitmap doInBackground(String...urls){
-            String urlOfImage = urls[0];
-            Bitmap logo = null;
-            try{
-                InputStream is = new URL(urlOfImage).openStream();
-
-                logo = BitmapFactory.decodeStream(is);
-            }catch(Exception e){
-                e.printStackTrace();
-
-            }
-            return logo;
-        }
-
-        protected void onPostExecute(Bitmap result){
-            imageView.setImageBitmap(result);
-        }
     }
 
     public void regresoNotas(View view){
