@@ -11,9 +11,11 @@ import android.widget.ArrayAdapter;
 import android.widget.CompoundButton;
 import android.widget.Spinner;
 import android.widget.Switch;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 public class ActivityConfiguracion extends AppCompatActivity {
 
@@ -46,7 +48,14 @@ public class ActivityConfiguracion extends AppCompatActivity {
         SharedPreferences preferenciaFrase = getSharedPreferences("frase", Context.MODE_PRIVATE);
         spinner.setSelection(preferenciaFrase.getInt("opcion",0));
 
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbarConfig);
+        TextView textoToolbar = (TextView) toolbar.findViewById(R.id.toolbar_title);
+        textoToolbar.setText("Configuracion");
+
+        setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        getSupportActionBar().setDisplayShowTitleEnabled(false);
 
         fondo = (Switch) findViewById(R.id.fondo);
 

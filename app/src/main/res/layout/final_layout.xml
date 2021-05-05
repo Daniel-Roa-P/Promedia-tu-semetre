@@ -8,6 +8,10 @@
     android:background="?attr/backgroundcolor"
     android:orientation="vertical">
 
+    <include
+        android:id="@+id/toolbarFinal"
+        layout="@layout/toolbar_layout"></include>
+
     <ListView
         android:id="@+id/listaFinal"
         android:layout_width="wrap_content"
@@ -106,7 +110,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="96dp"
-        android:layout_marginTop="7dp"
+        android:layout_marginTop="60dp"
         android:layout_marginEnd="96dp"
         android:text="@string/texto_5"
         android:textColor="?attr/textcolor"

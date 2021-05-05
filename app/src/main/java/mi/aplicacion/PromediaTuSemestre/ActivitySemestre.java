@@ -10,6 +10,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.ads.AdRequest;
@@ -17,6 +18,7 @@ import com.google.android.gms.ads.AdView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 public class ActivitySemestre extends AppCompatActivity {
 
@@ -51,14 +53,21 @@ public class ActivitySemestre extends AppCompatActivity {
         SharedPreferences preferenciaFrase = getSharedPreferences("frase", Context.MODE_PRIVATE);
         spinner.setSelection(preferenciaFrase.getInt("opcion",0));
 
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
         materias = (EditText) findViewById(R.id.materias);
         creditos = (EditText) findViewById(R.id.creditos);
 
         mAdView = (AdView) findViewById(R.id.anuncio2);
         AdRequest adRequest = new AdRequest.Builder().build();
         mAdView.loadAd(adRequest);
+
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbarSemestre);
+        TextView textoToolbar = (TextView) toolbar.findViewById(R.id.toolbar_title);
+        textoToolbar.setText("Promediar semestre");
+
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        getSupportActionBar().setDisplayShowTitleEnabled(false);
 
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override

@@ -17,6 +17,7 @@ import com.google.android.gms.ads.InterstitialAd;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 public class ThirdActivity extends AppCompatActivity {
 
@@ -47,7 +48,14 @@ public class ThirdActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.tercer_layout);
 
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbarTercero);
+        TextView textoToolbar = (TextView) toolbar.findViewById(R.id.toolbar_title);
+        textoToolbar.setText("Resultado");
+
+        setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        getSupportActionBar().setDisplayShowTitleEnabled(false);
 
         valor = (TextView) findViewById(R.id.notaFinal);
         imagen = (ImageView) findViewById(R.id.imageView2);

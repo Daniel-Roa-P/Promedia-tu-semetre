@@ -10,7 +10,10 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.appcompat.widget.Toolbar;
 
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
@@ -42,7 +45,15 @@ public class FinalActivity extends ActivityListas {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.final_layout);
+
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbarFinal);
+        TextView textoToolbar = (TextView) toolbar.findViewById(R.id.toolbar_title);
+        textoToolbar.setText("Obtener faltante");
+
+        setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        getSupportActionBar().setDisplayShowTitleEnabled(false);
 
         lista = new ArrayList<Contenedor>();
         listaNotas = (ListView) findViewById(R.id.listaFinal);

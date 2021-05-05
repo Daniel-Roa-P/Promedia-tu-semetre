@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/layout1"
@@ -7,6 +8,10 @@
     android:layout_height="match_parent"
     android:background="?attr/backgroundcolor"
     tools:context="mi.aplicacion.PromediaTuSemestre.MainActivity">
+
+    <include
+        android:id="@+id/toolbarMain"
+        layout="@layout/toolbar_layout"></include>
 
     <ImageButton
         android:id="@+id/imageButton"
@@ -48,7 +53,7 @@
         android:id="@+id/indicador"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="60dp"
         android:text="@string/texto_10"
         android:textColor="?attr/textcolor"
         android:textSize="30sp"

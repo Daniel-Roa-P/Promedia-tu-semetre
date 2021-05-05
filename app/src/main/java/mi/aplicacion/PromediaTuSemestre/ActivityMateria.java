@@ -1,6 +1,7 @@
 package mi.aplicacion.PromediaTuSemestre;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import android.content.Context;
 import android.content.Intent;
@@ -12,6 +13,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.ads.AdRequest;
@@ -50,13 +52,20 @@ public class ActivityMateria extends AppCompatActivity {
         SharedPreferences preferenciaFrase = getSharedPreferences("frase", Context.MODE_PRIVATE);
         spinner.setSelection(preferenciaFrase.getInt("opcion",0));
 
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
         cantidad = (EditText) findViewById(R.id.editText);
 
         mAdView = (AdView) findViewById(R.id.anuncio1);
         AdRequest adRequest = new AdRequest.Builder().build();
         mAdView.loadAd(adRequest);
+
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbarMateria);
+        TextView textoToolbar = (TextView) toolbar.findViewById(R.id.toolbar_title);
+        textoToolbar.setText("Promediar materia");
+
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        getSupportActionBar().setDisplayShowTitleEnabled(false);
 
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override

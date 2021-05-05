@@ -6,6 +6,10 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ListView;
+import android.widget.TextView;
+
+import androidx.appcompat.widget.Toolbar;
+
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 import java.util.ArrayList;
@@ -33,7 +37,14 @@ public class SecondActivity extends ActivityListas {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.segundo_layout);
 
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbarSegundo);
+        TextView textoToolbar = (TextView) toolbar.findViewById(R.id.toolbar_title);
+        textoToolbar.setText("Promediar");
+
+        setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        getSupportActionBar().setDisplayShowTitleEnabled(false);
 
         lista = new ArrayList<Contenedor>();
         listaNotas = (ListView) findViewById(R.id.lista);

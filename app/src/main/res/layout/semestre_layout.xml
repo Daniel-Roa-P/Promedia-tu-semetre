@@ -7,12 +7,16 @@
     android:background="?attr/backgroundcolor"
     tools:context="mi.aplicacion.PromediaTuSemestre.ActivitySemestre">
 
+    <include
+        android:id="@+id/toolbarSemestre"
+        layout="@layout/toolbar_layout"></include>
+
     <TextView
         android:id="@+id/textView4"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="60dp"
         android:layout_marginEnd="30dp"
         android:text="@string/texto_11"
         android:textAlignment="center"
@@ -20,6 +24,7 @@
         android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -82,7 +87,7 @@
         android:id="@+id/button3"
         android:layout_width="196dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="10dp"
+        android:layout_marginBottom="16dp"
         android:background="@drawable/boton_semestre"
         android:fontFamily="sans-serif-condensed-medium"
         android:onClick="getSemestre"
@@ -91,16 +96,18 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/anuncio2"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent" />
 
     <com.google.android.gms.ads.AdView
         android:id="@+id/anuncio2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="329dp"
+        android:layout_marginTop="380dp"
         app:adSize="BANNER"
         app:adUnitId="@string/idBanner"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.494"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -125,10 +132,12 @@
         style="@android:style/Widget.Holo.Spinner"
         android:layout_width="150dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="17dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp"
         app:layout_constraintBottom_toTopOf="@+id/button3"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

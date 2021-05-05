@@ -7,12 +7,16 @@
     android:background="?attr/backgroundcolor"
     tools:context="mi.aplicacion.PromediaTuSemestre.ActivityMateria">
 
+    <include
+        android:id="@+id/toolbarMateria"
+        layout="@layout/toolbar_layout"></include>
+
     <TextView
         android:id="@+id/textView"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="17dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="60dp"
         android:layout_marginEnd="17dp"
         android:fontFamily="monospace"
         android:text="@string/texto_1"
@@ -21,6 +25,7 @@
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
