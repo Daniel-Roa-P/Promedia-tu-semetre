@@ -21,7 +21,7 @@ public class ActivityConfiguracion extends AppCompatActivity {
 
     private Switch fondo;
     private Preferencias pref;
-    private Spinner spinner;
+    private Spinner spinner, spinner2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,9 +41,15 @@ public class ActivityConfiguracion extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_configuracion);
 
-        spinner = (Spinner) findViewById(R.id.frase);
         ArrayAdapter adapter = ArrayAdapter.createFromResource(this, R.array.elementos, R.layout.elementos_spinner);
+
+        spinner = (Spinner) findViewById(R.id.frase);
         spinner.setAdapter(adapter);
+
+        adapter = ArrayAdapter.createFromResource(this, R.array.formatos, R.layout.elementos_spinner);
+
+        spinner2 = (Spinner) findViewById(R.id.formatoNota);
+        spinner2.setAdapter(adapter);
 
         SharedPreferences preferenciaFrase = getSharedPreferences("frase", Context.MODE_PRIVATE);
         spinner.setSelection(preferenciaFrase.getInt("opcion",0));

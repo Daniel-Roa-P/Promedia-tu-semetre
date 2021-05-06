@@ -9,4 +9,11 @@
 
     </array>
 
+    <array name="formatos">
+
+        <item>Decimal</item>
+        <item>Entero</item>
+
+    </array>
+
 </resources>
