@@ -129,9 +129,9 @@
 
     <Spinner
         android:id="@+id/fraseSemestre"
-        style="@android:style/Widget.Holo.Spinner"
+        style="@android:style/Widget.Spinner.DropDown"
         android:layout_width="150dp"
-        android:layout_height="wrap_content"
+        android:layout_height="40dp"
         android:layout_marginTop="16dp"
         android:layout_marginBottom="16dp"
         app:layout_constraintBottom_toTopOf="@+id/button3"

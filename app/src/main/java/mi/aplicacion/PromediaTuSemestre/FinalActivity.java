@@ -22,7 +22,7 @@ import java.util.ArrayList;
 
 public class FinalActivity extends ActivityListas {
 
-    private Button añadir,remover;
+    private Button añadir,remover, botConf;
     private int porcentajeRestante,indice = 0;
     private double notaAcumulada;
     private Spinner spinner;
@@ -54,6 +54,8 @@ public class FinalActivity extends ActivityListas {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
+
+        botConf = (Button) findViewById(R.id.botonConfigurar);
 
         lista = new ArrayList<Contenedor>();
         listaNotas = (ListView) findViewById(R.id.listaFinal);
@@ -93,27 +95,26 @@ public class FinalActivity extends ActivityListas {
             }
         });
 
-        remover.setOnClickListener(new View.OnClickListener() {
+        botConf.setOnClickListener(v -> cambioConf());
 
-            public void onClick(View v) {
+        remover.setOnClickListener(v -> {
 
-                if(lista.size() >1) {
+            if(lista.size() >1) {
 
-                    indice--;
+                indice--;
 
-                    lista.remove(lista.size() - 1);
+                lista.remove(lista.size() - 1);
 
-                    adapter = new ItemListAdapter(FinalActivity.this, R.layout.espacios, lista);
-                    listaNotas.setAdapter(adapter);
+                adapter = new ItemListAdapter(FinalActivity.this, R.layout.espacios, lista);
+                listaNotas.setAdapter(adapter);
 
-                } else {
+            } else {
 
-                    Toast.makeText(FinalActivity.this,
-                            "minimo debe haber una nota", Toast.LENGTH_LONG).show();
-
-                }
+                Toast.makeText(FinalActivity.this,
+                        "minimo debe haber una nota", Toast.LENGTH_LONG).show();
 
             }
+
         });
 
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -133,6 +134,14 @@ public class FinalActivity extends ActivityListas {
             }
 
         });
+
+    }
+
+    public void cambioConf(){
+
+        Intent cambioConfiguracion = new Intent(this, ActivityConfiguracion.class);
+
+        startActivity(cambioConfiguracion);
 
     }
 

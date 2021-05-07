@@ -8,6 +8,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.Spinner;
 import android.widget.Switch;
@@ -22,6 +23,7 @@ public class ActivityConfiguracion extends AppCompatActivity {
     private Switch fondo;
     private Preferencias pref;
     private Spinner spinner, spinner2;
+    private Button botConf;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +42,9 @@ public class ActivityConfiguracion extends AppCompatActivity {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_configuracion);
+
+        botConf = (Button) findViewById(R.id.botonConfigurar);
+        botConf.setVisibility(View.INVISIBLE);
 
         ArrayAdapter adapter = ArrayAdapter.createFromResource(this, R.array.elementos, R.layout.elementos_spinner);
 

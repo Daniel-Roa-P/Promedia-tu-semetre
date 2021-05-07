@@ -11,6 +11,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -26,6 +27,7 @@ public class ActivityMateria extends AppCompatActivity {
     private AdView mAdView;
     private Preferencias pref;
     private Spinner spinner;
+    private Button botConf;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -67,6 +69,10 @@ public class ActivityMateria extends AppCompatActivity {
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
 
+        botConf = (Button) findViewById(R.id.botonConfigurar);
+
+        botConf.setOnClickListener(v -> cambioConf());
+
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
@@ -84,6 +90,14 @@ public class ActivityMateria extends AppCompatActivity {
             }
 
         });
+
+    }
+
+    public void cambioConf(){
+
+        Intent cambioConfiguracion = new Intent(this, ActivityConfiguracion.class);
+
+        startActivity(cambioConfiguracion);
 
     }
 

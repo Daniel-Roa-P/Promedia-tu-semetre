@@ -25,7 +25,7 @@ public class ThirdActivity extends AppCompatActivity {
     private ImageView imagen;
     private AdView mAdView;
     private InterstitialAd anuncioPantalla;
-    private Button regresoInicio;
+    private Button regresoInicio, botConf;
     public Preferencias pref;
 
     @Override
@@ -56,6 +56,8 @@ public class ThirdActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
+
+        botConf = (Button) findViewById(R.id.botonConfigurar);
 
         valor = (TextView) findViewById(R.id.notaFinal);
         imagen = (ImageView) findViewById(R.id.imageView2);
@@ -96,6 +98,16 @@ public class ThirdActivity extends AppCompatActivity {
                 }
             }
         });
+
+        botConf.setOnClickListener(v -> cambioConf());
+
+    }
+
+    public void cambioConf(){
+
+        Intent cambioConfiguracion = new Intent(this, ActivityConfiguracion.class);
+
+        startActivity(cambioConfiguracion);
 
     }
 

@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -17,6 +18,7 @@ import java.util.ArrayList;
 public class SecondActivity extends ActivityListas {
 
     private String t1, t2, t3;
+    private Button botConf;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,6 +48,8 @@ public class SecondActivity extends ActivityListas {
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
 
+        botConf = (Button) findViewById(R.id.botonConfigurar);
+
         lista = new ArrayList<Contenedor>();
         listaNotas = (ListView) findViewById(R.id.lista);
 
@@ -73,6 +77,8 @@ public class SecondActivity extends ActivityListas {
 
             lista.add(contenedor);
         }
+
+        botConf.setOnClickListener(v -> cambioConf());
 
         adapter = new ItemListAdapter(SecondActivity.this, R.layout.espacios,lista);
         listaNotas.setAdapter(adapter);
@@ -112,6 +118,14 @@ public class SecondActivity extends ActivityListas {
             startActivity(cambio);
 
         }
+
+    }
+
+    public void cambioConf(){
+
+        Intent cambioConfiguracion = new Intent(this, ActivityConfiguracion.class);
+
+        startActivity(cambioConfiguracion);
 
     }
 

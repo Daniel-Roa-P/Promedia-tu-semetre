@@ -6,6 +6,7 @@ import androidx.appcompat.widget.Toolbar;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -16,7 +17,7 @@ public class MainActivity extends AppCompatActivity {
 
     private AdView mAdView;
     private Preferencias pref;
-
+    private Button botConf;
     private int contador;
 
     @Override
@@ -40,6 +41,9 @@ public class MainActivity extends AppCompatActivity {
         mAdView = (AdView) findViewById(R.id.anuncio5);
         AdRequest adRequest = new AdRequest.Builder().build();
         mAdView.loadAd(adRequest);
+
+        botConf = (Button) findViewById(R.id.botonConfigurar);
+        botConf.setVisibility(View.INVISIBLE);
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbarMain);
         TextView textoToolbar = (TextView) toolbar.findViewById(R.id.toolbar_title);

@@ -8,6 +8,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -24,7 +25,7 @@ public class ActivitySemestre extends AppCompatActivity {
 
     private EditText materias,creditos;
     private AdView mAdView;
-    private int motivacion;
+    private Button botConf;
     public Preferencias pref;
     private Spinner spinner;
 
@@ -69,6 +70,10 @@ public class ActivitySemestre extends AppCompatActivity {
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
 
+        botConf = (Button) findViewById(R.id.botonConfigurar);
+
+        botConf.setOnClickListener(v -> cambioConf());
+
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
@@ -86,6 +91,14 @@ public class ActivitySemestre extends AppCompatActivity {
             }
 
         });
+
+    }
+
+    public void cambioConf(){
+
+        Intent cambioConfiguracion = new Intent(this, ActivityConfiguracion.class);
+
+        startActivity(cambioConfiguracion);
 
     }
 
