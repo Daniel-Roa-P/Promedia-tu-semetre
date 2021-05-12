@@ -10,6 +10,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CompoundButton;
+import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Switch;
 import android.widget.TextView;
@@ -24,6 +25,7 @@ public class ActivityConfiguracion extends AppCompatActivity {
     private Preferencias pref;
     private Spinner spinner, spinner2;
     private Button botConf;
+    private EditText editMax;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,8 +58,10 @@ public class ActivityConfiguracion extends AppCompatActivity {
         spinner2 = (Spinner) findViewById(R.id.formatoNota);
         spinner2.setAdapter(adapter);
 
-        SharedPreferences preferenciaFrase = getSharedPreferences("frase", Context.MODE_PRIVATE);
-        spinner.setSelection(preferenciaFrase.getInt("opcion",0));
+        spinner.setSelection(pref.getFrase());
+
+        editMax = (EditText) findViewById(R.id.notaMaxima);
+        
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbarConfig);
         TextView textoToolbar = (TextView) toolbar.findViewById(R.id.toolbar_title);
@@ -101,10 +105,7 @@ public class ActivityConfiguracion extends AppCompatActivity {
             @Override
             public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
 
-                SharedPreferences opcion = getSharedPreferences("frase",Context.MODE_PRIVATE);
-                SharedPreferences.Editor objetoEditor = opcion.edit();
-                objetoEditor.putInt("opcion",spinner.getSelectedItemPosition());
-                objetoEditor.commit();
+                pref.setFrase(spinner.getSelectedItemPosition());
 
             }
 

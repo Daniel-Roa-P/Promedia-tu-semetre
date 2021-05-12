@@ -51,8 +51,7 @@ public class ActivitySemestre extends AppCompatActivity {
         ArrayAdapter adapter = ArrayAdapter.createFromResource(this, R.array.elementos, R.layout.elementos_spinner);
         spinner.setAdapter(adapter);
 
-        SharedPreferences preferenciaFrase = getSharedPreferences("frase", Context.MODE_PRIVATE);
-        spinner.setSelection(preferenciaFrase.getInt("opcion",0));
+        spinner.setSelection(pref.getFrase());
 
         materias = (EditText) findViewById(R.id.materias);
         creditos = (EditText) findViewById(R.id.creditos);
@@ -78,10 +77,7 @@ public class ActivitySemestre extends AppCompatActivity {
             @Override
             public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
 
-                SharedPreferences opcion = getSharedPreferences("frase",Context.MODE_PRIVATE);
-                SharedPreferences.Editor objetoEditor = opcion.edit();
-                objetoEditor.putInt("opcion",spinner.getSelectedItemPosition());
-                objetoEditor.commit();
+                pref.setFrase(spinner.getSelectedItemPosition());
 
             }
 
