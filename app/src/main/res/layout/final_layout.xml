@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/layoutFinal"
@@ -8,21 +9,134 @@
     android:background="?attr/backgroundcolor"
     android:orientation="vertical">
 
-    <include
+    <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbarFinal"
-        layout="@layout/toolbar_layout"></include>
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/indicacionRango"
+        android:background="?attr/colorPrimary"
+        android:elevation="4dp"
+        app:layout_constraintVertical_chainStyle="spread_inside">
+
+        <TextView
+            android:id="@+id/toolbar_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:fontFamily="@font/fredoka_one"
+            android:textColor="?attr/textcolor"
+            android:textSize="20dp" />
+
+        <Button
+            android:id="@+id/botonConfigurar"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_gravity="right"
+            android:background="@drawable/ic_baseline_settings_24"
+            />
+
+    </androidx.appcompat.widget.Toolbar>
+
+    <TextView
+        android:id="@+id/indicacionRango"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="96dp"
+        android:layout_marginEnd="96dp"
+        android:text="@string/texto_5"
+        android:textColor="?attr/textcolor"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:layout_marginTop="10dp"
+        app:layout_constraintTop_toBottomOf="@id/toolbarFinal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="60dp"
+        app:layout_constraintBottom_toTopOf="@id/listaFinal"/>
 
     <ListView
         android:id="@+id/listaFinal"
         android:layout_width="wrap_content"
-        android:layout_height="180dp"
-        android:layout_marginTop="9dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="15dp"
         android:fadeScrollbars="false"
         android:scrollbarSize="5dp"
+        android:gravity="center"
         android:scrollbarThumbVertical="@drawable/estilo_scroll"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/indicacionRango" />
+        app:layout_constraintTop_toBottomOf="@+id/indicacionRango"
+        app:layout_constraintBottom_toTopOf="@id/botones"/>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/botones"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/listaFinal"
+        app:layout_constraintBottom_toTopOf="@id/textView3">
+
+        <Button
+            android:id="@+id/botonAñadir"
+            android:layout_width="160dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:background="@drawable/boton_semestre"
+            android:text="@string/texto_19"
+            android:textStyle="bold"
+            android:layout_marginStart="5dp"
+            app:layout_constraintEnd_toStartOf="@+id/botonRetirar"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintHorizontal_chainStyle="spread_inside"/>
+
+        <Button
+            android:id="@+id/botonRetirar"
+            android:layout_width="160dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:background="@drawable/boton_remover"
+            android:text="@string/texto_20"
+            android:textStyle="bold"
+            android:layout_marginEnd="5dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/botonAñadir"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="351dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="30dp"
+        android:fontFamily="monospace"
+        android:text="@string/texto_22"
+        android:textAlignment="center"
+        android:textColor="?attr/textcolor"
+        android:textSize="12sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/botones"
+        app:layout_constraintBottom_toTopOf="@id/eleccionFraseFinal"/>
+
+    <Spinner
+        android:id="@+id/eleccionFraseFinal"
+        style="@android:style/Widget.Spinner.DropDown"
+        android:layout_width="150dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="131dp"
+        android:layout_marginTop="6dp"
+        android:layout_marginEnd="130dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView3"
+        app:layout_constraintBottom_toTopOf="@id/button7"/>
 
     <Button
         android:id="@+id/button7"
@@ -39,30 +153,8 @@
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/eleccionFraseFinal" />
-
-    <Spinner
-        android:id="@+id/eleccionFraseFinal"
-        style="@android:style/Widget.Spinner.DropDown"
-        android:layout_width="150dp"
-        android:layout_height="40dp"
-        android:layout_marginStart="131dp"
-        android:layout_marginTop="6dp"
-        android:layout_marginEnd="130dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView3" />
-
-    <Button
-        android:id="@+id/botonAñadir"
-        android:layout_width="160dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
-        android:background="@drawable/boton_semestre"
-        android:text="@string/texto_19"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/listaFinal" />
+        app:layout_constraintTop_toBottomOf="@+id/eleccionFraseFinal"
+        app:layout_constraintBottom_toTopOf="@id/anuncio6"/>
 
     <com.google.android.gms.ads.AdView
         android:id="@+id/anuncio6"
@@ -70,54 +162,13 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="45dp"
         android:layout_marginTop="10dp"
-        android:layout_marginEnd="46dp"
+        android:layout_marginEnd="45dp"
+        android:layout_marginBottom="5dp"
         app:adSize="BANNER"
         app:adUnitId="@string/idBanner"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/button7" />
-
-    <TextView
-        android:id="@+id/textView3"
-        android:layout_width="351dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="3dp"
-        android:layout_marginEnd="30dp"
-        android:fontFamily="monospace"
-        android:text="@string/texto_22"
-        android:textAlignment="center"
-        android:textColor="?attr/textcolor"
-        android:textSize="12sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/botonAñadir" />
-
-    <Button
-        android:id="@+id/botonRetirar"
-        android:layout_width="160dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
-        android:background="@drawable/boton_remover"
-        android:text="@string/texto_20"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/listaFinal" />
-
-    <TextView
-        android:id="@+id/indicacionRango"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="96dp"
-        android:layout_marginTop="60dp"
-        android:layout_marginEnd="96dp"
-        android:text="@string/texto_5"
-        android:textColor="?attr/textcolor"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

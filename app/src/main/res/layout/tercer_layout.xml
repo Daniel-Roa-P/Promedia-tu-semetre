@@ -7,96 +7,154 @@
     android:background="?attr/backgroundcolor"
     tools:context="mi.aplicacion.PromediaTuSemestre.ThirdActivity">
 
-    <include
+    <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbarTercero"
-        layout="@layout/toolbar_layout"></include>
-
-    <TextView
-        android:id="@+id/notaFinal"
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="9dp"
-        android:layout_marginTop="28dp"
-        android:layout_marginEnd="9dp"
-        android:fontFamily="monospace"
-        android:text="No deberias ver esto"
-        android:textAlignment="center"
-        android:textColor="?attr/textcolor"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView2" />
-
-    <ImageView
-        android:id="@+id/imageView2"
-        android:layout_width="200dp"
-        android:layout_height="200dp"
-        android:layout_marginTop="80dp"
-        android:adjustViewBounds="true"
-        android:scaleType="fitCenter"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/toolbarTercero" />
-
-    <TextView
-        android:id="@+id/frase"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="52dp"
-        android:layout_marginTop="9dp"
-        android:layout_marginEnd="52dp"
-        android:text="Esto tampoco xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
-        android:textAlignment="center"
-        android:textColor="?attr/textcolor"
-        android:textSize="18sp"
+        android:background="?attr/colorPrimary"
+        android:elevation="4dp"
+        app:layout_constraintBottom_toTopOf="@id/mensaje"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/notaFinal" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_chainStyle="spread_inside">
 
-    <Button
-        android:id="@+id/button4"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="9dp"
-        android:layout_marginEnd="56dp"
-        android:background="@drawable/boton_materia"
-        android:fontFamily="sans-serif-condensed-medium"
-        android:onClick="regresoNotas"
-        android:text="@string/texto_14"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toStartOf="@+id/button5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/frase" />
+        <TextView
+            android:id="@+id/toolbar_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:fontFamily="@font/fredoka_one"
+            android:textColor="?attr/textcolor"
+            android:textSize="20dp" />
 
-    <Button
-        android:id="@+id/button5"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="9dp"
-        android:layout_marginEnd="15dp"
-        android:background="@drawable/boton_semestre"
-        android:fontFamily="sans-serif-condensed-medium"
-        android:text="@string/texto_15"
-        android:textStyle="bold"
+        <Button
+            android:id="@+id/botonConfigurar"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_gravity="right"
+            android:background="@drawable/ic_baseline_settings_24" />
+
+    </androidx.appcompat.widget.Toolbar>
+
+    <ScrollView
+        android:id="@+id/mensaje"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/button4"
-        app:layout_constraintTop_toBottomOf="@+id/frase" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/toolbarTercero"
+        app:layout_constraintBottom_toTopOf="@id/botonesTercero"
+        android:fillViewport="true">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/imageView2"
+                android:layout_width="200dp"
+                android:layout_height="200dp"
+                android:layout_marginTop="15dp"
+                android:adjustViewBounds="true"
+                android:scaleType="fitCenter"
+                app:layout_constraintBottom_toTopOf="@id/notaFinal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_chainStyle="spread"/>
+
+            <TextView
+                android:id="@+id/notaFinal"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginEnd="10dp"
+                android:fontFamily="monospace"
+                android:text="No deberias ver esto"
+                android:textAlignment="center"
+                android:textColor="?attr/textcolor"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toTopOf="@id/frase"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/imageView2" />
+
+            <TextView
+                android:id="@+id/frase"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="52dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginEnd="52dp"
+                android:text="Esto tampoco xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+                android:textAlignment="center"
+                android:textColor="?attr/textcolor"
+                android:textSize="18sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/notaFinal" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/botonesTercero"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/mensaje"
+        app:layout_constraintBottom_toTopOf="@id/anuncio4"
+        android:layout_marginTop="30dp">
+
+        <Button
+            android:id="@+id/button4"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/boton_materia"
+            android:fontFamily="sans-serif-condensed-medium"
+            android:onClick="regresoNotas"
+            android:text="@string/texto_14"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toStartOf="@+id/button5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintHorizontal_chainStyle="spread"/>
+
+        <Button
+            android:id="@+id/button5"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/boton_semestre"
+            android:fontFamily="sans-serif-condensed-medium"
+            android:text="@string/texto_15"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/button4"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <com.google.android.gms.ads.AdView
         android:id="@+id/anuncio4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="29dp"
-        android:layout_marginTop="13dp"
-        android:layout_marginEnd="46dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginBottom="5dp"
         app:adSize="BANNER"
         app:adUnitId="@string/idBanner"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/button4"
-        app:layout_constraintTop_toBottomOf="@+id/button5" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/botonesTercero" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
