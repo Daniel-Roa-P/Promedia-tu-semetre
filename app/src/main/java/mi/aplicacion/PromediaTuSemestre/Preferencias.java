@@ -7,11 +7,13 @@ public class Preferencias {
 
     SharedPreferences preferenciaFondo;
     SharedPreferences preferenciaFrase;
+    SharedPreferences preferenciaMaxima;
 
     public Preferencias(Context context){
 
         preferenciaFondo = context.getSharedPreferences("filename",Context.MODE_PRIVATE);
         preferenciaFrase = context.getSharedPreferences("frase",Context.MODE_PRIVATE);
+        preferenciaMaxima = context.getSharedPreferences("maxima",Context.MODE_PRIVATE);
     }
 
     public void setNightModeState(Boolean state){
@@ -24,12 +26,11 @@ public class Preferencias {
 
     public Boolean loadNightModelState (){
 
-        Boolean state = preferenciaFondo.getBoolean("NightMode",false);
-        return state;
+        return preferenciaFondo.getBoolean("NightMode",false);
 
     }
 
-    public void setFrase(int posicion){
+    public void setPreferenciaFrase(int posicion){
 
         SharedPreferences.Editor objetoEditor = preferenciaFrase.edit();
         objetoEditor.putInt("opcion",posicion);
@@ -39,8 +40,21 @@ public class Preferencias {
 
     public int getFrase(){
 
-        int maximo = preferenciaFrase.getInt("opcion",0);
-        return maximo;
+        return preferenciaFrase.getInt("opcion",0);
+
+    }
+
+    public void setPreferenciaMaxima(int max){
+
+        SharedPreferences.Editor objetoEditor = preferenciaMaxima.edit();
+        objetoEditor.putFloat("maxima",max);
+        objetoEditor.commit();
+
+    }
+
+    public int getMaxima(){
+
+        return preferenciaMaxima.getInt("maxima",0);
 
     }
 

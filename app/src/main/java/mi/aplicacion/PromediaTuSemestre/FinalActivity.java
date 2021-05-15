@@ -120,7 +120,7 @@ public class FinalActivity extends ActivityListas {
             @Override
             public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
 
-                pref.setFrase(spinner.getSelectedItemPosition());
+                pref.setPreferenciaFrase(spinner.getSelectedItemPosition());
 
             }
 
