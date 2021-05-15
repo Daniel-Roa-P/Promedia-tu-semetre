@@ -7,20 +7,46 @@
     android:background="?attr/backgroundcolor"
     tools:context="mi.aplicacion.PromediaTuSemestre.SecondActivity">
 
-    <include
+    <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbarSegundo"
-        layout="@layout/toolbar_layout"></include>
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/instruccion"
+        android:background="?attr/colorPrimary"
+        android:elevation="4dp"
+        app:layout_constraintVertical_chainStyle="spread_inside">
+
+        <TextView
+            android:id="@+id/toolbar_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:fontFamily="@font/fredoka_one"
+            android:textColor="?attr/textcolor"
+            android:textSize="20dp" />
+
+        <Button
+            android:id="@+id/botonConfigurar"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_gravity="right"
+            android:background="@drawable/ic_baseline_settings_24"
+            />
+
+    </androidx.appcompat.widget.Toolbar>
 
     <ListView
         android:id="@+id/lista"
-        android:layout_width="wrap_content"
-        android:layout_height="220dp"
-        android:layout_marginTop="16dp"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="15dp"
         android:gravity="center"
         android:scrollbars="vertical"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/instruccion"
+        app:layout_constraintBottom_toTopOf="@id/botonCalcular"
         android:fadeScrollbars="false"
         android:scrollbarSize="5dp"
         android:scrollbarThumbVertical="@drawable/estilo_scroll"/>
@@ -30,15 +56,17 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="95dp"
-        android:layout_marginTop="60dp"
         android:layout_marginEnd="95dp"
+        android:layout_marginTop="15dp"
         android:text="@string/texto_5"
         android:textColor="?attr/textcolor"
         android:textSize="18sp"
         android:textStyle="bold"
+        app:layout_constraintTop_toBottomOf="@id/toolbarSegundo"
+        app:layout_constraintBottom_toTopOf="@id/lista"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        tools:layout_editor_absoluteY="60dp" />
 
     <Button
         android:id="@+id/botonCalcular"
@@ -55,7 +83,8 @@
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/lista" />
+        app:layout_constraintTop_toBottomOf="@+id/lista"
+        app:layout_constraintBottom_toTopOf="@id/anuncio3"/>
 
     <com.google.android.gms.ads.AdView
         android:id="@+id/anuncio3"
@@ -64,9 +93,12 @@
         android:layout_marginStart="46dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="45dp"
+        android:layout_marginBottom="5dp"
         app:adSize="BANNER"
         app:adUnitId="@string/idBanner"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/botonCalcular" />
 
