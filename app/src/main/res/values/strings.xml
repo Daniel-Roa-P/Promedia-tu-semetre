@@ -30,6 +30,9 @@
     <string name="texto_27">Nota para pasar</string>
     <string name="texto_28">Personalización</string>
     <string name="texto_29">Guardar configuración</string>
+    <string name="texto_30">¿Desea guardar la configuracion?</string>
+    <string name="texto_31">Guardar</string>
+    <string name="texto_32">Cancelar</string>
     <string name="simbolo">%</string>
     <string name="vacio">Texto vacío</string>
 

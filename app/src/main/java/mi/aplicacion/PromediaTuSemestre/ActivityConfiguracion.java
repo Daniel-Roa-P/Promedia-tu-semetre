@@ -24,7 +24,7 @@ public class ActivityConfiguracion extends AppCompatActivity {
     private Switch fondo;
     private Preferencias pref;
     private Spinner spinner, spinner2;
-    private Button botConf;
+    private Button botConf, botonConfirmar;
     private EditText editMax;
 
     @Override
@@ -47,6 +47,8 @@ public class ActivityConfiguracion extends AppCompatActivity {
 
         botConf = (Button) findViewById(R.id.botonConfigurar);
         botConf.setVisibility(View.INVISIBLE);
+
+        botonConfirmar = (Button) findViewById(R.id.button2);
 
         ArrayAdapter adapter = ArrayAdapter.createFromResource(this, R.array.elementos, R.layout.elementos_spinner);
 
@@ -114,6 +116,18 @@ public class ActivityConfiguracion extends AppCompatActivity {
                 // your code here
             }
 
+        });
+
+        botonConfirmar.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+
+                Intent i = new Intent(getApplicationContext(), ConfirmacionActivity.class);
+
+                startActivity(i);
+
+            }
         });
 
     }
