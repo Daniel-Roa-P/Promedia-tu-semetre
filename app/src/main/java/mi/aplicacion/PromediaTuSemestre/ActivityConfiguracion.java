@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.text.InputType;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
@@ -14,6 +15,7 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Switch;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -25,7 +27,7 @@ public class ActivityConfiguracion extends AppCompatActivity {
     private Preferencias pref;
     private Spinner spinner, spinner2;
     private Button botConf, botonConfirmar;
-    private EditText editMax;
+    private EditText editMax, editMin;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,10 +47,13 @@ public class ActivityConfiguracion extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_configuracion);
 
-        botConf = (Button) findViewById(R.id.botonConfigurar);
-        botConf.setVisibility(View.INVISIBLE);
+        editMax = (EditText) findViewById(R.id.notaMaxima);
+        editMin = (EditText) findViewById(R.id.notaMinima);
 
+        botConf = (Button) findViewById(R.id.botonConfigurar);
         botonConfirmar = (Button) findViewById(R.id.button2);
+
+        botConf.setVisibility(View.INVISIBLE);
 
         ArrayAdapter adapter = ArrayAdapter.createFromResource(this, R.array.elementos, R.layout.elementos_spinner);
 
@@ -61,9 +66,9 @@ public class ActivityConfiguracion extends AppCompatActivity {
         spinner2.setAdapter(adapter);
 
         spinner.setSelection(pref.getFrase());
+        spinner2.setSelection(pref.getFormato());
 
-        editMax = (EditText) findViewById(R.id.notaMaxima);
-        
+        cambiarFormato(spinner2.getSelectedItemPosition());
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbarConfig);
         TextView textoToolbar = (TextView) toolbar.findViewById(R.id.toolbar_title);
@@ -97,8 +102,6 @@ public class ActivityConfiguracion extends AppCompatActivity {
 
                 }
 
-
-
             }
 
         });
@@ -118,14 +121,50 @@ public class ActivityConfiguracion extends AppCompatActivity {
 
         });
 
+        spinner2.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
+
+                cambiarFormato(spinner2.getSelectedItemPosition());
+
+                pref.setPreferenciaFormato(spinner2.getSelectedItemPosition());
+
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parentView) {
+                // your code here
+            }
+
+        });
+
         botonConfirmar.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
 
-                Intent i = new Intent(getApplicationContext(), ConfirmacionActivity.class);
+                if(editMax.getText().length() == 0 || editMin.getText().length() == 0){
 
-                startActivity(i);
+                    Toast.makeText(ActivityConfiguracion.this,
+                            "Por favor llene todos los campos", Toast.LENGTH_LONG).show();
+
+                } else if(editMax.getText().toString().equals(editMin.getText().toString())){
+
+                    Toast.makeText(ActivityConfiguracion.this,
+                            "La nota maxima y minima no pueden ser la misma", Toast.LENGTH_LONG).show();
+
+                } else if(Integer.parseInt(editMin.getText().toString()) > Integer.parseInt(editMax.getText().toString())){
+
+                    Toast.makeText(ActivityConfiguracion.this,
+                            "La nota minima no puede ser mayor que la nota maxima", Toast.LENGTH_LONG).show();
+
+                } else {
+
+                    Intent i = new Intent(getApplicationContext(), ConfirmacionActivity.class);
+
+                    startActivity(i);
+
+                }
 
             }
         });
@@ -150,6 +189,22 @@ public class ActivityConfiguracion extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
+
+    }
+
+    private void cambiarFormato(int posicion){
+
+        if(posicion == 0){
+
+            editMax.setInputType(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_FLAG_DECIMAL);
+            editMin.setInputType(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_FLAG_DECIMAL);
+
+        } else {
+
+            editMax.setInputType(InputType.TYPE_CLASS_NUMBER);
+            editMin.setInputType(InputType.TYPE_CLASS_NUMBER);
+
+        }
 
     }
 
