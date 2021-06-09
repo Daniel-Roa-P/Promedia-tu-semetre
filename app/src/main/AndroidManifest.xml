@@ -51,7 +51,8 @@
 
         <activity android:name="mi.aplicacion.PromediaTuSemestre.ActivityConfiguracion"
             android:screenOrientation="portrait"
-            android:windowSoftInputMode="adjustPan">
+            android:windowSoftInputMode="stateAlwaysHidden|adjustResize"
+            >
         </activity>
 
         <activity android:name="mi.aplicacion.PromediaTuSemestre.FinalActivity"

@@ -74,24 +74,21 @@ public class FinalActivity extends ActivityListas {
 
         advertenciaPocentajes = "la suma de los porcentajes debe estar entre 1 a 100";
 
-        añadir.setOnClickListener(new View.OnClickListener() {
+        añadir.setOnClickListener(v -> {
 
-            public void onClick(View v) {
+            indice++;
 
-                indice++;
+            Contenedor con = new Contenedor();
 
-                Contenedor con = new Contenedor();
+            con.setTexto1("Nota "+ indice +":");
+            con.setTexto2("Porcentaje "+":");
+            con.setTexto3("%");
 
-                con.setTexto1("Nota "+ indice +":");
-                con.setTexto2("Porcentaje "+":");
-                con.setTexto3("%");
+            lista.add(con);
 
-                lista.add(con);
+            adapter = new ItemListAdapter(FinalActivity.this, R.layout.espacios,lista);
+            listaNotas.setAdapter(adapter);
 
-                adapter = new ItemListAdapter(FinalActivity.this, R.layout.espacios,lista);
-                listaNotas.setAdapter(adapter);
-
-            }
         });
 
         botConf.setOnClickListener(v -> cambioConf());

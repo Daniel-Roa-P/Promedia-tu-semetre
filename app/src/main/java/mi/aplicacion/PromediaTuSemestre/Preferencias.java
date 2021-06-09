@@ -5,16 +5,18 @@ import android.content.SharedPreferences;
 
 public class Preferencias {
 
-    SharedPreferences preferenciaFondo;
-    SharedPreferences preferenciaFrase;
-    SharedPreferences preferenciaMaxima;
-    SharedPreferences preferenciaFormato;
+    private SharedPreferences preferenciaFondo;
+    private SharedPreferences preferenciaFrase;
+    private SharedPreferences preferenciaMaxima;
+    private SharedPreferences preferenciaMinima;
+    private SharedPreferences preferenciaFormato;
 
     public Preferencias(Context context){
 
         preferenciaFondo = context.getSharedPreferences("filename",Context.MODE_PRIVATE);
         preferenciaFrase = context.getSharedPreferences("frase",Context.MODE_PRIVATE);
         preferenciaMaxima = context.getSharedPreferences("maxima",Context.MODE_PRIVATE);
+        preferenciaMinima = context.getSharedPreferences("minima",Context.MODE_PRIVATE);
         preferenciaFormato = context.getSharedPreferences("formato",Context.MODE_PRIVATE);
 
     }
@@ -61,17 +63,33 @@ public class Preferencias {
 
     }
 
-    public void setPreferenciaMaxima(int max){
+    public void setPreferenciaMaxima(float max){
 
         SharedPreferences.Editor objetoEditor = preferenciaMaxima.edit();
+        System.out.println(max);
         objetoEditor.putFloat("maxima",max);
         objetoEditor.commit();
 
     }
 
-    public int getMaxima(){
+    public float getMaxima(){
 
-        return preferenciaMaxima.getInt("maxima",0);
+        return preferenciaMaxima.getFloat("maxima",5);
+
+    }
+
+    public void setPreferenciaMinima(float min){
+
+        SharedPreferences.Editor objetoEditor = preferenciaMinima.edit();
+        System.out.println(min);
+        objetoEditor.putFloat("minima",min);
+        objetoEditor.commit();
+
+    }
+
+    public float getMinima(){
+
+        return preferenciaMinima.getFloat("minima",3);
 
     }
 

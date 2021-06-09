@@ -84,18 +84,15 @@ public class ThirdActivity extends AppCompatActivity {
 
         Glide.with(this).load(resourceID).into(imagen);
 
-        regresoInicio.setOnClickListener(new View.OnClickListener() {
+        regresoInicio.setOnClickListener(v -> {
 
-            public void onClick(View v) {
+            Intent cambio = new Intent(ThirdActivity.this, MainActivity.class);
+            startActivity(cambio);
 
-                Intent cambio = new Intent(ThirdActivity.this, MainActivity.class);
-                startActivity(cambio);
+            if (anuncioPantalla.isLoaded()) {
 
-                if (anuncioPantalla.isLoaded()) {
+                anuncioPantalla.show();
 
-                    anuncioPantalla.show();
-
-                }
             }
         });
 
