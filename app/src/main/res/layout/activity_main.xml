@@ -70,9 +70,11 @@
 
             <ImageButton
                 android:id="@+id/imageButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
                 android:onClick="enviarMateria"
+                android:padding="10dp"
+                android:scaleType="fitCenter"
+                android:layout_width="130dp"
+                android:layout_height="130dp"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintBottom_toTopOf="@id/imageButton4"
                 app:layout_constraintEnd_toStartOf="@+id/imageButton2"
@@ -83,8 +85,10 @@
 
             <ImageButton
                 android:id="@+id/imageButton3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:scaleType="fitCenter"
+                android:layout_width="130dp"
+                android:layout_height="130dp"
                 android:onClick="enviarConfiguracion"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -94,8 +98,10 @@
 
             <ImageButton
                 android:id="@+id/imageButton2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:scaleType="fitCenter"
+                android:layout_width="130dp"
+                android:layout_height="130dp"
                 android:onClick="enviarSemestre"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintBottom_toTopOf="@id/imageButton3"
@@ -106,8 +112,10 @@
 
             <ImageButton
                 android:id="@+id/imageButton4"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:scaleType="fitCenter"
+                android:layout_width="130dp"
+                android:layout_height="130dp"
                 android:onClick="enviarFinal"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@+id/imageButton3"
