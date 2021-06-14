@@ -9,11 +9,11 @@
 
     <TextView
         android:id="@+id/primerTexto"
-        android:layout_width="80dp"
+        android:layout_width="100dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:text="@string/texto_3"
-        android:layout_marginStart="10dp"
+        android:layout_marginStart="40dp"
         android:textAlignment="textStart"
         android:textColor="?attr/textcolor"
         android:textSize="18sp"
@@ -21,7 +21,7 @@
         app:layout_constraintEnd_toStartOf="@+id/nota"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintHorizontal_chainStyle="spread_inside"/>
+        app:layout_constraintHorizontal_chainStyle="packed"/>
 
     <EditText
         android:id="@+id/nota"
@@ -72,7 +72,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:layout_marginEnd="10dp"
+        android:layout_marginEnd="40dp"
         android:text="@string/simbolo"
         android:textAlignment="center"
         android:textColor="?attr/textcolor"

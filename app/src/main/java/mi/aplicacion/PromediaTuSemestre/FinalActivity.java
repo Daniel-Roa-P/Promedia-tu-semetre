@@ -168,7 +168,7 @@ public class FinalActivity extends ActivityListas {
 
                 }
 
-                if(notaFinal >= 3){
+                if(notaFinal >= pref.getMinima()){
 
                     textoInicial = "Ya pasaste con: ";
                     textoFinal = ", pues ingresaste el 100 % de las notas";
@@ -213,19 +213,19 @@ public class FinalActivity extends ActivityListas {
 
         if(porcentajeRestante != 0) {
 
-            if (notaFinal > 5) {
+            if (notaFinal > pref.getMaxima()) {
 
                 eleccion(res.getStringArray(R.array.frase_final_1));
 
-            } else if (notaFinal >= 3 && notaFinal <= 5) {
+            } else if (notaFinal >= pref.getMinima() && notaFinal <= pref.getMaxima()) {
 
                 eleccion(res.getStringArray(R.array.frase_final_2));
 
-            } else if (notaFinal >= 0.1 && notaFinal < 3) {
+            } else if (notaFinal >= pref.getMaxima()/100 && notaFinal < pref.getMinima()) {
 
                 eleccion(res.getStringArray(R.array.frase_final_3));
 
-            } else if (notaFinal < 0.1) {
+            } else if (notaFinal < pref.getMaxima()/100 ) {
 
                 eleccion(res.getStringArray(R.array.frase_final_4));
 
@@ -233,23 +233,23 @@ public class FinalActivity extends ActivityListas {
 
         } else {
 
-            if(notaFinal>=0 && notaFinal<2){
+            if(notaFinal >= 0 && notaFinal < ((70*pref.getMinima())/100)){
 
                 eleccion(res.getStringArray(R.array.frases1));
 
-            } else if (notaFinal>=2 && notaFinal<3) {
+            } else if (notaFinal >= ((70*pref.getMinima())/100) && notaFinal < pref.getMinima()) {
 
                 eleccion(res.getStringArray(R.array.frases2));
 
-            } else if (notaFinal>=3 && notaFinal<3.5) {
+            } else if (notaFinal >= pref.getMinima() && notaFinal < ((70*pref.getMaxima()/100))) {
 
                 eleccion(res.getStringArray(R.array.frases3));
 
-            } else if (notaFinal>=3.5 && notaFinal<4.5) {
+            } else if (notaFinal >= ((70*pref.getMaxima()/100)) && notaFinal < ((90*pref.getMaxima()/100))) {
 
                 eleccion(res.getStringArray(R.array.frases4));
 
-            } else if (notaFinal>=4.5 && notaFinal<=5) {
+            } else if (notaFinal >= ((90*pref.getMaxima()/100)) && notaFinal <= pref.getMaxima()) {
 
                 eleccion(res.getStringArray(R.array.frases5));
 

@@ -5,6 +5,7 @@ import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
 import android.text.Editable;
+import android.text.InputType;
 import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,7 +16,7 @@ import android.widget.TextView;
 
 public class ItemListAdapter extends ArrayAdapter<Contenedor>{
 
-
+    private Preferencias pref;
     private ArrayList<Contenedor> items;
     private int identificadorLayout;
     private Context contexto;
@@ -36,6 +37,8 @@ public class ItemListAdapter extends ArrayAdapter<Contenedor>{
         View row = convertView;
         Holder holder;
 
+        pref = new Preferencias(contexto);
+
         LayoutInflater inflater = ((Activity) contexto).getLayoutInflater();
         row = inflater.inflate(identificadorLayout, parent, false);
 
@@ -47,6 +50,16 @@ public class ItemListAdapter extends ArrayAdapter<Contenedor>{
         holder.texto1 = (TextView)row.findViewById(R.id.primerTexto);
         holder.texto2 = (TextView)row.findViewById(R.id.segundoTexto);
         holder.texto3 = (TextView)row.findViewById(R.id.simbolo);
+
+        if(pref.getFormato() == 0){
+
+            holder.nota.setInputType(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_FLAG_DECIMAL);
+
+        } else {
+
+            holder.nota.setInputType(InputType.TYPE_CLASS_NUMBER);
+
+        }
 
         setNotaTextChangeListener(holder);
         setPorcentajeTextListeners(holder);

@@ -31,7 +31,7 @@
 
         <activity android:name="mi.aplicacion.PromediaTuSemestre.SecondActivity"
             android:screenOrientation="portrait"
-            android:windowSoftInputMode="adjustPan" >
+            android:windowSoftInputMode="stateAlwaysHidden|adjustResize">
         </activity>
 
         <activity android:name="mi.aplicacion.PromediaTuSemestre.ThirdActivity"
@@ -41,12 +41,13 @@
 
         <activity android:name="mi.aplicacion.PromediaTuSemestre.ActivityMateria"
             android:screenOrientation="portrait"
-            android:windowSoftInputMode="adjustPan">
+            android:windowSoftInputMode="stateAlwaysHidden|adjustResize"
+            >
         </activity>
 
         <activity android:name="mi.aplicacion.PromediaTuSemestre.ActivitySemestre"
             android:screenOrientation="portrait"
-            android:windowSoftInputMode="adjustPan">
+            android:windowSoftInputMode="stateAlwaysHidden|adjustResize">
         </activity>
 
         <activity android:name="mi.aplicacion.PromediaTuSemestre.ActivityConfiguracion"
@@ -57,7 +58,7 @@
 
         <activity android:name="mi.aplicacion.PromediaTuSemestre.FinalActivity"
             android:screenOrientation="portrait"
-            android:windowSoftInputMode="adjustPan">
+            android:windowSoftInputMode="stateAlwaysHidden|adjustResize">
         </activity>
 
         <activity android:name="mi.aplicacion.PromediaTuSemestre.ConfirmacionActivity"

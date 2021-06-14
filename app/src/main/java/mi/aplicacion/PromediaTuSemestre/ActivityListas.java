@@ -59,7 +59,7 @@ public class ActivityListas extends AppCompatActivity {
             resetValues();
             return false;
 
-        } else if((!(totalPorcentajes == denominador)) || ((totalPorcentajes > 100) || (totalPorcentajes < 1))) {
+        } else if((!(totalPorcentajes == denominador)) || ((totalPorcentajes > 100 || (totalPorcentajes < 1)))) {
 
             Toast.makeText(contexto,
                 advertenciaPocentajes, Toast.LENGTH_LONG).show();
@@ -88,7 +88,7 @@ public class ActivityListas extends AppCompatActivity {
             if (!lista.get(i).getNota().equals("") && !lista.get(i).getPorcentaje().equals("")
                     && !(lista.get(i).getPorcentaje().length()>=6) && !(lista.get(i).getNota().equals("."))) {
 
-                if (Double.parseDouble(lista.get(i).getNota()) >= 0 && Double.parseDouble(lista.get(i).getNota()) <= 5) {
+                if (Double.parseDouble(lista.get(i).getNota()) >= 0 && Double.parseDouble(lista.get(i).getNota()) <= pref.getMaxima()) {
 
                     rango++;
 
@@ -97,6 +97,7 @@ public class ActivityListas extends AppCompatActivity {
                 llenos++;
 
                 totalPorcentajes = totalPorcentajes + Integer.parseInt(lista.get(i).getPorcentaje());
+
             }
 
         }
