@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "324088629136",
+    "project_id": "promediatusemestre",
+    "storage_bucket": "promediatusemestre.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:324088629136:android:5af3a931a5fa26b4631515",
+        "android_client_info": {
+          "package_name": "mi.aplicacion.PromediaTuSemestre"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "324088629136-6fpukgm03thqr7fk9fphcqnkljql4mbq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA4Tb5oLpt_8-jQb3gTjf4Mk7QS553c_Jg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "324088629136-6fpukgm03thqr7fk9fphcqnkljql4mbq.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

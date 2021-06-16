@@ -156,10 +156,19 @@ public class FinalActivity extends ActivityListas {
 
                 }
 
-                textoInicial = "Necesitas un ";
-                textoFinal = " Para pasar";
-
                 notaFinal = (( (int) (pref.getMinima()*100)) - notaAcumulada)/porcentajeRestante;
+
+                if(notaFinal <= pref.getMaxima()){
+
+                    textoInicial = "Necesitas un ";
+                    textoFinal = " para pasar en el " + porcentajeRestante + " %";
+
+                } else {
+
+                    textoInicial = "Ya perdiste pues necesitas un ";
+                    textoFinal = " en el " + porcentajeRestante + "%";
+
+                }
 
             } else {
 

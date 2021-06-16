@@ -76,6 +76,7 @@
                 android:ems="10"
                 android:inputType="number"
                 android:textColor="?attr/textcolor"
+                android:textAlignment="center"
                 app:layout_constraintBottom_toTopOf="@+id/textView2"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"

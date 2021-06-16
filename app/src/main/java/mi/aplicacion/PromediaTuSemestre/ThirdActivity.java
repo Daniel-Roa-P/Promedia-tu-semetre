@@ -3,6 +3,8 @@ package mi.aplicacion.PromediaTuSemestre;
 import android.content.Intent;
 import android.content.res.Resources;
 
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
@@ -14,10 +16,20 @@ import com.bumptech.glide.Glide;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.InterstitialAd;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.storage.FileDownloadTask;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+
+import org.jetbrains.annotations.NotNull;
+
+import java.io.File;
+import java.io.IOException;
 
 public class ThirdActivity extends AppCompatActivity {
 
@@ -26,7 +38,8 @@ public class ThirdActivity extends AppCompatActivity {
     private AdView mAdView;
     private InterstitialAd anuncioPantalla;
     private Button regresoInicio, botConf;
-    public Preferencias pref;
+    private Preferencias pref;
+    private StorageReference storageReference;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -76,13 +89,41 @@ public class ThirdActivity extends AppCompatActivity {
         valor.setText(getIntent().getStringExtra("textoNota"));
         frase.setText(getIntent().getStringExtra("textoFrase"));
         
-        int resourceID = getResources().getIdentifier(
-                getIntent().getStringExtra("idImagen") + "min",
-                "raw",
-                getPackageName()
-        );
+        //int resourceID = getResources().getIdentifier(
+        //        getIntent().getStringExtra("idImagen") + "min",
+        //        "raw",
+        //        getPackageName()
+        //);
 
-        Glide.with(this).load(resourceID).into(imagen);
+        String nombreImagen = "Imagenes/" + getIntent().getStringExtra("idImagen") + "min.png";
+
+        storageReference = FirebaseStorage.getInstance().getReference().child(nombreImagen);
+
+        try{
+
+            final File localFile = File.createTempFile(getIntent().getStringExtra("idImagen"), "png");
+            storageReference.getFile(localFile).addOnSuccessListener(new OnSuccessListener<FileDownloadTask.TaskSnapshot>() {
+                @Override
+                public void onSuccess(FileDownloadTask.TaskSnapshot taskSnapshot) {
+
+                    Bitmap bitmap = BitmapFactory.decodeFile(localFile.getAbsolutePath());
+                    imagen.setImageBitmap(bitmap);
+
+                }
+            }).addOnFailureListener(new OnFailureListener() {
+                @Override
+                public void onFailure(@NonNull @NotNull Exception e) {
+
+                }
+            });
+
+        } catch (IOException e){
+
+            e.printStackTrace();
+
+        }
+
+        // Glide.with(this).load(resourceID).into(imagen);
 
         regresoInicio.setOnClickListener(v -> {
 

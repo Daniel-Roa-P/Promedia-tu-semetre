@@ -202,7 +202,13 @@ public class ActivityConfiguracion extends AppCompatActivity {
             Toast.makeText(ActivityConfiguracion.this,
                     "Ninguna de las notas puede ser 0", Toast.LENGTH_LONG).show();
 
-        } else {
+        } else if((editMax.getText().length()>=6) && !(editMax.getText().toString().equals(".")) &&
+                  (editMin.getText().length()>=6) && !(editMin.getText().toString().equals(".")) ){
+
+            Toast.makeText(ActivityConfiguracion.this,
+                    "Por favor llene bien todos los campos de texto", Toast.LENGTH_LONG).show();
+
+        }else {
 
             Intent confirmar = new Intent(getApplicationContext(), ConfirmacionActivity.class);
             confirmar.putExtra("Maximo" ,editMax.getText().toString());
@@ -219,9 +225,16 @@ public class ActivityConfiguracion extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
 
-        validar();
+        int id = item.getItemId();
 
-        return false;
+        if (id == android.R.id.home) {
+            finish();
+        }
+
+        Toast.makeText(ActivityConfiguracion.this,
+                "Cambios descartados", Toast.LENGTH_LONG).show();
+
+        return super.onOptionsItemSelected(item);
 
     }
 
