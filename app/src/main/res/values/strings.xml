@@ -32,7 +32,7 @@
     <string name="texto_29">Guardar configuración</string>
     <string name="texto_30">¿Desea guardar la configuracion?</string>
     <string name="texto_31">Guardar</string>
-    <string name="texto_32">Cancelar</string>
+    <string name="texto_32">Descartar</string>
     <string name="simbolo">%</string>
     <string name="vacio">Texto vacío</string>
 
@@ -133,7 +133,7 @@
         <item>sarcasmo31</item>
         <item>Igual en la vida esa nota no sirve para nada</item>
         <item>sarcasmo32"</item>
-        <item>Si no es 5, no vale</item>
+        <item>Si no es la mejor nota, no vale</item>
         <item>sarcasmo33</item>
         <item>¿Realmente vale la pena esforzarse tanto?</item>
         <item>sarcasmo34</item>

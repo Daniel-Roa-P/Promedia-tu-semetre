@@ -153,12 +153,13 @@ public class FinalActivity extends ActivityListas {
                 for(int i=0;i<lista.size();i++){
 
                     notaAcumulada =  notaAcumulada + (Double.parseDouble(lista.get(i).getNota())*Integer.parseInt(lista.get(i).getPorcentaje()));
-                    textoInicial = "Necesitas un ";
-                    textoFinal = " Para pasar";
 
                 }
 
-                notaFinal = (300.0 - notaAcumulada)/porcentajeRestante;
+                textoInicial = "Necesitas un ";
+                textoFinal = " Para pasar";
+
+                notaFinal = (( (int) (pref.getMinima()*100)) - notaAcumulada)/porcentajeRestante;
 
             } else {
 
@@ -221,11 +222,11 @@ public class FinalActivity extends ActivityListas {
 
                 eleccion(res.getStringArray(R.array.frase_final_2));
 
-            } else if (notaFinal >= pref.getMaxima()/100 && notaFinal < pref.getMinima()) {
+            } else if (notaFinal >= pref.getMinima()/100 && notaFinal < pref.getMinima()) {
 
                 eleccion(res.getStringArray(R.array.frase_final_3));
 
-            } else if (notaFinal < pref.getMaxima()/100 ) {
+            } else if (notaFinal < pref.getMinima()/100 ) {
 
                 eleccion(res.getStringArray(R.array.frase_final_4));
 

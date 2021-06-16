@@ -28,6 +28,7 @@ public class ActivityConfiguracion extends AppCompatActivity {
     private Spinner spinner, spinner2;
     private Button botConf, botonConfirmar;
     private EditText editMax, editMin;
+    private ConfirmacionActivity cof;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,6 +50,9 @@ public class ActivityConfiguracion extends AppCompatActivity {
 
         editMax = (EditText) findViewById(R.id.notaMaxima);
         editMin = (EditText) findViewById(R.id.notaMinima);
+
+        editMax.setText(String.valueOf(pref.getMaxima()));
+        editMin.setText(String.valueOf(pref.getMinima()));
 
         botConf = (Button) findViewById(R.id.botonConfigurar);
         botonConfirmar = (Button) findViewById(R.id.button2);
@@ -114,15 +118,34 @@ public class ActivityConfiguracion extends AppCompatActivity {
 
                 if( spinner2.getSelectedItemPosition() == 0 ){
 
-                    editMax.setText(String.valueOf(pref.getMaxima()));
-                    editMin.setText(String.valueOf(pref.getMinima()));
+                    editMax.setText(String.valueOf(editMax.getText().toString()));
+                    editMin.setText(String.valueOf(editMin.getText().toString()));
 
                 } else {
 
-                    int x = (int) pref.getMaxima();
-                    editMax.setText(String.valueOf(x));
+                    int x,y;
 
-                    int y = (int) pref.getMinima();
+                    if(editMax.length() == 0){
+
+                        x = 0;
+
+                    } else {
+
+                        x =  (int) Float.parseFloat(editMax.getText().toString());
+
+                    }
+
+                    if(editMin.length() == 0){
+
+                        y = 0;
+
+                    } else {
+
+                        y = (int) Float.parseFloat(editMin.getText().toString());
+
+                    }
+
+                    editMax.setText(String.valueOf(x));
                     editMin.setText(String.valueOf(y));
 
                 }

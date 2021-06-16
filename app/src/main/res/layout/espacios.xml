@@ -63,6 +63,7 @@
         android:imeOptions="actionNext"
         android:inputType="number"
         android:textColor="?attr/textcolor"
+        android:textAlignment="center"
         app:layout_constraintEnd_toStartOf="@+id/simbolo"
         app:layout_constraintStart_toEndOf="@+id/segundoTexto"
         app:layout_constraintTop_toTopOf="@+id/nota" />
