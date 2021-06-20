@@ -18,7 +18,7 @@ public class ActivityListas extends AppCompatActivity {
     protected ListView listaNotas;
     protected ItemListAdapter adapter;
     protected AdView mAdView;
-    protected DecimalFormat df = new DecimalFormat("0.0");
+    protected DecimalFormat df = new DecimalFormat("0.00");
     protected Resources res;
     protected String textoNota, textoFrase, idImagen, advertenciaPocentajes;
     protected double notaFinal = 0;
@@ -33,15 +33,7 @@ public class ActivityListas extends AppCompatActivity {
         int indice = (int) ((seleccionada.length / 4) * Math.random());
         indice = (indice * 2) + ((seleccionada.length / 2) * indicadorFinal);
 
-        if(pref.getFormato() == 0){
-
-            textoNota =  textoInicial + df.format(notaFinal) + textoFinal;
-
-        } else {
-
-            textoNota =  textoInicial + Math.round(notaFinal) + textoFinal;
-
-        }
+        textoNota =  textoInicial + df.format(notaFinal) + textoFinal;
 
         textoFrase = seleccionada[indice];
         idImagen = seleccionada[indice + 1];

@@ -44,8 +44,6 @@ public class ThirdActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
-        Resources res = getResources();
-
         pref = new Preferencias(this);
 
         if (pref.loadNightModelState() == true) {
@@ -88,12 +86,6 @@ public class ThirdActivity extends AppCompatActivity {
 
         valor.setText(getIntent().getStringExtra("textoNota"));
         frase.setText(getIntent().getStringExtra("textoFrase"));
-        
-        //int resourceID = getResources().getIdentifier(
-        //        getIntent().getStringExtra("idImagen") + "min",
-        //        "raw",
-        //        getPackageName()
-        //);
 
         String nombreImagen = "Imagenes/" + getIntent().getStringExtra("idImagen") + "min.png";
 
@@ -122,8 +114,6 @@ public class ThirdActivity extends AppCompatActivity {
             e.printStackTrace();
 
         }
-
-        // Glide.with(this).load(resourceID).into(imagen);
 
         regresoInicio.setOnClickListener(v -> {
 

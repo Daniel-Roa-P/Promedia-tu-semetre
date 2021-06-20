@@ -161,12 +161,12 @@ public class FinalActivity extends ActivityListas {
                 if(notaFinal <= pref.getMaxima()){
 
                     textoInicial = "Necesitas un ";
-                    textoFinal = " para pasar en el " + porcentajeRestante + " %";
+                    textoFinal = " para pasar en el " + porcentajeRestante + "% restante";
 
                 } else {
 
                     textoInicial = "Ya perdiste pues necesitas un ";
-                    textoFinal = " en el " + porcentajeRestante + "%";
+                    textoFinal = " en el " + porcentajeRestante + "% restante";
 
                 }
 
@@ -181,12 +181,12 @@ public class FinalActivity extends ActivityListas {
                 if(notaFinal >= pref.getMinima()){
 
                     textoInicial = "Ya pasaste con: ";
-                    textoFinal = ", pues ingresaste el 100 % de las notas";
+                    textoFinal = "\npues ingresaste el 100 % de las notas";
 
                 } else {
 
                     textoInicial = "Ya perdiste con: ";
-                    textoFinal = ", pues ingresaste el 100 % de las notas";
+                    textoFinal = "\npues ingresaste el 100 % de las notas";
 
                 }
 
@@ -231,17 +231,19 @@ public class FinalActivity extends ActivityListas {
 
                 eleccion(res.getStringArray(R.array.frase_final_2));
 
-            } else if (notaFinal >= pref.getMinima()/100 && notaFinal < pref.getMinima()) {
+            } else if (notaFinal > 0 && notaFinal < pref.getMinima()) {
 
                 eleccion(res.getStringArray(R.array.frase_final_3));
 
-            } else if (notaFinal < pref.getMinima()/100 ) {
+            } else if (notaFinal <= 0 ) {
 
                 eleccion(res.getStringArray(R.array.frase_final_4));
 
             }
 
         } else {
+
+            double restante = pref.getMaxima() - pref.getMinima();
 
             if(notaFinal >= 0 && notaFinal < ((70*pref.getMinima())/100)){
 
@@ -251,15 +253,15 @@ public class FinalActivity extends ActivityListas {
 
                 eleccion(res.getStringArray(R.array.frases2));
 
-            } else if (notaFinal >= pref.getMinima() && notaFinal < ((70*pref.getMaxima()/100))) {
+            } else if (notaFinal >= pref.getMinima() && notaFinal < (pref.getMinima() + ((restante*50)/100) )) {
 
                 eleccion(res.getStringArray(R.array.frases3));
 
-            } else if (notaFinal >= ((70*pref.getMaxima()/100)) && notaFinal < ((90*pref.getMaxima()/100))) {
+            } else if (notaFinal >= (pref.getMinima() + ((restante*50)/100) ) && notaFinal < (pref.getMinima() + ((restante*75)/100) )) {
 
                 eleccion(res.getStringArray(R.array.frases4));
 
-            } else if (notaFinal >= ((90*pref.getMaxima()/100)) && notaFinal <= pref.getMaxima()) {
+            } else if (notaFinal >= (pref.getMinima() + ((restante*75)/100) ) && notaFinal <= pref.getMaxima()) {
 
                 eleccion(res.getStringArray(R.array.frases5));
 

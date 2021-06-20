@@ -62,9 +62,6 @@ public class SecondActivity extends ActivityListas {
         AdRequest adRequest = new AdRequest.Builder().build();
         mAdView.loadAd(adRequest);
 
-        textoInicial = "Tu promedio es: ";
-        textoFinal = "";
-
         t1 = getIntent().getStringExtra("texto1");
         t2 = getIntent().getStringExtra("texto2");
         t3 = getIntent().getStringExtra("texto3");
@@ -115,6 +112,18 @@ public class SecondActivity extends ActivityListas {
 
             }
 
+            if(notaFinal >= pref.getMinima()){
+
+                textoInicial = "Pasaste\n";
+                textoFinal = " es tu promedio";
+
+            } else {
+
+                textoInicial = "Perdiste\n";
+                textoFinal = " es tu promedio";
+
+            }
+
             eleccionFrases();
 
             Intent cambio = new Intent(this, ThirdActivity.class);
@@ -139,7 +148,7 @@ public class SecondActivity extends ActivityListas {
     @Override
     protected void eleccionFrases() {
 
-        System.out.println(notaFinal);
+        double restante = pref.getMaxima() - pref.getMinima();
 
         if(notaFinal >= 0 && notaFinal < ((70*pref.getMinima())/100)){
 
@@ -149,15 +158,15 @@ public class SecondActivity extends ActivityListas {
 
             eleccion(res.getStringArray(R.array.frases2));
 
-        } else if (notaFinal >= pref.getMinima() && notaFinal < ((70*pref.getMaxima()/100))) {
+        } else if (notaFinal >= pref.getMinima() && notaFinal < (pref.getMinima() + ((restante*50)/100) )) {
 
             eleccion(res.getStringArray(R.array.frases3));
 
-        } else if (notaFinal >= ((70*pref.getMaxima()/100)) && notaFinal < ((90*pref.getMaxima()/100))) {
+        } else if (notaFinal >= (pref.getMinima() + ((restante*50)/100) ) && notaFinal < (pref.getMinima() + ((restante*75)/100) )) {
 
             eleccion(res.getStringArray(R.array.frases4));
 
-        } else if (notaFinal >= ((90*pref.getMaxima()/100)) && notaFinal <= pref.getMaxima()) {
+        } else if (notaFinal >= (pref.getMinima() + ((restante*75)/100) ) && notaFinal <= pref.getMaxima()) {
 
             eleccion(res.getStringArray(R.array.frases5));
 
