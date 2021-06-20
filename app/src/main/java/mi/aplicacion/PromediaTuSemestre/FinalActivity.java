@@ -26,6 +26,7 @@ public class FinalActivity extends ActivityListas {
     private int porcentajeRestante,indice = 0;
     private double notaAcumulada;
     private Spinner spinner;
+    private TextView instruccion;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,6 +62,10 @@ public class FinalActivity extends ActivityListas {
         listaNotas = (ListView) findViewById(R.id.listaFinal);
         añadir = (Button) findViewById(R.id.botonAñadir);
         remover = (Button) findViewById(R.id.botonRetirar);
+
+        instruccion = (TextView) findViewById(R.id.indicacionRango);
+
+        instruccion.setText("Ingrese las notas del 0 al " + ( (int) pref.getMaxima() ));
 
         spinner = (Spinner) findViewById(R.id.eleccionFraseFinal);
         ArrayAdapter opciones = ArrayAdapter.createFromResource(this, R.array.elementos, R.layout.elementos_spinner);
