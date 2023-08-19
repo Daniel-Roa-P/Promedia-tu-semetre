@@ -6,6 +6,7 @@ import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
@@ -15,7 +16,9 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
-import com.google.android.gms.ads.InterstitialAd;
+import com.google.android.gms.ads.LoadAdError;
+import com.google.android.gms.ads.interstitial.InterstitialAd;
+import com.google.android.gms.ads.interstitial.InterstitialAdLoadCallback;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.storage.FileDownloadTask;
@@ -79,10 +82,27 @@ public class ThirdActivity extends AppCompatActivity {
         AdRequest adRequest1 = new AdRequest.Builder().build();
         mAdView.loadAd(adRequest1);
 
-        anuncioPantalla = new InterstitialAd(this);
-        anuncioPantalla.setAdUnitId("ca-app-pub-8837572421295884/8218840917");
-        AdRequest adRequest2 = new AdRequest.Builder().addTestDevice(AdRequest.DEVICE_ID_EMULATOR).build();
-        anuncioPantalla.loadAd(adRequest2);
+        AdRequest adRequest2 = new AdRequest.Builder().build();
+
+        anuncioPantalla.load(this,"ca-app-pub-8837572421295884/8218840917", adRequest2,
+                new InterstitialAdLoadCallback() {
+                    @Override
+                    public void onAdLoaded(@NonNull InterstitialAd interstitialAd) {
+                        // The mInterstitialAd reference will be null until
+                        // an ad is loaded.
+                        anuncioPantalla = interstitialAd;
+                        Log.i("TAG", "onAdLoaded");
+
+                    }
+
+                    @Override
+                    public void onAdFailedToLoad(@NonNull LoadAdError loadAdError) {
+                        // Handle the error
+                        anuncioPantalla = null;
+                        Log.d("TAG", loadAdError.toString());
+
+                    }
+                });
 
         valor.setText(getIntent().getStringExtra("textoNota"));
         frase.setText(getIntent().getStringExtra("textoFrase"));
@@ -120,11 +140,12 @@ public class ThirdActivity extends AppCompatActivity {
             Intent cambio = new Intent(ThirdActivity.this, MainActivity.class);
             startActivity(cambio);
 
-            if (anuncioPantalla.isLoaded()) {
-
-                anuncioPantalla.show();
-
+            if (anuncioPantalla != null) {
+                anuncioPantalla.show(ThirdActivity.this);
+            } else {
+                Log.d("TAG", "The interstitial ad wasn't ready yet.");
             }
+
         });
 
         botConf.setOnClickListener(v -> cambioConf());
